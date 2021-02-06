@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f6f6f6;
+  font-family: "Fira Sans", sans-serif;
+}
+
+header {
+  background-color: white;
+  height: 6.4rem;
+  width: 100vw;
+  color: black;
+}
+
+.container {
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-top {
+  height: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.header-top h1 {
+  padding: 0rem 2rem;
+}
+.header-top .main-nav {
+  --menu-height: 3rem;
+}
+.header-top .main-nav ul {
+  list-style: none;
+  z-index: 10;
+}
+.header-top .main-nav ul li, .header-top .main-nav ul li a {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.header-top .main-nav ul li {
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+}
+.header-top .main-nav ul li span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.5rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+  border-width: 0.3rem 0.3rem 0px 0.3rem;
+  transition: transform 0.5s ease-out;
+}
+.header-top .main-nav ul li:hover > a {
+  color: #10b1e8;
+}
+.header-top .main-nav > ul {
+  height: var(--menu-height);
+  padding-right: 2rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+.header-top .main-nav > ul li {
+  position: relative;
+  padding-right: 2rem;
+}
+.header-top .main-nav > ul li ul {
+  position: absolute;
+  visibility: hidden;
+  min-width: 10rem;
+  background-color: #FFFFFF;
+  top: 100%;
+  opacity: 0.2;
+  transition: all 300ms ease-in-out;
+}
+.header-top .main-nav > ul li ul li {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.header-top .main-nav > ul li ul li span {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+  border-width: 0.3rem 0.3rem 0px 0.3rem;
+  transition: transform 0.5s ease-out;
+}
+.header-top .main-nav > ul li ul li ul {
+  top: 0%;
+  left: 100%;
+  transform: translateX(0);
+}
+.header-top .main-nav > ul li.active > span {
+  transform: rotateZ(-90deg);
+}
+.header-top .main-nav > ul li.active > ul {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0ms;
+  box-shadow: 0px 2px 8px 0px #00000022;
+}
+.header-top .main-nav > ul > li {
+  height: var(--menu-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 700;
+}
+.header-top .main-nav > ul > li.active > span {
+  transform: rotateZ(-180deg);
+}
+.header-top .main-nav > ul > li.active > ul {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0ms;
+  box-shadow: 0px 2px 8px 0px #00000022;
+}
+.header-top #form-language .lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.header-top #form-language .lang .lang-btn {
+  background-color: transparent;
+  color: #aaa;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  height: 100%;
+}
+.header-top #form-language .lang .lang-btn.active {
+  background-color: #93daf3;
+  color: #10b1e8;
+  cursor: text;
+}
+.header-top #form-language .lang .lang-btn:focus {
+  outline: none;
+}
+.header-top a {
+  padding: 0rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+.header-top a:hover {
+  color: #10b1e8;
+}
+
+.fas.fa-sign-in-alt {
+  padding: 0.5rem;
+}
+
+.header-bottom {
+  height: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-menu-btn {
+  background-color: #93daf3;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  height: 2.6rem;
+  width: 14rem;
+  position: relative;
+  outline: none;
+}
+.main-menu-btn:hover {
+  background-color: #10b1e8;
+  color: white;
+}
+.main-menu-btn.active > .burger {
+  transform: rotate(360deg);
+}
+.main-menu-btn.active > span {
+  font-size: 1.1em;
+}
+.main-menu-btn .burger {
+  position: absolute;
+  background-color: white;
+  left: 1rem;
+  top: 1.2rem;
+  width: 2rem;
+  height: 0.2rem;
+  transition: all 0.5s ease-out;
+}
+.main-menu-btn .burger::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  left: 0rem;
+  top: -0.4rem;
+  width: 2rem;
+  height: 0.2rem;
+}
+.main-menu-btn .burger::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  left: 0rem;
+  top: 0.4rem;
+  width: 2rem;
+  height: 0.2rem;
+}
+.main-menu-btn span {
+  padding-left: 2rem;
+  transition: all 0.5s ease-out;
+}
+
+.main-search-input {
+  padding-left: 1rem;
+  background-color: #eee;
+  color: #aaa;
+  height: 2.6rem;
+  width: 22rem;
+  border: none;
+  outline: none;
+}
+
+.main-search-submit {
+  position: absolute;
+  padding: 0px;
+  width: 40px;
+  height: 40px;
+  margin-left: -40px;
+  background-color: transparent;
+  background-image: url(../image/common-header-search-icon.svg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.callback-wrap {
+  position: relative;
+}
+.callback-wrap .callback-out {
+  background-color: white;
+  display: none;
+  position: absolute;
+  left: -2rem;
+  top: -1rem;
+  padding: 1rem 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px #00000033;
+  z-index: 2;
+  cursor: pointer;
+}
+.callback-wrap h4 {
+  font-size: 1.2rem;
+}
+.callback-wrap .callback-icon {
+  height: 0.6rem;
+  width: 0.6rem;
+}
+.callback-wrap a {
+  color: #10b1e8;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0rem 0rem;
+  margin-bottom: 0.2rem;
+}
+.callback-wrap a:hover {
+  color: #93daf3;
+}
+
+.header-wrapbox {
+  color: #10b1e8;
+  cursor: pointer;
+}
+.header-wrapbox div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.header-wrapbox div i {
+  width: 1.2rem;
+  line-height: 1.5rem;
+}
+.header-wrapbox div span {
+  color: #aaa;
+  padding: 0rem 0.2rem;
+  line-height: 1.5rem;
+}
+.header-wrapbox a {
+  text-decoration: none;
+  padding: 0rem 0.2rem;
+  font-size: 0.6rem;
+  line-height: 1.3rem;
+}
+
+.cart {
+  color: #10b1e8;
+  position: relative;
+}
+.cart .circle {
+  position: absolute;
+  background-color: #aaa;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: -0.4rem;
+  right: -0.4rem;
+  border-radius: 50%;
+}
+.cart .circle p {
+  color: white;
+  text-align: center;
+  display: table-cell;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.2rem;
+  vertical-align: middle;
+}
+.cart a i {
+  color: #10b1e8;
+}
