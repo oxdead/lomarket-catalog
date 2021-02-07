@@ -4,8 +4,8 @@ $_['heading_title'] = 'Зворотній зв&#39;язок';
 
 // Text
 $_['text_location'] = 'Наше місцезнаходження';
-$_['text_store'] = 'магазини';
-$_['text_contact'] = 'надіслати';
+$_['text_store'] = 'Магазини';
+$_['text_contact'] = 'Надіслати';
 $_['text_address'] = 'Адреса';
 $_['text_telephone'] = 'Телефон';
 $_['text_fax'] = 'Факс';

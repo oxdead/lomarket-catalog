@@ -3,6 +3,7 @@
 @use 'flex';
 @use 'menu';
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+//@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
 
@@ -32,10 +33,21 @@
     }
 }
 
+.fas.fa-sign-in-alt {
+    padding: 0.5rem;
+}
+
+
+html, body {
+    height: 100%; // for footer
+  }
 
 body {
     background-color: var.$color-bg;
     font-family: "Fira Sans", sans-serif;
+    //font-family: 'Poppins', sans-serif;
+    display: flex; // for footer
+    flex-direction: column; // for footer
 }
 
 header {
@@ -45,10 +57,209 @@ header {
     color: var.$color-darktext;
 }
 
+footer{
+    background-color: var.$color-greytext;
+    flex-shrink: 0;
+    min-height: 22rem;
+    width: 100vw;
+
+    .footer-behav {
+        display:none;
+        flex-direction: column;
+    }
+
+    h2, h3, h4, h5{
+        padding: 0.5rem 1rem 0.5rem 0rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    li{
+        padding: 0.2rem 0rem;
+    }
+
+    li a{
+        padding: 0;
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+
+    p{
+        padding: 0.2rem 1rem 0.2rem 0rem;
+    }
+
+    h3.feedback{
+        text-decoration: underline dashed var.$color-darktext;
+        text-decoration-thickness: 1px;
+        text-underline-position: under;
+        cursor:pointer;
+    }
+
+    .supserv{
+        @include flex.center(flex-start);
+
+
+    }
+
+    hr{
+        
+        border-top: 1px solid var.$color-darktext;
+        border-bottom: 0px solid transparent;
+
+    }
+
+    .fa.fa-phone-square{
+        margin-right: 1rem;
+    }
+
+    img{
+        position:relative;
+        //display: inline-block;
+        width: 3.4rem;
+        height: 3.4rem;
+        min-width: 3.4rem;
+        min-height: 3.4rem;
+    }
+
+    .row-center{
+        img{
+            display:none;
+        }
+
+        i{
+            display:none;
+        }
+    }
+
+}
+
+
+@media (min-width: 768px) {
+    footer {
+        .footer-behav {
+            display:flex;
+            flex-direction: column;
+        }
+    }
+}
+@media (min-width: 1150px) {
+    footer {
+        .footer-behav {
+            display:flex;
+            flex-direction: row;
+        }
+
+        .row-center{
+            div{
+                display:flex;
+                align-items: center;
+                *{
+                    margin-left: 0.5rem;
+                    margin-right: 0.5rem;
+                }
+
+                img{
+                    display:inline-block;
+                }
+
+                i{
+                    display:inline-block;
+                }
+            }
+        }
+
+    }
+}
+
+
 .container {
     width: 70vw;
     margin-left: auto;
     margin-right: auto;
+    flex: 1 0 auto; // for footer
+}
+
+// bootstrap
+// @media (min-width: 576px) {
+//   .container {
+//     max-width: 540px;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .container {
+//     max-width: 720px;
+//   }
+// }
+// @media (min-width: 992px) {
+//   .container {
+//     max-width: 960px;
+//   }
+// }
+// @media (min-width: 1200px) {
+//   .container {
+//     max-width: 1140px;
+//   }
+// }
+// @media (min-width: 1400px) {
+//   .container {
+//     max-width: 1320px;
+//   }
+// }
+
+.row, .row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.row-center{
+    align-items: center;
+    height: 6rem;
+}
+
+
+
+.col-18per{
+    //flex: 0 0 auto;
+    //width: 18%;
+    text-align: left;
+    flex: 18% 0 auto;
+    padding: 2rem 1rem;
+    
+    //padding-bottom: 2rem;
+    // height: 14rem;
+    // display:flex;
+    // justify-content: space-between;
+    // flex-direction: column;
+    // white-space: nowrap;
+
+
+}
+
+
+.col-28per{
+    //text-align: left;
+    // height: 14rem;
+    flex: 28% 0 auto;
+    padding: 1rem 1rem;
+    // display:flex;
+    // justify-content: space-between;
+    // flex-direction: column;
+    // white-space: nowrap;
+}
+
+
+a {
+    padding: 0rem 1rem;
+    text-decoration: none;
+    color: var.$color-darktext;
+    &:hover {
+        color: var.$color-darkblue;
+    }
+}
+
+li{
+    list-style:none;
 }
 
 .header-top {
@@ -79,21 +290,7 @@ header {
             }
         }
     }
-
-    a {
-        padding: 0rem 1rem;
-        text-decoration: none;
-        color: var.$color-darktext;
-        &:hover {
-            color: var.$color-darkblue;
-        }
-    }
 }
-
-.fas.fa-sign-in-alt {
-    padding: 0.5rem;
-}
-
 
 .header-bottom {
     height: 3.2rem;
@@ -160,6 +357,12 @@ header {
     width: 22rem;
     border: none;
     outline: none;
+    transition: all 0.5s ease-out;
+
+    &:focus{
+        font-size: 1.1rem;
+    }
+
 }
 
 .main-search-submit {

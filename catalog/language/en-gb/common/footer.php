@@ -15,3 +15,10 @@ $_['text_order']        = 'Order History';
 $_['text_wishlist']     = 'Wish List';
 $_['text_newsletter']   = 'Newsletter';
 $_['text_powered']      = 'Powered By <a href="http://www.opencart.com">OpenCart</a><br /> %s &copy; %s';
+
+$_['text_feedback'] = 'Feedback';
+$_['text_supportservice'] = 'Support service';
+$_['text_workschedule'] = 'Call-center hour';
+$_['text_mondayfriday'] = 'Mon-Fri from 9:00 to 20:00';
+$_['text_saturday'] = 'Sat from 9:00 to 19:00';
+$_['text_sunday'] = 'Sun from 10:00 to 19:00';

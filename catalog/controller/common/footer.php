@@ -24,6 +24,8 @@ class ControllerCommonFooter extends Controller {
 			}
 		}
 
+		$data['telephone'] = $this->config->get('config_telephone');
+
 		$data['contact'] = $this->url->link('information/contact');
 		$data['return'] = $this->url->link('account/return/add', '', true);
 		$data['sitemap'] = $this->url->link('information/sitemap');

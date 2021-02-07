@@ -1,45 +1,77 @@
 <footer>
   <div class="container">
     <div class="row">
-      {% if informations %}
-      <div class="col-sm-3">
-        <h5>{{ text_information }}</h5>
-        <ul class="list-unstyled">
-         {% for information in informations %}
-          <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-          {% endfor %}
-        </ul>
+
+      <div class="footer-behav">
+        <div class="col-18per">
+          {% if informations %}
+          <h5>{{ text_information }}</h5>
+          <ul class="list-unstyled">
+            {% for information in informations %}
+              <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="col-18per">
+          <h5>{{ text_service }}</h5>
+          <ul class="list-unstyled">
+            <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+            <li><a href="{{ return }}">{{ text_return }}</a></li>
+            <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+          </ul>
+        </div>
       </div>
-      {% endif %}
-      <div class="col-sm-3">
-        <h5>{{ text_service }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-          <li><a href="{{ return }}">{{ text_return }}</a></li>
-          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-        </ul>
+      
+      <div class="footer-behav">
+        <div class="col-18per">
+          <h5>{{ text_extra }}</h5>
+          <ul class="list-unstyled">
+            <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+            <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
+            <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+            <li><a href="{{ special }}">{{ text_special }}</a></li>
+          </ul>
+        </div>
+        <div class="col-18per">
+          <h5>{{ text_account }}</h5>
+          <ul class="list-unstyled">
+            <li><a href="{{ account }}">{{ text_account }}</a></li>
+            <li><a href="{{ order }}">{{ text_order }}</a></li>
+            <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+            <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="col-sm-3">
-        <h5>{{ text_extra }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
-          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-          <li><a href="{{ special }}">{{ text_special }}</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <h5>{{ text_account }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ account }}">{{ text_account }}</a></li>
-          <li><a href="{{ order }}">{{ text_order }}</a></li>
-          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-        </ul>
+
+      
+      <div class="col-28per">
+        <h3 class="feedback">{{ text_feedback }}</h3>
+        <div class="supserv">
+          <i class="fa fa-phone-square fa-4x" aria-hidden="true"></i>
+          <div>
+            <h4>{{ text_supportservice }}</h4>
+            <h1>{{ telephone }}</h1>
+          </div>
+        </div>
+        <h4>{{ text_workschedule }}</h4>
+        <p>{{ text_mondayfriday }}</p>
+        <p>{{ text_saturday }}</p>
+        <p>{{ text_sunday }}</p>
       </div>
     </div>
     <hr>
-    <p>{{ powered }}</p>
+    
+    <div class="row-center">
+      <div>
+        <i class="fa fa-cc-visa fa-4x" aria-hidden="true"></i>
+        <i class="fa fa-cc-mastercard fa-4x" aria-hidden="true"></i>
+        <img src="catalog/view/theme/default/image/privat24-icon.svg" alt="privat24">
+      <div>
+      <p>{{ powered }}</p>
+      <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+    </div>
+    
   </div>
 </footer>
 {% for script in scripts %}
@@ -50,3 +82,53 @@ OpenCart is open source software and you are free to remove the powered by OpenC
 Please donate via PayPal to donate@opencart.com
 //-->
 </body></html>
+
+
+
+
+
+
+{# <footer>
+  <div class="container">
+    <div class="row">
+            <div class="col-sm-3">
+        <h5>Інформація</h5>
+        <ul class="list-unstyled">
+                   <li><a href="http://localhost/index.php?route=information/information&amp;information_id=4">About Us</a></li>
+                    <li><a href="http://localhost/index.php?route=information/information&amp;information_id=6">Delivery Information</a></li>
+                    <li><a href="http://localhost/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
+                    <li><a href="http://localhost/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+                  </ul>
+      </div>
+            <div class="col-sm-3">
+        <h5>Служба підтримки</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://localhost/index.php?route=information/contact">Контакти</a></li>
+          <li><a href="http://localhost/index.php?route=account/return/add">Повернення товару</a></li>
+          <li><a href="http://localhost/index.php?route=information/sitemap">Карта сайту</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h5>Додатково</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://localhost/index.php?route=product/manufacturer">Виробники</a></li>
+          <li><a href="http://localhost/index.php?route=account/voucher">Подарункові сертифікати</a></li>
+          <li><a href="http://localhost/index.php?route=affiliate/login">Партнерська програма</a></li>
+          <li><a href="http://localhost/index.php?route=product/special">Акції</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h5>Особистий Кабінет</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://localhost/index.php?route=account/account">Особистий Кабінет</a></li>
+          <li><a href="http://localhost/index.php?route=account/order">Історія замовлень</a></li>
+          <li><a href="http://localhost/index.php?route=account/wishlist">Закладки</a></li>
+          <li><a href="http://localhost/index.php?route=account/newsletter">Розсилка</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p><a rel="nofollow" href="https://proplat.biz" target="_blank">Розробка та реклма інтернет магазинів на Opencart</a> LoMarket &copy; 2021</p>
+  </div>
+</footer>
+<script src="catalog/view/javascript/common-footer.js" type="text/javascript"></script> #}

@@ -5,9 +5,19 @@
   padding: 0;
 }
 
+.fas.fa-sign-in-alt {
+  padding: 0.5rem;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #f6f6f6;
   font-family: "Fira Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -17,10 +27,130 @@ header {
   color: black;
 }
 
+footer {
+  background-color: #aaa;
+  flex-shrink: 0;
+  min-height: 22rem;
+  width: 100vw;
+}
+footer .footer-behav {
+  display: none;
+  flex-direction: column;
+}
+footer h2, footer h3, footer h4, footer h5 {
+  padding: 0.5rem 1rem 0.5rem 0rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+footer li {
+  padding: 0.2rem 0rem;
+}
+footer li a {
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+footer p {
+  padding: 0.2rem 1rem 0.2rem 0rem;
+}
+footer h3.feedback {
+  text-decoration: underline dashed black;
+  text-decoration-thickness: 1px;
+  text-underline-position: under;
+  cursor: pointer;
+}
+footer .supserv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+footer hr {
+  border-top: 1px solid black;
+  border-bottom: 0px solid transparent;
+}
+footer .fa.fa-phone-square {
+  margin-right: 1rem;
+}
+footer img {
+  position: relative;
+  width: 3.4rem;
+  height: 3.4rem;
+  min-width: 3.4rem;
+  min-height: 3.4rem;
+}
+footer .row-center img {
+  display: none;
+}
+footer .row-center i {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  footer .footer-behav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 1150px) {
+  footer .footer-behav {
+    display: flex;
+    flex-direction: row;
+  }
+  footer .row-center div {
+    display: flex;
+    align-items: center;
+  }
+  footer .row-center div * {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  footer .row-center div img {
+    display: inline-block;
+  }
+  footer .row-center div i {
+    display: inline-block;
+  }
+}
 .container {
   width: 70vw;
   margin-left: auto;
   margin-right: auto;
+  flex: 1 0 auto;
+}
+
+.row, .row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row-center {
+  align-items: center;
+  height: 6rem;
+}
+
+.col-18per {
+  text-align: left;
+  flex: 18% 0 auto;
+  padding: 2rem 1rem;
+}
+
+.col-28per {
+  flex: 28% 0 auto;
+  padding: 1rem 1rem;
+}
+
+a {
+  padding: 0rem 1rem;
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: #10b1e8;
+}
+
+li {
+  list-style: none;
 }
 
 .header-top {
@@ -157,18 +287,6 @@ header {
 .header-top #form-language .lang .lang-btn:focus {
   outline: none;
 }
-.header-top a {
-  padding: 0rem 1rem;
-  text-decoration: none;
-  color: black;
-}
-.header-top a:hover {
-  color: #10b1e8;
-}
-
-.fas.fa-sign-in-alt {
-  padding: 0.5rem;
-}
 
 .header-bottom {
   height: 3.2rem;
@@ -241,6 +359,10 @@ header {
   width: 22rem;
   border: none;
   outline: none;
+  transition: all 0.5s ease-out;
+}
+.main-search-input:focus {
+  font-size: 1.1rem;
 }
 
 .main-search-submit {
