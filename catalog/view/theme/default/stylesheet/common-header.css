@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   margin: 0;
   padding: 0;
 }
@@ -20,11 +20,46 @@ body {
   flex-direction: column;
 }
 
-header {
-  background-color: white;
-  height: 6.4rem;
-  width: 100vw;
+a {
+  padding: 0rem 1rem;
+  text-decoration: none;
   color: black;
+}
+a:hover {
+  color: #10b1e8;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1 0 auto;
+}
+
+.row, .row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row-center {
+  align-items: center;
+  height: 6rem;
+}
+
+.col-18per {
+  text-align: left;
+  flex: 18% 0 auto;
+  padding: 2rem 1rem;
+}
+
+.col-28per {
+  flex: 28% 0 auto;
+  padding: 1rem 1rem;
 }
 
 footer {
@@ -42,6 +77,13 @@ footer h2, footer h3, footer h4, footer h5 {
   font-weight: 700;
   text-transform: uppercase;
 }
+footer p {
+  padding: 0.2rem 1rem 0.2rem 0rem;
+}
+footer a {
+  padding: 0;
+  margin: 0;
+}
 footer li {
   padding: 0.2rem 0rem;
 }
@@ -49,9 +91,6 @@ footer li a {
   padding: 0;
   font-size: 0.9rem;
   font-weight: 400;
-}
-footer p {
-  padding: 0.2rem 1rem 0.2rem 0rem;
 }
 footer h3.feedback {
   text-decoration: underline dashed black;
@@ -84,6 +123,10 @@ footer .row-center img {
 footer .row-center i {
   display: none;
 }
+footer .row-center p, footer .row-center a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 @media (min-width: 768px) {
   footer .footer-behav {
@@ -96,68 +139,31 @@ footer .row-center i {
     display: flex;
     flex-direction: row;
   }
+  footer .row-center img {
+    display: inline-block;
+  }
+  footer .row-center i {
+    display: inline-block;
+  }
   footer .row-center div {
     display: flex;
     align-items: center;
   }
-  footer .row-center div * {
+  footer .row-center div > * {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
-  footer .row-center div img {
-    display: inline-block;
-  }
-  footer .row-center div i {
-    display: inline-block;
-  }
 }
-.container {
-  width: 70vw;
-  margin-left: auto;
-  margin-right: auto;
-  flex: 1 0 auto;
-}
-
-.row, .row-center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.row-center {
-  align-items: center;
-  height: 6rem;
-}
-
-.col-18per {
-  text-align: left;
-  flex: 18% 0 auto;
-  padding: 2rem 1rem;
-}
-
-.col-28per {
-  flex: 28% 0 auto;
-  padding: 1rem 1rem;
-}
-
-a {
-  padding: 0rem 1rem;
-  text-decoration: none;
+header {
+  background-color: white;
   color: black;
-}
-a:hover {
-  color: #10b1e8;
-}
-
-li {
-  list-style: none;
+  width: 100vw;
+  height: 3.2rem;
 }
 
 .header-top {
   height: 3.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
   border-bottom: 1px solid #eee;
 }
 .header-top h1 {
@@ -289,13 +295,15 @@ li {
 }
 
 .header-bottom {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   height: 3.2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-
-.main-menu-btn {
+.header-bottom .main-menu-btn {
+  position: relative;
   background-color: #93daf3;
   color: white;
   padding: 0.5rem 0.5rem;
@@ -304,22 +312,22 @@ li {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.5s ease;
-  height: 2.6rem;
   width: 14rem;
-  position: relative;
+  height: 2.6rem;
+  margin-left: 1rem;
   outline: none;
 }
-.main-menu-btn:hover {
+.header-bottom .main-menu-btn:hover {
   background-color: #10b1e8;
   color: white;
 }
-.main-menu-btn.active > .burger {
+.header-bottom .main-menu-btn.active > .burger {
   transform: rotate(360deg);
 }
-.main-menu-btn.active > span {
+.header-bottom .main-menu-btn.active > span {
   font-size: 1.1em;
 }
-.main-menu-btn .burger {
+.header-bottom .main-menu-btn .burger {
   position: absolute;
   background-color: white;
   left: 1rem;
@@ -328,7 +336,7 @@ li {
   height: 0.2rem;
   transition: all 0.5s ease-out;
 }
-.main-menu-btn .burger::before {
+.header-bottom .main-menu-btn .burger::before {
   content: "";
   position: absolute;
   background-color: white;
@@ -337,7 +345,7 @@ li {
   width: 2rem;
   height: 0.2rem;
 }
-.main-menu-btn .burger::after {
+.header-bottom .main-menu-btn .burger::after {
   content: "";
   position: absolute;
   background-color: white;
@@ -346,31 +354,38 @@ li {
   width: 2rem;
   height: 0.2rem;
 }
-.main-menu-btn span {
+.header-bottom .main-menu-btn span {
   padding-left: 2rem;
   transition: all 0.5s ease-out;
 }
-
-.main-search-input {
+.header-bottom #search {
+  width: calc(100% - 22rem);
+  height: 3.2rem;
+  margin: 0.3rem 1rem;
+}
+.header-bottom #search .main-search-input {
+  margin: 0.3rem 0rem;
+  background-color: aqua;
   padding-left: 1rem;
+  padding-right: 2rem;
   background-color: #eee;
   color: #aaa;
   height: 2.6rem;
-  width: 22rem;
+  width: 100%;
   border: none;
   outline: none;
   transition: all 0.5s ease-out;
 }
-.main-search-input:focus {
+.header-bottom #search .main-search-input:focus {
   font-size: 1.1rem;
 }
-
-.main-search-submit {
+.header-bottom #search .main-search-submit {
   position: absolute;
   padding: 0px;
   width: 40px;
   height: 40px;
   margin-left: -40px;
+  margin-top: 0.3rem;
   background-color: transparent;
   background-image: url(../image/common-header-search-icon.svg);
   background-position: 50%;
@@ -379,11 +394,11 @@ li {
   outline: none;
   cursor: pointer;
 }
-
-.callback-wrap {
+.header-bottom .callback-wrap {
   position: relative;
+  display: none;
 }
-.callback-wrap .callback-out {
+.header-bottom .callback-wrap .callback-out {
   background-color: white;
   display: none;
   position: absolute;
@@ -396,14 +411,14 @@ li {
   z-index: 2;
   cursor: pointer;
 }
-.callback-wrap h4 {
+.header-bottom .callback-wrap h4 {
   font-size: 1.2rem;
 }
-.callback-wrap .callback-icon {
+.header-bottom .callback-wrap .callback-icon {
   height: 0.6rem;
   width: 0.6rem;
 }
-.callback-wrap a {
+.header-bottom .callback-wrap a {
   color: #10b1e8;
   text-decoration: none;
   display: inline-block;
@@ -411,49 +426,52 @@ li {
   padding: 0rem 0rem;
   margin-bottom: 0.2rem;
 }
-.callback-wrap a:hover {
+.header-bottom .callback-wrap a:hover {
   color: #93daf3;
 }
-
-.header-wrapbox {
+.header-bottom .header-wrapbox {
   color: #10b1e8;
   cursor: pointer;
+  display: none;
 }
-.header-wrapbox div {
+.header-bottom .header-wrapbox div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.header-wrapbox div i {
+.header-bottom .header-wrapbox div i {
   width: 1.2rem;
   line-height: 1.5rem;
 }
-.header-wrapbox div span {
+.header-bottom .header-wrapbox div span {
   color: #aaa;
   padding: 0rem 0.2rem;
   line-height: 1.5rem;
 }
-.header-wrapbox a {
+.header-bottom .header-wrapbox a {
   text-decoration: none;
   padding: 0rem 0.2rem;
   font-size: 0.6rem;
   line-height: 1.3rem;
 }
-
-.cart {
+.header-bottom .cart {
   color: #10b1e8;
   position: relative;
+  width: 4rem;
+  height: 100%;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
-.cart .circle {
+.header-bottom .cart .circle {
   position: absolute;
   background-color: #aaa;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.4rem;
-  right: -0.4rem;
+  right: 0rem;
   border-radius: 50%;
 }
-.cart .circle p {
+.header-bottom .cart .circle p {
   color: white;
   text-align: center;
   display: table-cell;
@@ -462,6 +480,53 @@ li {
   padding: 0.2rem;
   vertical-align: middle;
 }
-.cart a i {
+.header-bottom .cart a i {
   color: #10b1e8;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: calc(1300px - 30vw);
+  }
+}
+@media (min-width: 1330px) {
+  .container {
+    width: calc(1500px - 30vw);
+  }
+
+  header {
+    height: 6.4rem;
+  }
+  header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .header-bottom {
+    justify-content: space-between;
+  }
+  header .header-bottom .main-menu-btn {
+    margin-top: 0rem;
+    margin-left: 0rem;
+  }
+  header .header-bottom #search {
+    width: 22rem;
+  }
+  header .header-bottom #search .main-search-input {
+    width: 22rem;
+  }
+  header .header-bottom .callback-wrap {
+    display: inline-block;
+  }
+  header .header-bottom .header-wrapbox {
+    display: inline-block;
+  }
+  header .header-bottom .cart {
+    margin-top: 1rem;
+  }
+}
+@media (min-width: 1500px) {
+  .container {
+    width: 70vw;
+  }
 }

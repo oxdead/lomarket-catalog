@@ -1,0 +1,127 @@
+@use 'var';
+@use 'flex';
+@use 'htmlbody';
+
+footer{
+    background-color: var.$color-greytext;
+    flex-shrink: 0;
+    min-height: 22rem;
+    width: 100vw;
+
+    .footer-behav {
+        display:none;
+        flex-direction: column;
+    }
+
+    
+    h2, h3, h4, h5{
+        padding: 0.5rem 1rem 0.5rem 0rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    p{
+        padding: 0.2rem 1rem 0.2rem 0rem;
+    }
+
+    a{
+        padding:0;
+        margin:0;
+    }
+    
+    li{
+        padding: 0.2rem 0rem;
+    }
+
+    li a{
+        padding: 0;
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+
+    h3.feedback{
+        text-decoration: underline dashed var.$color-darktext;
+        text-decoration-thickness: 1px;
+        text-underline-position: under;
+        cursor:pointer;
+    }
+
+    .supserv{
+        @include flex.center(flex-start);
+    }
+
+    hr{
+        border-top: 1px solid var.$color-darktext;
+        border-bottom: 0px solid transparent;
+
+    }
+
+    .fa.fa-phone-square{
+        margin-right: 1rem;
+    }
+
+    img{
+        position:relative;
+        //display: inline-block;
+        width: 3.4rem;
+        height: 3.4rem;
+        min-width: 3.4rem;
+        min-height: 3.4rem;
+    }
+
+
+
+    .row-center{
+        img{
+            display:none;
+        }
+
+        i{
+            display:none;
+        }
+
+        p, a{
+            white-space: nowrap; 
+            text-overflow: ellipsis; 
+        }
+
+    }
+
+}
+
+@media (min-width: 768px) {
+    footer {
+        .footer-behav {
+            display:flex;
+            flex-direction: column;
+        }
+    }
+}
+@media (min-width: 1150px) {
+    footer {
+        .footer-behav {
+            display:flex;
+            flex-direction: row;
+        }
+
+        .row-center{
+            img{
+                display:inline-block;
+            }
+            
+            i{
+                display:inline-block;
+            }
+
+            div{
+                display:flex;
+                align-items: center;
+                > *{
+                    margin-left: 0.5rem;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,94 @@
+@use 'var';
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+//@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+.fas.fa-sign-in-alt {
+  padding: 0.5rem;
+}
+
+
+html, body {
+    height: 100%; // for footer
+  }
+
+body {
+    background-color: var.$color-bg;
+    font-family: "Fira Sans", sans-serif;
+    //font-family: 'Poppins', sans-serif;
+    display: flex; // for footer
+    flex-direction: column; // for footer
+}
+
+
+a {
+  padding: 0rem 1rem;
+  text-decoration: none;
+  color: var.$color-darktext;
+  &:hover {
+      color: var.$color-darkblue;
+  }
+}
+
+li{
+  list-style:none;
+}
+
+
+
+.container {
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1 0 auto; // for footer
+}
+
+// bootstrap
+// @media (min-width: 576px) {
+//   .container {
+//     max-width: 540px;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .container {
+//     max-width: 720px;
+//   }
+// }
+// @media (min-width: 992px) {
+//   .container {
+//     max-width: 960px;
+//   }
+// }
+// @media (min-width: 1200px) {
+//   .container {
+//     max-width: 1140px;
+//   }
+// }
+// @media (min-width: 1400px) {
+//   .container {
+//     max-width: 1320px;
+//   }
+// }
+
+.row, .row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row-center{
+  align-items: center;
+  height: 6rem;
+}
+
+
+.col-18per{
+  text-align: left;
+  flex: 18% 0 auto;
+  padding: 2rem 1rem;
+}
+
+.col-28per{
+  flex: 28% 0 auto;
+  padding: 1rem 1rem;
+}
