@@ -111,14 +111,13 @@
 }
 @media (max-width: 767px) {
 	#menu {
-		border-radius: 4px;
         
         div.dropdown-inner > ul.list-unstyled {
             display: block;
         }
         div.dropdown-menu {
             margin-left: 0 !important;
-            padding-bottom: 10px;
+            padding-bottom: 0.6rem;
             background-color: rgba(0, 0, 0, 0.1);
         }
         .dropdown-inner {
@@ -126,7 +125,6 @@
 
             a {
                 width: 100%;
-                color: #fff;
             }
         }
 
@@ -139,7 +137,11 @@
             margin-top: 0;
             border: none;
             border-radius: 0;
-            color: #fff;
         }
+	}
+}
+@media (min-width: 1330px) {
+	#menu {
+		margin-left: 0.4rem;
 	}
 }
