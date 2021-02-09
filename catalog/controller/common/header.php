@@ -1,5 +1,12 @@
 <?php
 class ControllerCommonHeader extends Controller {
+	private function addHeaderStyle($styleFile)
+	{
+		if(file_exists(DIR_TEMPLATE.'default/stylesheet/'.$styleFile)) {
+			$this->document->addStyle('catalog/view/theme/default/stylesheet/'.$styleFile);
+		}
+	}
+
 	public function index() {
 		// Analytics
 		$this->load->model('setting/extension');
@@ -25,11 +32,16 @@ class ControllerCommonHeader extends Controller {
 		}
 
 
-		// //add custom header css file
-		// if(file_exists(DIR_TEMPLATE.'default/stylesheet/common-header.css')) {
-		// 	$this->document->addStyle('catalog/view/theme/'.'default/stylesheet/common-header.css');
-		// }
-		// //add custom css files
+		
+		//add custom header css file
+		$this->addHeaderStyle('common-header.css');
+		
+		//add other custom css files depending on route
+		$route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];
+		if($route === 'common/home'){
+			$this->addHeaderStyle('common-menu.css');
+		}
+		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];
 		// $css_file = str_replace('/', '-', $route) . '.css';
 		// if(file_exists(DIR_TEMPLATE.'stylesheet/'.$css_file)) {

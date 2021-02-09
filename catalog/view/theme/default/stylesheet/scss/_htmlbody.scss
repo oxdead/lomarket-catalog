@@ -2,39 +2,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
 .fas.fa-sign-in-alt {
   padding: 0.5rem;
 }
 
-
-html, body {
-    height: 100%; // for footer
-  }
-
+html,
 body {
-    background-color: var.$color-bg;
-    font-family: "Fira Sans", sans-serif;
-    //font-family: 'Poppins', sans-serif;
-    display: flex; // for footer
-    flex-direction: column; // for footer
+  height: 100%; // for footer
 }
 
+body {
+  background-color: var.$color-bg;
+  font-family: "Fira Sans", sans-serif;
+  //font-family: 'Poppins', sans-serif;
+  display: flex; // for footer
+  flex-direction: column; // for footer
+}
 
 a {
   padding: 0rem 1rem;
   text-decoration: none;
   color: var.$color-darktext;
   &:hover {
-      color: var.$color-darkblue;
+    color: var.$color-darkblue;
   }
 }
 
-li{
-  list-style:none;
+li {
+  list-style: none;
 }
-
-
 
 .container {
   width: 100vw;
@@ -70,25 +66,25 @@ li{
 //   }
 // }
 
-.row, .row-center {
+.row,
+.row-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.row-center{
+.row-center {
   align-items: center;
   height: 6rem;
 }
 
-
-.col-18per{
+.col-18per {
   text-align: left;
   flex: 18% 0 auto;
   padding: 2rem 1rem;
 }
 
-.col-28per{
+.col-28per {
   flex: 28% 0 auto;
   padding: 1rem 1rem;
 }

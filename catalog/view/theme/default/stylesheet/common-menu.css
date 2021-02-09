@@ -1,0 +1,102 @@
+#menu {
+  width: 14rem;
+  height: 30rem;
+  min-height: 8rem;
+  margin: 2rem 2rem 20rem 1.4rem;
+  background-color: white;
+  background-image: linear-gradient(to bottom, white, #eee);
+  background-repeat: repeat-x;
+  border-bottom-right-radius: 10px;
+  border-bottom: 5px solid #93daf3;
+  display: none;
+}
+#menu.open {
+  box-shadow: 0px 0px 4px 0px #93daf3;
+  display: block;
+}
+#menu .nav {
+  padding: 1rem;
+}
+#menu .nav > li {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  transition: border-bottom 0.5s ease-in;
+}
+#menu .nav > li:hover, #menu .nav > li.open {
+  border-bottom: 1px solid #10b1e8;
+}
+#menu .nav > li:hover > a, #menu .nav > li.open > a {
+  color: #10b1e8;
+}
+#menu .nav > li:hover {
+  border-bottom: 1px solid #10b1e8;
+}
+#menu .dropdown-menu {
+  padding-bottom: 0;
+}
+#menu .dropdown-inner {
+  display: table;
+}
+#menu .dropdown-inner ul {
+  display: table-cell;
+}
+#menu .dropdown-inner a {
+  min-width: 10rem;
+  display: block;
+  padding: 0.2rem 1rem;
+  clear: both;
+  line-height: 1rem;
+}
+#menu .see-all {
+  display: block;
+  margin-top: 0.5rem;
+  border-top: 1px solid #DDD;
+  padding: 0.2rem 1rem;
+  border-radius: 0 0 0.2rem 0.2rem;
+}
+#menu .see-all:hover, #menu .see-all:focus {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  background-image: linear-gradient(to bottom, white, #eee);
+  background-repeat: repeat-x;
+}
+#menu #category {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  #menu .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  #menu {
+    border-radius: 4px;
+  }
+  #menu div.dropdown-inner > ul.list-unstyled {
+    display: block;
+  }
+  #menu div.dropdown-menu {
+    margin-left: 0 !important;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  #menu .dropdown-inner {
+    display: block;
+  }
+  #menu .dropdown-inner a {
+    width: 100%;
+    color: #fff;
+  }
+  #menu .dropdown-menu a:hover,
+#menu .dropdown-menu ul li a:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  #menu .see-all {
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+  }
+}

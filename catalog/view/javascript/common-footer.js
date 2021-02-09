@@ -93,11 +93,15 @@ function switchMainMenu(){
     const menuBtn = document.querySelector(".header-bottom .main-menu-btn");
     if(!menuBtn) { return null; }
     menuBtn.addEventListener("click", (e) => {
+        const menuNav = document.querySelector(".navbar#menu");
+        if(!menuNav) { return null; }
         if(e.currentTarget.classList.contains("active")) {
             e.currentTarget.classList.remove("active");
+            menuNav.classList.remove("open");
         }
         else {
             e.currentTarget.classList.add("active");
+            menuNav.classList.add("open");
         }
     });
 }
