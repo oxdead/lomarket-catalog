@@ -1,4 +1,5 @@
 @use 'var';
+@use 'container';
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -36,28 +37,11 @@ li {
   list-style: none;
 }
 
-.container {
-  width: 100vw;
-  margin-left: auto;
-  margin-right: auto;
-  // flex: 1 0 auto; // for footer
-}
 
-@media (min-width: 1024px) {
-    .container {
-      width: calc(1300px - 30vw);
-    }
-}
-@media (min-width: 1330px) {
-    .container {
-        width: calc(1500px - 30vw);
-    }
-}
-@media (min-width: 1500px) {
-    .container{
-        width: 70vw;
-    }
-}
+
+@include container.container('.container');
+
+
 
 
 // bootstrap

@@ -1,31 +1,5 @@
 @use 'var';
-
-//menu.twig
-// nav.navbar{
-//     width: 14rem;
-//     height: 30rem;
-//     margin: 2rem 2rem 20rem 1.4rem;
-//     background-color: var.$color-panel;
-//     border-bottom-right-radius: 10px;
-//     border-bottom: 5px solid var.$color-lightblue;
-
-//     button{
-//         display:none;
-//     }
-
-//     .nav.navbar-nav{
-//         padding: 1rem;
-
-//         > li{ 
-//             margin-bottom: 0.5rem;
-//             border-bottom: 1px solid var.$color-lightfill;
-
-//         }
-//     }
-
-// }
-
-
+@use 'swiperopencart';
 
 #menu {
     width: 14rem;
@@ -145,3 +119,4 @@
 		margin-left: 0.4rem;
 	}
 }
+

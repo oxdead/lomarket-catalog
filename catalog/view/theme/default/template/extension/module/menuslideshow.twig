@@ -1,0 +1,71 @@
+<div class="mnss">
+  
+
+  {% if categories %}
+  <nav id="menu" class="navbar open">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        {% for category in categories %}
+        {% if category.children %}
+        <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+              <ul class="list-unstyled">
+                {% for child in children %}
+                <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endfor %}</div>
+            <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
+        </li>
+        {% else %}
+        <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+  {% endif %} 
+
+
+
+  <div class="lmrkt-swiper-viewport">
+  
+    <div id="slideshow{{ module }}" class="swiper-container">
+      <div class="swiper-wrapper"> 
+        {% for banner in banners %}
+          <div class="swiper-slide text-center">
+            {% if banner.link %}
+              <a href="{{ banner.link }}">
+                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+              </a>
+            {% else %}
+              <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+            {% endif %}
+          </div>
+        {% endfor %} 
+      </div>
+    </div>
+    <div class="swiper-pagination slideshow{{ module }}"></div>
+    <div class="swiper-pager">
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
+
+</div>
+<script type="text/javascript"><!--
+$('#slideshow{{ module }}').swiper({
+    mode: 'horizontal',
+    slidesPerView: 1,
+    pagination: '.slideshow{{ module }}',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 30,
+	  autoplay: 2500,
+    autoplayDisableOnInteraction: true,
+	  loop: true
+});
+--></script>

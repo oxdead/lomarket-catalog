@@ -1,9 +1,10 @@
 @use 'var';
 @use 'flex';
 @use 'htmlbody';
+@use 'container';
 
 
-//additional conditions for footer
+////////////////////////////////// footer fix to stay at the bottom
 html,
 body {
   height: 100%;
@@ -14,9 +15,8 @@ body {
     flex-direction: column;
 }
 
-.container {
-    flex: 1 0 auto;
-}
+@include container.footerfix('.container');
+///////////////////////////////// footer fix
 
 //footer
 footer{
