@@ -35,7 +35,7 @@
     background-color: var.$color-panel;
 	background-image: linear-gradient(to bottom, var.$color-panel, var.$color-lightfill);
     background-repeat: repeat-x;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 16px;
     border-bottom: 5px solid var.$color-lightblue;
     display: none;
     &.open{

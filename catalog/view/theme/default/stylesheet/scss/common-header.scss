@@ -270,23 +270,7 @@ header {
 }
 
 
-
-
-
-
-@media (min-width: 300px) {
-
-}
-@media (min-width: 1024px) {
-    .container {
-      width: calc(1300px - 30vw);
-    }
-}
 @media (min-width: 1330px) {
-    .container {
-        width: calc(1500px - 30vw);
-    }
-
     header{
         height: 6.4rem;
         .header-top{
@@ -322,10 +306,5 @@ header {
             }
             
         }
-    }
-}
-@media (min-width: 1500px) {
-    .container{
-        width: 70vw;
     }
 }

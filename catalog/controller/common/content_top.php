@@ -48,26 +48,41 @@ class ControllerCommonContentTop extends Controller {
 		foreach ($modules as $module) {
 			$part = explode('.', $module['code']);
 
+			
 			if (isset($part[0]) && $this->config->get('module_' . $part[0] . '_status')) {
 				$module_data = $this->load->controller('extension/module/' . $part[0]);
-
+				
 				if ($module_data) {
 					$data['modules'][] = $module_data;
 				}
 			}
-
+			
 			if (isset($part[1])) {
 				$setting_info = $this->model_setting_module->getModule($part[1]);
-
+				
+				
+				
 				if ($setting_info && $setting_info['status']) {
 					$output = $this->load->controller('extension/module/' . $part[0], $setting_info);
-
+					
 					if ($output) {
-						$data['modules'][] = $output;
+						// if($setting_info['name'] === 'Home Slideshow' && $setting_info['banner_id'] == 9){
+						// 	$data['slideshow_commonhome'] = $output;
+						// }
+						// else
+						// {
+							$data['modules'][] = $output;
+						// }
 					}
 				}
 			}
 		}
+
+		// echo'<pre>';
+		// var_dump($data['categories']);
+		// echo'</pre>';
+
+		// die();
 
 		return $this->load->view('common/content_top', $data);
 	}
