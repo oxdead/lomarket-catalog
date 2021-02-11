@@ -1,0 +1,65 @@
+@mixin minw($size){
+    @if($size == xs){
+        @media (min-width: 1px) {
+            @content;
+        }
+    }
+    @else if($size == sm){
+        @media (min-width: 1024px) {
+            @content;
+        }
+    }
+    @else if($size == md){
+        @media (min-width: 1330px) {
+            @content;
+        }
+    }
+    @else if($size == lg){
+        @media (min-width: 1500px) {
+            @content;
+        }
+    }
+    @else{
+        @media (min-width: $size) {
+            @content;
+        }
+    }
+}
+
+@mixin minw-sel($selector, $size-id){
+    @if($size-id == xs){
+        @media (min-width: 1px) {
+            #{$element} {
+                @content;
+            }
+        }
+    }
+    @else if($size-id == sm){
+        @media (min-width: 1024px) {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    @else if($size-id == md){
+        @media (min-width: 1330px) {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    @else if($size-id == lg){
+        @media (min-width: 1500px) {
+            #{$selector}{
+                @content;
+            }
+        }
+    }
+    @else{
+        @media (min-width: $size-id) {
+            #{$selector}{
+                @content;
+            }
+        }
+    }
+}

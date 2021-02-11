@@ -12,6 +12,7 @@
 body {
   background-color: #f6f6f6;
   font-family: "Fira Sans", sans-serif;
+  font-size: 16px;
 }
 
 a {
@@ -418,7 +419,7 @@ header {
   margin-left: -40px;
   margin-top: 0.3rem;
   background-color: transparent;
-  background-image: url(../image/common-header-search-icon.svg);
+  background-image: url(/image/catalog/icons/common-header-search-icon.svg);
   background-position: 50%;
   background-repeat: no-repeat;
   border: none;

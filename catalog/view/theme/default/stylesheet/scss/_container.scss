@@ -1,24 +1,20 @@
+@use 'media';
+
 @mixin container($element){
     #{$element} {
       width: 100vw;
       margin-left: auto;
       margin-right: auto;
     }
-    
-    @media (min-width: 1024px) {
-        #{$element} {
-          width: calc(1300px - 30vw);
-        }
+
+    @include media.minw-sel($element, sm){
+        width: calc(1300px - 30vw);
     }
-    @media (min-width: 1330px) {
-        #{$element} {
-            width: calc(1500px - 30vw);
-        }
+    @include media.minw-sel($element, md){
+        width: calc(1500px - 30vw);
     }
-    @media (min-width: 1500px) {
-        #{$element}{
-            width: 70vw;
-        }
+    @include media.minw-sel($element, lg){
+        width: 70vw;
     }
 }
 
