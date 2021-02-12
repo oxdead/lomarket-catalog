@@ -41,44 +41,44 @@ $(document).ready(function() {
 		$('#form-currency').submit();
 	});
 
-	// Language
-	$('#form-language .language-select').on('click', function(e) {
-		e.preventDefault();
-		$('#form-language input[name=\'code\']').val($(this).attr('name'));
+	// // Language
+	// $('#form-language .language-select').on('click', function(e) {
+	// 	e.preventDefault();
+	// 	$('#form-language input[name=\'code\']').val($(this).attr('name'));
 
-		$('#form-language').submit();
-	});
+	// 	$('#form-language').submit();
+	// });
 
-	/* Search */
-	$('#search input[name=\'search\']').parent().find('button').on('click', function() {
-		var url = $('base').attr('href') + 'index.php?route=product/search';
+	// /* Search */
+	// $('#search input[name=\'search\']').parent().find('button').on('click', function() {
+	// 	var url = $('base').attr('href') + 'index.php?route=product/search';
 
-		var value = $('header #search input[name=\'search\']').val();
+	// 	var value = $('header #search input[name=\'search\']').val();
 
-		if (value) {
-			url += '&search=' + encodeURIComponent(value);
-		}
+	// 	if (value) {
+	// 		url += '&search=' + encodeURIComponent(value);
+	// 	}
 
-		location = url;
-	});
+	// 	location = url;
+	// });
 
-	$('#search input[name=\'search\']').on('keydown', function(e) {
-		if (e.keyCode == 13) {
-			$('header #search input[name=\'search\']').parent().find('button').trigger('click');
-		}
-	});
+	// $('#search input[name=\'search\']').on('keydown', function(e) {
+	// 	if (e.keyCode == 13) {
+	// 		$('header #search input[name=\'search\']').parent().find('button').trigger('click');
+	// 	}
+	// });
 
-	// Menu
-	$('#menu .dropdown-menu').each(function() {
-		var menu = $('#menu').offset();
-		var dropdown = $(this).parent().offset();
+	// // Menu
+	// $('#menu .dropdown-menu').each(function() {
+	// 	var menu = $('#menu').offset();
+	// 	var dropdown = $(this).parent().offset();
 
-		var i = (dropdown.left + $(this).outerWidth()) - (menu.left + $('#menu').outerWidth());
+	// 	var i = (dropdown.left + $(this).outerWidth()) - (menu.left + $('#menu').outerWidth());
 
-		if (i > 0) {
-			$(this).css('margin-left', '-' + (i + 10) + 'px');
-		}
-	});
+	// 	if (i > 0) {
+	// 		$(this).css('margin-left', '-' + (i + 10) + 'px');
+	// 	}
+	// });
 
 	// Product List
 	$('#list-view').click(function() {
@@ -125,6 +125,10 @@ $(document).ready(function() {
 		}
 	});
 
+
+
+	///////////////////////////////////////////////////////////////
+	//NOT DONE!!!!!!!!!!!!!!!
 	// tooltips on hover
 	$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 
@@ -132,6 +136,9 @@ $(document).ready(function() {
 	$(document).ajaxStop(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
+	////////////////////////////////////////////////////////////////
+
+
 });
 
 // Cart add remove functions
@@ -301,33 +308,33 @@ var wishlist = {
 	}
 }
 
-var compare = {
-	'add': function(product_id) {
-		$.ajax({
-			url: 'index.php?route=product/compare/add',
-			type: 'post',
-			data: 'product_id=' + product_id,
-			dataType: 'json',
-			success: function(json) {
-				$('.alert-dismissible').remove();
+// var compare = {
+// 	'add': function(product_id) {
+// 		$.ajax({
+// 			url: 'index.php?route=product/compare/add',
+// 			type: 'post',
+// 			data: 'product_id=' + product_id,
+// 			dataType: 'json',
+// 			success: function(json) {
+// 				$('.alert-dismissible').remove();
 
-				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+// 				if (json['success']) {
+// 					$('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-					$('#compare-total').html(json['total']);
+// 					$('#compare-total').html(json['total']);
 
-					$('html, body').animate({ scrollTop: 0 }, 'slow');
-				}
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	},
-	'remove': function() {
+// 					$('html, body').animate({ scrollTop: 0 }, 'slow');
+// 				}
+// 			},
+// 			error: function(xhr, ajaxOptions, thrownError) {
+// 				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+// 			}
+// 		});
+// 	},
+// 	'remove': function() {
 
-	}
-}
+// 	}
+// }
 
 /* Agree to Terms */
 $(document).delegate('.agree', 'click', function(e) {

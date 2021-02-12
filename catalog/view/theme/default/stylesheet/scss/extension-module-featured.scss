@@ -1,0 +1,195 @@
+@use 'var';
+@use 'btn';
+
+h2.featured-center{
+    text-align: center;
+    margin: 1rem auto 0rem auto;
+}
+
+//overrides _htmlbody
+.row.featured-flex {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1rem 1rem 3rem 1rem;
+}
+
+
+.product-layout{
+    margin: 1rem 0rem;
+    padding: 1rem 1rem;
+    width: 22rem;
+    height: 30rem;
+    max-width: 22rem;
+    min-width: 22rem;
+}
+
+
+.product-thumb {
+    box-shadow: 0px 0px 2px 0px var.$color-lightblue;
+    background-color: var.$color-panel;
+	// margin-bottom: 20px;
+	// overflow: auto;
+    .image {
+        text-align: center;
+
+        a {
+            display: block;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+        
+        img {
+            margin: 0.5rem auto;
+        }
+    }
+    
+
+    
+    h4 {
+        font-weight: bold;
+        margin: 0.5rem 0rem;
+    }
+
+    .caption {
+        padding: 0rem 1rem;
+        min-height: 10rem;
+    
+    }
+
+
+    .price {
+        color: var.$color-darktext;
+        margin-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        
+        font-size: 1.2rem;
+    }
+    .price-new {
+        font-weight: 600;
+        //margin: 0.5rem 0rem;
+    }
+    .price-old {
+        color: var.$color-greytext;
+        text-decoration: line-through;
+        //margin: 0.5rem 0rem;
+    }
+    .price-tax {
+        color: var.$color-greytext;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        display: block;
+    }
+
+    .button-group {
+        padding: 1rem;
+        overflow: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        button {
+            //margin: 1rem 0rem;
+            @include btn.base(#0AB02A, var.$color-panel);
+            @include btn.hover(#068D20);
+            padding: 1.2rem 1rem 0.8rem 1rem;
+            display: inline-block;
+            border-bottom: 0.3rem solid #068D20;
+            
+            // float: left;
+            //line-height: 2rem;
+        }
+
+        #wishcomp{
+            color: var.$color-lightblue;
+            padding: 0rem;
+            background-color: transparent;
+            border-style: none;
+            outline-offset: 0.5rem;
+            @include btn.hover(null, var.$color-darkblue);
+
+        }
+        
+        // button + button {
+        //     width: 20%;
+        //     border-left: 1px solid #ddd;
+        // }
+        // button:hover {
+        //     color: #444;
+        //     background-color: #ddd;
+        //     text-decoration: none;
+        //     cursor: pointer;
+        // }
+        // @media (max-width: 1200px) {
+        //     button, button + button {
+        //         width: 33.33%;
+        //     }
+        // }
+        // @media (max-width: 767px) {
+        //     button, button + button {
+        //         width: 33.33%;
+        //     }
+        // }
+    }
+
+
+}
+// .product-grid .product-thumb .image {
+// 	float: none;
+// }
+// @media (min-width: 767px) {
+//     .product-list .product-thumb .image {
+//         float: left;
+//         padding: 0 15px;
+//     }
+// }
+// .product-list .product-thumb .caption {
+// 	margin-left: 230px;
+// }
+// @media (max-width: 1200px) {
+//     .product-grid .product-thumb .caption {
+//         min-height: 210px;
+//         padding: 0 10px;
+//     }
+// }
+// @media (max-width: 767px) {
+    // .product-list .product-thumb .caption {
+    //     min-height: 0;
+    //     margin-left: 0;
+    //     padding: 0 10px;
+    // }
+    // .product-grid .product-thumb .caption {
+    //     min-height: 0;
+    // }
+// }
+// .product-thumb .rating {
+// 	padding-bottom: 10px;
+// }
+// .rating .fa-stack {
+// 	font-size: 8px;
+// }
+// .rating .fa-star-o {
+// 	color: #999;
+// 	font-size: 15px;
+// }
+// .rating .fa-star {
+// 	color: #FC0;
+// 	font-size: 15px;
+// }
+// .rating .fa-star + .fa-star-o {
+// 	color: #E69500;
+// }
+// h2.price {
+// 	margin: 0;
+// }
+
+// .product-list .product-thumb .button-group {
+// 	border-left: 1px solid #ddd;
+// }
+// @media (max-width: 768px) {
+// 	.product-list .product-thumb .button-group {
+// 		border-left: none;
+// 	}
+// }

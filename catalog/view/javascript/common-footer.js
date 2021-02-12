@@ -1,4 +1,28 @@
-; function compareTagName(elm, wantedTagName) {
+; function getURLVar(key) {
+	var value = [];
+
+	var query = String(document.location).split('?');
+
+	if (query[1]) {
+		var part = query[1].split('&');
+
+		for (i = 0; i < part.length; i++) {
+			var data = part[i].split('=');
+
+			if (data[0] && data[1]) {
+				value[data[0]] = data[1];
+			}
+		}
+
+		if (value[key]) {
+			return value[key];
+		} else {
+			return '';
+		}
+	}
+}
+
+function compareTagName(elm, wantedTagName) {
     var elmTagName;
     if(!elm || !wantedTagName) { return false; }
     elmTagName = new String(elm.tagName);
@@ -154,6 +178,99 @@ function expandCallbackBlock(){
 }
 
 
+
+// function tooltipCloseButtonEvent(){
+//     const tipBtn = document.querySelector(".alert button.close");
+//     if(!tipBtn) { return null; }
+//     tipBtn.addEventListener("click", (e) => {
+//         e.stopPropagation();
+//         let alertTips = document.querySelectorAll('.alert-dismissible');
+//         alertTips.forEach(alertTip => alertTip.remove());
+//     });
+
+// }
+
+
+
+
+
+
+
+
+
+
+async function postJson(url = '', obj = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors', //*cors, same-origin, no-cors
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(obj) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+
+var compare = {
+	'addsep': function(product_id) {
+
+        postJson('index.php?route=product/compare/addsep', {product_id: product_id})
+        .then(data => {
+            let alertTips = document.querySelectorAll('.alert-dismissible');
+            alertTips.forEach(alertTip => alertTip.remove());
+            
+            if (data['success']) {
+                let contentElm = document.querySelector('#content');
+                if(contentElm) {
+                    contentElm.parentElement.insertAdjacentHTML('beforebegin', '<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + data['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+                let compareCountElm = document.querySelector('#compare-count');
+                if(compareCountElm){ compareCountElm.textContent = data['totalCount']; }
+                //$('#compare-total').html(data['total']);
+
+                let tooltip = document.querySelector('.alert');
+                if(!tooltip) { return null; }
+                tooltip.style.display = 'inline-block';
+                tooltip.style.zIndex = '25';
+                clearTimeout(this.timeHandle);
+                this.timeHandle = setTimeout(function() {
+                    let tooltip = document.querySelector('.alert');
+                    if(!tooltip) { return null; }
+                    tooltip.style.display = "none";
+                    tooltip.style.zIndex = "-1";
+                }, 4000);
+
+                //tooltip close button event
+                let tipBtn = findSiblingElement(tooltip.firstElementChild, "BUTTON");
+                if(!tipBtn) { return null; }
+                tipBtn.addEventListener("click", (e) => {
+                    let alertTips = document.querySelectorAll('.alert-dismissible');
+                    alertTips.forEach(alertTip => alertTip.remove());
+                });
+                
+            }
+        })
+        .catch(err => {
+            alert(err.message);
+        });
+	},
+	'remove': function() {
+
+	},
+    timeHandle: null,
+}
+
+
+
+
+
 function documentOnClick(){
     document.addEventListener('click', (e) => {
         const callbackIn = document.querySelector(".header-bottom .callback-wrap .callback-in");
@@ -168,6 +285,8 @@ function documentOnClick(){
 
 
 };
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

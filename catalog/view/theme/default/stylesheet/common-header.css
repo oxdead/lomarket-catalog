@@ -5,6 +5,40 @@
   padding: 0;
 }
 
+.alert {
+  position: fixed;
+  display: none;
+  max-width: 20rem;
+  top: 3rem;
+  right: 3rem;
+  padding: 1rem 2rem;
+  background-color: #aaa;
+  color: black;
+  line-height: 1.8rem;
+  box-shadow: 1px 3px 8px 0px #00000055;
+  z-index: -1;
+}
+.alert a {
+  padding: 0rem;
+  text-decoration: underline;
+}
+.alert button {
+  position: absolute;
+  background-color: black;
+  color: #aaa;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  border-style: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.alert button:hover {
+  filter: brightness(1.5);
+}
+
 .fas.fa-sign-in-alt {
   padding: 0.5rem;
 }
@@ -305,6 +339,7 @@ header {
   color: #aaa;
   padding: 0.5rem 0.5rem;
   border-style: none;
+  text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
@@ -334,6 +369,7 @@ header {
   color: white;
   padding: 0.5rem 0.5rem;
   border-style: none;
+  text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;

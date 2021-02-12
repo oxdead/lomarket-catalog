@@ -40,6 +40,7 @@ class ControllerCommonHeader extends Controller {
 		$route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];
 		if($route === 'common/home'){
 			$this->addHeaderStyle('common-menu.css');
+			$this->addHeaderStyle('extension-module-featured.css');
 		}
 		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];

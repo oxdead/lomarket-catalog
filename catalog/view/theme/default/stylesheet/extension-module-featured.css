@@ -1,0 +1,100 @@
+h2.featured-center {
+  text-align: center;
+  margin: 1rem auto 0rem auto;
+}
+
+.row.featured-flex {
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem 1rem 3rem 1rem;
+}
+
+.product-layout {
+  margin: 1rem 0rem;
+  padding: 1rem 1rem;
+  width: 22rem;
+  height: 30rem;
+  max-width: 22rem;
+  min-width: 22rem;
+}
+
+.product-thumb {
+  box-shadow: 0px 0px 2px 0px #93daf3;
+  background-color: white;
+}
+.product-thumb .image {
+  text-align: center;
+}
+.product-thumb .image a {
+  display: block;
+}
+.product-thumb .image a:hover {
+  opacity: 0.8;
+}
+.product-thumb .image img {
+  margin: 0.5rem auto;
+}
+.product-thumb h4 {
+  font-weight: bold;
+  margin: 0.5rem 0rem;
+}
+.product-thumb .caption {
+  padding: 0rem 1rem;
+  min-height: 10rem;
+}
+.product-thumb .price {
+  color: black;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.2rem;
+}
+.product-thumb .price-new {
+  font-weight: 600;
+}
+.product-thumb .price-old {
+  color: #aaa;
+  text-decoration: line-through;
+}
+.product-thumb .price-tax {
+  color: #aaa;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+.product-thumb .button-group {
+  padding: 1rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.product-thumb .button-group button {
+  background-color: #0AB02A;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  padding: 1.2rem 1rem 0.8rem 1rem;
+  display: inline-block;
+  border-bottom: 0.3rem solid #068D20;
+}
+.product-thumb .button-group button:hover {
+  background-color: #068D20;
+}
+.product-thumb .button-group #wishcomp {
+  color: #93daf3;
+  padding: 0rem;
+  background-color: transparent;
+  border-style: none;
+  outline-offset: 0.5rem;
+}
+.product-thumb .button-group #wishcomp:hover {
+  color: #10b1e8;
+}

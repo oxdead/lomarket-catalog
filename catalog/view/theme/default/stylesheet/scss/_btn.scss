@@ -1,8 +1,9 @@
-@mixin base($bg, $text) {
-    background-color: $bg;
-    color: $text;
+@mixin base($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
     padding: 0.5rem 0.5rem;
     border-style: none;
+    text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
@@ -17,9 +18,16 @@
     }
 }
 
-@mixin hover($bg-color, $text-color) {
+@mixin hover($bg-color: null, $text-color: null) {
     &:hover {
-        background-color: $bg-color;
-        color: $text-color;
+        @if($bg-color)
+        {
+            background-color: $bg-color;
+        }
+        
+        @if($text-color)
+        {
+            color: $text-color;
+        }
     }
 }

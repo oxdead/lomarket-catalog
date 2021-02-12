@@ -139,19 +139,19 @@ class ControllerProductCompare extends Controller {
 
 	public function add() {
 		$this->load->language('product/compare');
-
+		
 		$json = array();
-
+		
 		if (!isset($this->session->data['compare'])) {
 			$this->session->data['compare'] = array();
 		}
-
+		
 		if (isset($this->request->post['product_id'])) {
 			$product_id = $this->request->post['product_id'];
 		} else {
 			$product_id = 0;
 		}
-
+		
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
@@ -169,6 +169,63 @@ class ControllerProductCompare extends Controller {
 
 			$json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+
+	public function addsep() {
+
+
+
+		$this->load->language('product/compare');
+		
+		$json = array();
+		
+		if (!isset($this->session->data['compare'])) {
+			$this->session->data['compare'] = array();
+		}
+		
+
+		//header('Content-Type: application/json');
+		$postData = json_decode(file_get_contents("php://input"), true);
+
+		if (isset($postData) && isset($postData['product_id'])) {
+			$product_id = $postData['product_id'];
+		} else {
+			$product_id = 0;
+		}
+
+
+		$this->load->model('catalog/product');
+
+		$product_info = $this->model_catalog_product->getProduct($product_id);
+
+		if ($product_info) {
+			if (!in_array($postData['product_id'], $this->session->data['compare'])) {
+				if (count($this->session->data['compare']) >= 4) {
+					array_shift($this->session->data['compare']);
+				}
+
+				$this->session->data['compare'][] = $postData['product_id'];
+			}
+
+			$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id='.$postData['product_id']), $product_info['name'], $this->url->link('product/compare'));
+
+			$json['totalCount'] = sprintf('%s', (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
+			//$json['total'] = $this->language->get('text_compare');
+		}
+
+		// $bla = 'product_id=';
+		// $bla .= $product_id;
+		// $bla .= "\n";
+		// $bla .= "session_compare=";
+		// $bla .= serialize($this->session->data['compare']);
+		// $bla .= "\n";
+		// $bla .= "product_info=";
+		// $bla .= serialize($product_info);
+		// file_put_contents('serialized111.txt', $bla);
+
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));

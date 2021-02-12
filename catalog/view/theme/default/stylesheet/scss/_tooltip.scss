@@ -1,0 +1,38 @@
+@use 'var';
+
+.alert{
+    position:fixed;
+    display: none;
+    max-width: 20rem;
+    top: 3rem;
+    right: 3rem;
+    padding: 1rem 2rem;
+    background-color: var.$color-greytext;
+    color: var.$color-darktext;
+    line-height: 1.8rem;
+    box-shadow: 1px 3px 8px 0px #00000055;
+    z-index: -1;
+
+    a{
+        padding: 0rem;
+        text-decoration: underline;
+    }
+
+    button{
+        position: absolute;
+        background-color: var.$color-darktext;
+        color: var.$color-greytext;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        text-align: center;
+        border-style: none;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover{
+            filter:brightness(1.5);
+        }
+    }
+}
