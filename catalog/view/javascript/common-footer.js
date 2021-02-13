@@ -237,14 +237,98 @@ var tooltip = {
 }
 
 
+var cart = {
+	'add': function(product_id, quantity) {
+        postJson('index.php?route=checkout/cart/addsep', {
+            product_id: product_id,
+            quantity: (typeof(quantity) != 'undefined' ? quantity : 1),
+        })
+        .then(json => {
+            tooltip.removeall();
+
+            if (json['redirect']) { location = json['redirect']; }
+
+            if (json['success']) {
+                
+                // Need to set timeout otherwise it wont update the total
+                setTimeout(function () {
+                    let cartCountElm = document.querySelector('#cart-count');
+                    if(cartCountElm) { cartCountElm.textContent = json['cartCount']; }
+                }, 100);
+                
+                tooltip.insert(json['success']);
+                let tt = document.querySelector('.alert');
+                tooltip.autoclose(tt);
+                tooltip.regclose(tt);
+            }
+        })
+        .catch(err => { alert(err.message); });
+	},
+	'update': function(key, quantity) {
+        postJson('index.php?route=checkout/cart/editsep', {
+            key: key,
+            quantity: (typeof(quantity) != 'undefined' ? quantity : 1),
+        })
+        .then(json => {
+            // // Need to set timeout otherwise it wont update the total
+            setTimeout(function () {
+                let cartCountElm = document.querySelector('#cart-count');
+                if(cartCountElm) { cartCountElm.textContent = json['cartCount']; } // ??? cartCount desn't exist in checkout/cart/edit
+            }, 100);
+
+            if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+                location = 'index.php?route=checkout/cart';
+            }
+        })
+        .catch(err => { alert(err.message); });
+	},
+	'remove': function(key) {
+        postJson('index.php?route=checkout/cart/removesep', {
+            key: key
+        })
+        .then(json => {
+            // // Need to set timeout otherwise it wont update the total
+            setTimeout(function () {
+                let cartCountElm = document.querySelector('#cart-count');
+                if(cartCountElm) { cartCountElm.textContent = json['cartCount']; }
+            }, 100);
+
+            if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+                location = 'index.php?route=checkout/cart';
+            }
+        })
+        .catch(err => { alert(err.message); });
+	}
+}
+
+
+var voucher = {
+	'add': function() { },
+	'remove': function(key) {
+        postJson('index.php?route=checkout/cart/removesep', {
+            key: key
+        })
+        .then(json => {
+            // // Need to set timeout otherwise it wont update the total
+            setTimeout(function () {
+                let cartCountElm = document.querySelector('#cart-count');
+                if(cartCountElm) { cartCountElm.textContent = json['cartCount']; }
+            }, 100);
+
+            if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+                location = 'index.php?route=checkout/cart';
+            }
+        })
+        .catch(err => { alert(err.message); });
+	}
+}
+
+
 var wishlist = {
-	'addsep': function(product_id) {
+	'add': function(product_id) {
         postJson('index.php?route=account/wishlist/addsep', {product_id: product_id})
         .then(json => {
             tooltip.removeall();
-            
-            
-
             if (json['redirect']) { location = json['redirect']; }
 
             if (json['success']) {
@@ -266,7 +350,7 @@ var wishlist = {
 
 
 var compare = {
-	'addsep': function(product_id) {
+	'add': function(product_id) {
 
         postJson('index.php?route=product/compare/addsep', {product_id: product_id})
         .then(json => {

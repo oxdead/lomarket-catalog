@@ -49,7 +49,6 @@ class ControllerCommonHeader extends Controller {
 		// 	$this->document->addStyle('catalog/view/theme/default/stylesheet/'.$css_file);
 		// }
 		
-
 		$data['title'] = $this->document->getTitle();
 
 		$data['base'] = $server;

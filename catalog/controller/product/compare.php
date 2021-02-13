@@ -176,8 +176,6 @@ class ControllerProductCompare extends Controller {
 
 	public function addsep() {
 		
-		
-		
 		$this->load->language('product/compare');
 		
 		$json = array();
