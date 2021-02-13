@@ -39,7 +39,7 @@
   filter: brightness(1.5);
 }
 
-.fas.fa-sign-in-alt {
+.fas.fa-sign-in-alt, .fa.fa-user {
   padding: 0.5rem;
 }
 

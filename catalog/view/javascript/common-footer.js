@@ -178,27 +178,6 @@ function expandCallbackBlock(){
 }
 
 
-
-// function tooltipCloseButtonEvent(){
-//     const tipBtn = document.querySelector(".alert button.close");
-//     if(!tipBtn) { return null; }
-//     tipBtn.addEventListener("click", (e) => {
-//         e.stopPropagation();
-//         let alertTips = document.querySelectorAll('.alert-dismissible');
-//         alertTips.forEach(alertTip => alertTip.remove());
-//     });
-
-// }
-
-
-
-
-
-
-
-
-
-
 async function postJson(url = '', obj = {}) {
     const response = await fetch(url, {
         method: 'POST',
@@ -216,55 +195,100 @@ async function postJson(url = '', obj = {}) {
 }
 
 
+var tooltip = {
+    autoclose: function(tt = null){
+        if(!tt) { tt = document.querySelector(this.selector); }
+        if(!tt) { return null; }
+        tt.style.display = 'inline-block';
+        tt.style.zIndex = '25';
+        clearTimeout(this.hTime);
+        this.hTime = setTimeout(function() {
+            // let tt = document.querySelector('.alert');
+            // if(!tt) { return null; }
+            tt.style.display = "none";
+            tt.style.zIndex = "-1";
+        }, 6000);
+    },
+    removeall: function() {
+        let alertTips = document.querySelectorAll('.alert-dismissible');
+        alertTips.forEach(alertTip => alertTip.remove());
+    },
+    insert: function(textOnSuccess = '') {
+        let contentElm = document.querySelector(this.pos_before);
+        if(!contentElm) { return null; }
+        contentElm.parentElement.insertAdjacentHTML('beforebegin', 
+            '<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' 
+            + (textOnSuccess ? textOnSuccess : '') 
+            + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>'
+        );
+    },
+    regclose: function(tt = null){
+        if(!tt) { tt = document.querySelector(this.selector); }
+        if(!tt) { return null; }
+        let tipBtn = findSiblingElement(tt.firstElementChild, "BUTTON");
+        if(!tipBtn) { return null; }
+        tipBtn.addEventListener("click", (e) => {
+            this.removeall();
+        });
+    },
+    selector: '.alert',
+    pos_before: '#content',
+    hTime: null,
+}
+
+
+var wishlist = {
+	'addsep': function(product_id) {
+        postJson('index.php?route=account/wishlist/addsep', {product_id: product_id})
+        .then(json => {
+            tooltip.removeall();
+            
+            
+
+            if (json['redirect']) { location = json['redirect']; }
+
+            if (json['success']) {
+                let wishlistCountElm = document.querySelector('#wishlist-count');
+                if(wishlistCountElm) { wishlistCountElm.textContent = json['wishlistCount']; }
+                //$('#wishlist-total span').html(json['total']);
+				//$('#wishlist-total').attr('title', json['total']);
+                
+                tooltip.insert(json['success']);
+                let tt = document.querySelector('.alert');
+                tooltip.autoclose(tt);
+                tooltip.regclose(tt);
+            }
+        })
+        .catch(err => { alert(err.message); });
+	},
+	'remove': function() { },
+}
+
 
 var compare = {
 	'addsep': function(product_id) {
 
         postJson('index.php?route=product/compare/addsep', {product_id: product_id})
-        .then(data => {
-            let alertTips = document.querySelectorAll('.alert-dismissible');
-            alertTips.forEach(alertTip => alertTip.remove());
+        .then(json => {
+
+            console.log(json);
+
+            tooltip.removeall();
             
-            if (data['success']) {
-                let contentElm = document.querySelector('#content');
-                if(contentElm) {
-                    contentElm.parentElement.insertAdjacentHTML('beforebegin', '<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + data['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-                }
-
+            if (json['success']) {
                 let compareCountElm = document.querySelector('#compare-count');
-                if(compareCountElm){ compareCountElm.textContent = data['totalCount']; }
-                //$('#compare-total').html(data['total']);
-
-                let tooltip = document.querySelector('.alert');
-                if(!tooltip) { return null; }
-                tooltip.style.display = 'inline-block';
-                tooltip.style.zIndex = '25';
-                clearTimeout(this.timeHandle);
-                this.timeHandle = setTimeout(function() {
-                    let tooltip = document.querySelector('.alert');
-                    if(!tooltip) { return null; }
-                    tooltip.style.display = "none";
-                    tooltip.style.zIndex = "-1";
-                }, 4000);
-
-                //tooltip close button event
-                let tipBtn = findSiblingElement(tooltip.firstElementChild, "BUTTON");
-                if(!tipBtn) { return null; }
-                tipBtn.addEventListener("click", (e) => {
-                    let alertTips = document.querySelectorAll('.alert-dismissible');
-                    alertTips.forEach(alertTip => alertTip.remove());
-                });
+                if(compareCountElm){ compareCountElm.textContent = json['compareCount']; }
+                //$('#compare-total').html(json['total']);
                 
+                tooltip.insert(json['success']);
+                let tt = document.querySelector('.alert');
+                tooltip.autoclose(tt);
+                tooltip.regclose(tt);
             }
         })
-        .catch(err => {
-            alert(err.message);
-        });
+        .catch(err => { alert(err.message); });
 	},
-	'remove': function() {
-
-	},
-    timeHandle: null,
+	'remove': function() { },
 }
 
 
@@ -285,8 +309,6 @@ function documentOnClick(){
 
 
 };
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {

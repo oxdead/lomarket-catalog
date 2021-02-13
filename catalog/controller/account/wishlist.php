@@ -156,4 +156,53 @@ class ControllerAccountWishList extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+	public function addsep() {
+		$this->load->language('account/wishlist');
+
+		$json = array();
+
+		//header('Content-Type: application/json');
+		$rawPost = json_decode(file_get_contents("php://input"), true);
+		$pid = '0';
+		
+		if (isset($rawPost) && isset($rawPost['product_id'])) {
+			$product_id = $rawPost['product_id'];
+			$pid = $rawPost['product_id'];
+		} else {
+			$product_id = 0;
+		}
+
+		$this->load->model('catalog/product');
+
+		$product_info = $this->model_catalog_product->getProduct($product_id);
+
+		if ($product_info) {
+			if ($this->customer->isLogged()) {
+				// Edit customers cart
+				$this->load->model('account/wishlist');
+
+				$this->model_account_wishlist->addWishlist($pid);
+
+				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . (int)$pid), $product_info['name'], $this->url->link('account/wishlist'));
+				$json['wishlistCount'] = sprintf('%s', $this->model_account_wishlist->getTotalWishlist());
+				//$json['total'] = sprintf($this->language->get('text_wishlist'), $this->model_account_wishlist->getTotalWishlist());
+			} else {
+				if (!isset($this->session->data['wishlist'])) {
+					$this->session->data['wishlist'] = array();
+				}
+
+				$this->session->data['wishlist'][] = $pid;
+
+				$this->session->data['wishlist'] = array_unique($this->session->data['wishlist']);
+
+				$json['success'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true), $this->url->link('product/product', 'product_id=' . (int)$pid), $product_info['name'], $this->url->link('account/wishlist'));
+				$json['wishlistCount'] = sprintf('%s', (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+				//$json['total'] = sprintf($this->language->get('text_wishlist'), (isset($this->session->data['wishlist']) ? count($this->session->data['wishlist']) : 0));
+			}
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
 }

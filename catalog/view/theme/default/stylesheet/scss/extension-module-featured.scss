@@ -6,7 +6,7 @@ h2.featured-center{
     margin: 1rem auto 0rem auto;
 }
 
-//overrides _htmlbody
+//row is declared in _htmlbody
 .row.featured-flex {
     flex-wrap: wrap;
     flex-direction: row;
@@ -45,7 +45,6 @@ h2.featured-center{
         }
     }
     
-
     
     h4 {
         font-weight: bold;
@@ -111,27 +110,7 @@ h2.featured-center{
             @include btn.hover(null, var.$color-darkblue);
 
         }
-        
-        // button + button {
-        //     width: 20%;
-        //     border-left: 1px solid #ddd;
-        // }
-        // button:hover {
-        //     color: #444;
-        //     background-color: #ddd;
-        //     text-decoration: none;
-        //     cursor: pointer;
-        // }
-        // @media (max-width: 1200px) {
-        //     button, button + button {
-        //         width: 33.33%;
-        //     }
-        // }
-        // @media (max-width: 767px) {
-        //     button, button + button {
-        //         width: 33.33%;
-        //     }
-        // }
+
     }
 
 

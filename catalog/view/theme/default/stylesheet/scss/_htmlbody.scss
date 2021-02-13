@@ -5,24 +5,16 @@
 
 
 
-.fas.fa-sign-in-alt {
+.fas.fa-sign-in-alt, .fa.fa-user {
   padding: 0.5rem;
 }
 
-
-
-// html,
-// body {
-//   height: 100%; // for footer
-// }
 
 body {
   background-color: var.$color-bg;
   font-family: "Fira Sans", sans-serif;
   font-size: 16px;
   //font-family: 'Poppins', sans-serif;
-  // display: flex; // for footer
-  // flex-direction: column; // for footer
 }
 
 a {
