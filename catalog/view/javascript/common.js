@@ -23,23 +23,23 @@
 // }
 
 $(document).ready(function() {
-	// Highlight any found errors
-	$('.text-danger').each(function() {
-		var element = $(this).parent().parent();
+	// // Highlight any found errors
+	// $('.text-danger').each(function() {
+	// 	var element = $(this).parent().parent();
 
-		if (element.hasClass('form-group')) {
-			element.addClass('has-error');
-		}
-	});
+	// 	if (element.hasClass('form-group')) {
+	// 		element.addClass('has-error');
+	// 	}
+	// });
 
-	// Currency
-	$('#form-currency .currency-select').on('click', function(e) {
-		e.preventDefault();
+	// // Currency
+	// $('#form-currency .currency-select').on('click', function(e) {
+	// 	e.preventDefault();
 
-		$('#form-currency input[name=\'code\']').val($(this).attr('name'));
+	// 	$('#form-currency input[name=\'code\']').val($(this).attr('name'));
 
-		$('#form-currency').submit();
-	});
+	// 	$('#form-currency').submit();
+	// });
 
 	// // Language
 	// $('#form-language .language-select').on('click', function(e) {

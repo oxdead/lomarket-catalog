@@ -22,6 +22,22 @@
 	}
 }
 
+async function postJson(url = '', obj = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'cors', //*cors, same-origin, no-cors
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(obj) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
 function compareTagName(elm, wantedTagName) {
     var elmTagName;
     if(!elm || !wantedTagName) { return false; }
@@ -178,22 +194,46 @@ function expandCallbackBlock(){
 }
 
 
-async function postJson(url = '', obj = {}) {
-    const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors', //*cors, same-origin, no-cors
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(obj) // body data type must match "Content-Type" header
+
+// Highlight any found errors
+function highlightPwnedElements(){
+    let pwnedElements = document.querySelectorAll('.text-danger');
+    pwnedElements.forEach((pwnedElement) => {
+        var element = pwnedElement.parentElement.parentElement;
+        if (element.classList.contains('form-group')) {
+            element.classList.add('has-error');
+        }
     });
-    return response.json(); // parses JSON response into native JavaScript objects
+
 }
 
+
+// Currency
+function switchCurrency(){
+    let currencyEntries = document.querySelectorAll('#form-currency .currency-select');
+    if(!currencyEntries) { return null; }
+    currencyEntries.forEach(currencyEntry => {
+        currencyEntry.addEventListener('click', function(e) {
+            e.preventDefault();
+            const currencyInput = document.querySelector('#form-currency input[name=\'code\']');
+            if(!currencyInput) { return null; }
+            currencyInput.setAttribute('value', e.currentTarget.getAttribute('name'));
+            document.querySelector('#form-currency').submit();
+        });
+    });
+}
+
+
+// ///////////////////////////////////////////////////////////////
+// //NOT DONE!!!!!!!!!!!!!!!
+// // tooltips on hover
+// $('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
+
+// // Makes tooltips work on ajax generated content
+// $(document).ajaxStop(function() {
+// 	$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
+// });
+// ////////////////////////////////////////////////////////////////
 
 var tooltip = {
     autoclose: function(tt = null){
@@ -354,9 +394,6 @@ var compare = {
 
         postJson('index.php?route=product/compare/addsep', {product_id: product_id})
         .then(json => {
-
-            console.log(json);
-
             tooltip.removeall();
             
             if (json['success']) {
@@ -402,5 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     switchMainMenu();
     searchBar();
     expandCallbackBlock();
+    highlightPwnedElements();
+    switchCurrency();
 });
 

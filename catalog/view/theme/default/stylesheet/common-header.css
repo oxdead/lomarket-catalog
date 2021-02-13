@@ -212,6 +212,32 @@ footer .row-center p, footer .row-center a {
     margin-right: 0.5rem;
   }
 }
+.breadcrumb {
+  padding: 0.5rem 0rem;
+  border-bottom: 1px solid #eee;
+}
+.breadcrumb i {
+  font-size: 1rem;
+}
+.breadcrumb > li {
+  padding: 0 1rem;
+  position: relative;
+  display: inline;
+  white-space: nowrap;
+}
+.breadcrumb > li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.3rem;
+  right: -0.3rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
+  transform: rotate(-45deg);
+}
+
 header {
   background-color: white;
   color: black;
