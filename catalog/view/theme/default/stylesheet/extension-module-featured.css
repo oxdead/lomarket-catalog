@@ -79,8 +79,9 @@ h2.featured-center {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  cursor: pointer;
+  outline: none;
   transition: background-color 0.5s ease;
+  cursor: pointer;
   padding: 1.2rem 1rem 0.8rem 1rem;
   display: inline-block;
   border-bottom: 0.3rem solid #068D20;
@@ -97,4 +98,7 @@ h2.featured-center {
 }
 .product-thumb .button-group #wishcomp:hover {
   color: #10b1e8;
+}
+.product-thumb .button-group #wishcomp:focus {
+  outline: auto;
 }

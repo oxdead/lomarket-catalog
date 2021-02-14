@@ -100,7 +100,7 @@ h2.featured-center{
             // float: left;
             //line-height: 2rem;
         }
-
+        
         #wishcomp{
             color: var.$color-lightblue;
             padding: 0rem;
@@ -108,6 +108,10 @@ h2.featured-center{
             border-style: none;
             outline-offset: 0.5rem;
             @include btn.hover(null, var.$color-darkblue);
+
+            &:focus{
+                outline:auto;
+            }
 
         }
 

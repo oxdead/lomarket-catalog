@@ -1,0 +1,17 @@
+@use 'var';
+
+
+@mixin base(){
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var.$color-lightfill;
+    color: var.$color-greytext;
+    border: none;
+    outline: none;
+    transition: all 0.5s ease-out;
+  
+    &:focus{
+        font-size: 1.1rem;
+    }
+}

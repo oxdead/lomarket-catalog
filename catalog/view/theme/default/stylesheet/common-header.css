@@ -26,6 +26,7 @@
   position: absolute;
   background-color: black;
   color: #aaa;
+  padding: 0;
   top: 0.5rem;
   right: 0.5rem;
   width: 1.2rem;
@@ -36,6 +37,8 @@
   cursor: pointer;
 }
 .alert button:hover {
+  background-color: black;
+  color: #aaa;
   filter: brightness(1.5);
 }
 
@@ -60,6 +63,42 @@ a:hover {
 
 li {
   list-style: none;
+}
+
+h1 {
+  margin: 1rem;
+  text-align: center;
+}
+
+button {
+  background-color: #93daf3;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #10b1e8;
+  color: white;
+}
+
+input {
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #eee;
+  color: #aaa;
+  border: none;
+  outline: none;
+  transition: all 0.5s ease-out;
+}
+input:focus {
+  font-size: 1.1rem;
 }
 
 .container {
@@ -129,6 +168,9 @@ footer {
 footer .footer-behav {
   display: none;
   flex-direction: column;
+}
+footer h1 {
+  margin: initial;
 }
 footer h2, footer h3, footer h4, footer h5 {
   padding: 0.5rem 1rem 0.5rem 0rem;
@@ -236,6 +278,192 @@ footer .row-center p, footer .row-center a {
   border-right: 0.1rem solid black;
   border-bottom: 0.1rem solid black;
   transform: rotate(-45deg);
+}
+
+table {
+  width: 100%;
+  margin: 1rem;
+  table-layout: auto;
+  border-collapse: separate;
+  border-spacing: 0rem;
+  background-color: transparent;
+}
+table tr {
+  background-color: transparent;
+}
+table td {
+  background-color: white;
+  box-shadow: 4px 0px 4px 0px #93daf3;
+  border-bottom: 1px solid #93daf3;
+}
+table tbody tr:last-child td {
+  border-bottom-width: 5px;
+}
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 16px;
+}
+table input {
+  width: 3rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0rem 0.5rem;
+}
+
+td {
+  font-weight: normal;
+  padding: 1.5rem;
+  text-align: center;
+}
+td span.table-phone {
+  display: none;
+}
+
+thead tr td {
+  font-weight: bold;
+}
+
+@media (max-width: 1023px) {
+  table {
+    max-width: 30rem;
+    margin: 1rem auto;
+    border-spacing: 0rem;
+  }
+  table thead, table th {
+    display: none;
+  }
+  table tr {
+    display: flex;
+    flex-direction: column;
+  }
+  table td {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: none;
+    box-shadow: 1px 1px 4px 0px #93daf3;
+  }
+  table td a {
+    width: 100%;
+  }
+  table td a img {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  table td span.table-phone {
+    width: 7rem;
+    display: inline-block;
+    font-weight: bold;
+    text-align: right;
+  }
+  table td span.table-phone::after {
+    content: ": ";
+    padding-right: 1rem;
+  }
+  table td:last-child {
+    margin-bottom: 3rem;
+    border-bottom-right-radius: 16px;
+  }
+  table tbody tr:last-child td:first-child {
+    border-bottom-width: 1px;
+    box-shadow: 1px 1px 4px 0px #93daf3;
+  }
+}
+#checkout-cart table td:nth-child(2) {
+  white-space: normal;
+  overflow: visible;
+}
+#checkout-cart table td:nth-child(4) {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+@media (max-width: 1023px) {
+  #checkout-cart table td:first-child {
+    margin-bottom: 0.5rem !important;
+  }
+}
+.panel-group {
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px #93daf3;
+  border-bottom: 5px solid #93daf3;
+  border-bottom-right-radius: 16px;
+  padding: 1rem;
+  line-height: 2rem;
+}
+.panel-group h4 {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 1rem 0rem 1rem;
+}
+.panel-group input {
+  height: 3rem;
+  margin: 1rem 0rem;
+}
+.panel-group button {
+  height: 3rem;
+  margin: 1rem 0rem;
+  padding: 0.5rem;
+  width: 12rem;
+}
+.panel-group .panel.panel-default {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.panel-group .input-group #input-coupon {
+  width: calc(100% - 13.5rem);
+}
+.panel-group .input-group #input-voucher {
+  display: block;
+  width: 100%;
+}
+.panel-group .input-group #button-coupon, .panel-group .input-group #button-voucher {
+  background-color: #93daf3;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 0.5rem;
+}
+.panel-group .input-group #button-coupon:hover, .panel-group .input-group #button-voucher:hover {
+  background-color: #10b1e8;
+}
+.panel-group .input-group #button-coupon {
+  width: 12rem;
+}
+.panel-group .input-group #button-voucher {
+  display: block;
+  width: 20rem;
+  margin: 1rem 0rem;
+}
+.panel-group .form-group select {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  height: 3rem;
+  margin: 0.5rem 0rem 1rem 0rem;
+  background-image: linear-gradient(to bottom, white, #eee);
+  background-repeat: no-repeat;
+  color: #aaa;
+  border: none;
+  outline: none;
+  box-shadow: 1px 1px 3px 0px #93daf3;
+  width: 100%;
+}
+.panel-group .form-group select:focus {
+  font-size: 1.1rem;
+}
+.panel-group .form-group #input-postcode {
+  width: 12rem;
 }
 
 header {
@@ -368,8 +596,9 @@ header {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  cursor: pointer;
+  outline: none;
   transition: background-color 0.5s ease;
+  cursor: pointer;
   height: 100%;
 }
 .header-top #form-language .lang .lang-btn.active {
@@ -391,23 +620,9 @@ header {
 }
 .header-bottom .main-menu-btn {
   position: relative;
-  background-color: #93daf3;
-  color: white;
-  padding: 0.5rem 0.5rem;
-  border-style: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
   width: 14rem;
   height: 2.6rem;
   margin-left: 1rem;
-  outline: none;
-}
-.header-bottom .main-menu-btn:hover {
-  background-color: #10b1e8;
-  color: white;
 }
 .header-bottom .main-menu-btn.active > .burger {
   transform: rotate(360deg);
@@ -459,19 +674,9 @@ header {
 }
 .header-bottom #search .main-search-input {
   margin: 0.3rem 0rem;
-  background-color: aqua;
-  padding-left: 1rem;
   padding-right: 2rem;
-  background-color: #eee;
-  color: #aaa;
   height: 2.6rem;
   width: 100%;
-  border: none;
-  outline: none;
-  transition: all 0.5s ease-out;
-}
-.header-bottom #search .main-search-input:focus {
-  font-size: 1.1rem;
 }
 .header-bottom #search .main-search-submit {
   position: absolute;
@@ -553,6 +758,7 @@ header {
   position: relative;
   width: 4rem;
   height: 100%;
+  top: 0.2rem;
   margin-top: 1rem;
   margin-right: 1rem;
 }
@@ -605,8 +811,5 @@ header {
   }
   header .header-bottom .header-wrapbox {
     display: inline-block;
-  }
-  header .header-bottom .cart {
-    margin-top: 1rem;
   }
 }

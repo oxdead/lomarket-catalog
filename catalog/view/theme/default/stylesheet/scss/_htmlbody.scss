@@ -1,4 +1,6 @@
 @use 'var';
+@use 'btn';
+@use 'input';
 @use 'container';
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -30,6 +32,19 @@ li {
   list-style: none;
 }
 
+h1{
+  margin: 1rem;
+  text-align: center;
+}
+
+button{
+  @include btn.base(var.$color-lightblue, var.$color-panel);
+  @include btn.hover(var.$color-darkblue, var.$color-panel);
+}
+
+input{
+  @include input.base();
+}
 
 
 @include container.container('.container');

@@ -1,0 +1,51 @@
+@use 'var';
+@mixin bg($round-corner: bottom-right, $table: null){
+    @if($table)
+    {
+        background-color: transparent;
+
+        tr{
+            background-color: transparent;
+        }
+        
+        td{
+            background-color: var.$color-panel;
+            
+            //box-shadow: 0px 0px 4px 0px var.$color-lightblue;
+            box-shadow: 4px 0px 4px 0px var.$color-lightblue;
+            border-bottom: 1px solid var.$color-lightblue;
+        }
+
+
+
+        tbody tr:last-child td{
+            border-bottom-width: 5px;
+        }
+        
+        @if($round-corner == bottom-right or $round-corner == bottom-left-right){
+            tbody tr:last-child td:last-child{
+                border-bottom-right-radius: 16px;
+            }
+        }
+
+        @if($round-corner == bottom-left or $round-corner == bottom-left-right){
+            tbody tr:last-child td:first-child{
+                border-bottom-left-radius: 16px;
+            }
+        }
+    }
+    @else
+    {
+        background-color: var.$color-panel;
+        box-shadow: 0px 0px 4px 0px var.$color-lightblue;
+        border-bottom: 5px solid var.$color-lightblue;
+
+        @if($round-corner == bottom-right or $round-corner == bottom-left-right){
+            border-bottom-right-radius: 16px;
+        }
+
+        @if($round-corner == bottom-left or $round-corner == bottom-left-right){
+            border-bottom-left-radius: 16px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 @use 'var';
+@use 'panel';
 @use 'swiperopencart';
 
 #menu {
@@ -6,14 +7,11 @@
     height: 30rem;
 	min-height: 8rem;
     margin: 2rem 2rem 20rem 1.4rem;
-    background-color: var.$color-panel;
+    @include panel.bg(bottom-right);
 	background-image: linear-gradient(to bottom, var.$color-panel, var.$color-lightfill);
     background-repeat: repeat-x;
-    border-bottom-right-radius: 16px;
-    border-bottom: 5px solid var.$color-lightblue;
     display: none;
     &.open{
-        box-shadow: 0px 0px 4px 0px var.$color-lightblue;
         display:block;
     }
 

@@ -1,6 +1,7 @@
 @use 'var';
 @use 'media';
 @use 'container';
+@use 'panel';
 
 @include container.container(".mnss");
 @include container.footerfix(".mnss");
@@ -27,12 +28,8 @@
         height: 24rem;
         min-width: 28rem;
         max-width: 41.4rem;
-        background-color: var.$color-panel;
         z-index: 1;
-        border-bottom: 5px solid var.$color-lightblue;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        box-shadow: 0 0 4px 0px var.$color-lightblue;
+        @include panel.bg(bottom-left-right);
     }
 
     #menu.open{

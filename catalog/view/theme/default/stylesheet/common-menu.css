@@ -45,12 +45,12 @@
   height: 24rem;
   min-width: 28rem;
   max-width: 41.4rem;
-  background-color: white;
   z-index: 1;
+  background-color: white;
+  box-shadow: 0px 0px 4px 0px #93daf3;
   border-bottom: 5px solid #93daf3;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  box-shadow: 0 0 4px 0px #93daf3;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 .mnss #menu.open + .lmrkt-swiper-viewport {
   margin-left: 1rem;
@@ -208,14 +208,14 @@
   min-height: 8rem;
   margin: 2rem 2rem 20rem 1.4rem;
   background-color: white;
+  box-shadow: 0px 0px 4px 0px #93daf3;
+  border-bottom: 5px solid #93daf3;
+  border-bottom-right-radius: 16px;
   background-image: linear-gradient(to bottom, white, #eee);
   background-repeat: repeat-x;
-  border-bottom-right-radius: 16px;
-  border-bottom: 5px solid #93daf3;
   display: none;
 }
 #menu.open {
-  box-shadow: 0px 0px 4px 0px #93daf3;
   display: block;
 }
 #menu .nav {

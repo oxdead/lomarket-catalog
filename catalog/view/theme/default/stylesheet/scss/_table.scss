@@ -1,0 +1,134 @@
+@use 'var';
+@use 'panel';
+@use 'media';
+
+table{
+    width: 100%;
+    margin: 1rem;
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 0rem;
+    @include panel.bg(bottom-right, table);
+
+
+    input{
+        width: 3rem;
+        height: 2rem;
+        margin: 0;
+        padding: 0rem 0.5rem;
+    }
+
+}
+
+
+td{
+    font-weight: normal;
+    padding: 1.5rem;
+    text-align: center;
+
+    span.table-phone{
+        display: none;
+    }
+}
+
+
+
+thead tr td{
+    font-weight: bold;
+}
+
+
+@include media.maxw(xs){
+    table{
+        max-width: 30rem;
+        margin: 1rem auto;
+        border-spacing: 0rem;
+    
+
+        thead, th {
+            display:none;
+        }
+
+        tr{
+            display: flex;
+            flex-direction: column;
+        }
+
+        td{
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            //text-align: left;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            //justify-content: center;
+            border-bottom: none;
+            box-shadow: 1px 1px 4px 0px var.$color-lightblue;
+            
+            a{
+                width: 100%;
+                img{
+                    
+                    position:relative;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    
+                }
+            }
+            
+            
+            
+            span.table-phone{
+                width: 7rem;
+                display: inline-block;
+                font-weight: bold;
+                text-align: right;
+                &::after{
+                    content: '\003A\0020';
+                    padding-right: 1rem;
+                }
+            }
+
+        
+            &:last-child{
+                margin-bottom: 3rem;
+                border-bottom-right-radius: 16px;
+            }
+        }
+
+        tbody tr:last-child td:first-child{
+            border-bottom-width: 1px;
+            box-shadow: 1px 1px 4px 0px var.$color-lightblue;
+        }
+    }
+
+
+}
+
+
+
+
+#checkout-cart{
+    table{
+        td:nth-child(2){
+            white-space: normal;
+            overflow: visible;
+        }
+        td:nth-child(4){
+            white-space: nowrap;
+            overflow: visible;
+        }
+    }
+}
+@include media.maxw(xs){
+    #checkout-cart{
+        table{
+            td:first-child{
+                margin-bottom: 0.5rem !important;
+            }
+        }
+    }
+}

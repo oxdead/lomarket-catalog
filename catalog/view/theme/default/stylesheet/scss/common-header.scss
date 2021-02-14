@@ -6,7 +6,11 @@
 @use 'menu';
 @use 'htmlbody';
 @use 'footer';
+
+//checkout/cart
 @use 'breadcrumb';
+@use 'table';
+@use 'panel-group';
 
 
 header {
@@ -58,13 +62,10 @@ header {
 
         .main-menu-btn {
             position: relative;
-            @include btn.base(var.$color-lightblue, var.$color-panel);
-            @include btn.hover(var.$color-darkblue, var.$color-panel);
             width: 14rem;
             height: 2.6rem;
             margin-left: 1rem;
-            outline: none;
-        
+                   
         
             &.active > .burger {
                 transform: rotate(360deg);
@@ -117,7 +118,6 @@ header {
         }
 
 
-
         #search{
             width: calc(100% - 22rem);
             height: 3.2rem;
@@ -125,20 +125,19 @@ header {
         
             .main-search-input {
                 margin: 0.3rem 0rem;
-                background-color: aqua;
-                padding-left: 1rem;
+                //padding-left: 1rem;
                 padding-right: 2rem;
-                background-color: var.$color-lightfill;
-                color: var.$color-greytext;
+                //background-color: var.$color-lightfill;
+                //color: var.$color-greytext;
                 height: 2.6rem;
                 width: 100%;
-                border: none;
-                outline: none;
-                transition: all 0.5s ease-out;
+                //border: none;
+                //outline: none;
+                //transition: all 0.5s ease-out;
             
-                &:focus{
-                    font-size: 1.1rem;
-                }
+                // &:focus{
+                //     font-size: 1.1rem;
+                // }
             
             }
             
@@ -237,6 +236,7 @@ header {
             position: relative;
             width: 4rem;
             height: 100%;
+            top: 0.2rem;
 
             
             margin-top: 1rem;
@@ -303,10 +303,6 @@ header {
         
             .header-wrapbox {
                 display: inline-block;
-            }
-
-            .cart{
-                margin-top: 1rem;
             }
             
         }

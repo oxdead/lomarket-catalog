@@ -6,8 +6,9 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    cursor: pointer;
+    outline: none;
     transition: background-color 0.5s ease;
+    cursor: pointer;
 }
 
 @mixin active($bg-color, $text-color, $cursor-type) {

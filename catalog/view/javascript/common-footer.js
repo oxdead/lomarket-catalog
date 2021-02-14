@@ -242,15 +242,15 @@ var tooltip = {
         tt.style.display = 'inline-block';
         tt.style.zIndex = '25';
         clearTimeout(this.hTime);
-        this.hTime = setTimeout(function() {
-            // let tt = document.querySelector('.alert');
-            // if(!tt) { return null; }
+        this.hTime = setTimeout(function(elmname) {
+            let tt = document.querySelector(elmname);
+            if(!tt) { return null; }
             tt.style.display = "none";
             tt.style.zIndex = "-1";
-        }, 6000);
+        }, 6000, this.selector);
     },
     removeall: function() {
-        let alertTips = document.querySelectorAll('.alert-dismissible');
+        let alertTips = document.querySelectorAll(this.selector);
         alertTips.forEach(alertTip => alertTip.remove());
     },
     insert: function(textOnSuccess = '') {
@@ -271,9 +271,9 @@ var tooltip = {
             this.removeall();
         });
     },
-    selector: '.alert',
+    selector: '.alert-dismissible',
     pos_before: '#content',
-    hTime: null,
+    hTime: null
 }
 
 
