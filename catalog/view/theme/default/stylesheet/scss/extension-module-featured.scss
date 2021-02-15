@@ -91,11 +91,11 @@ h2.featured-center{
         justify-content: space-around;
         button {
             //margin: 1rem 0rem;
-            @include btn.base(#0AB02A, var.$color-panel);
-            @include btn.hover(#068D20);
+            @include btn.base(var.$color-green, var.$color-panel);
+            @include btn.hover(var.$color-darkgreen);
             padding: 1.2rem 1rem 0.8rem 1rem;
             display: inline-block;
-            border-bottom: 0.3rem solid #068D20;
+            border-bottom: 0.3rem solid var.$color-darkgreen;
             
             // float: left;
             //line-height: 2rem;

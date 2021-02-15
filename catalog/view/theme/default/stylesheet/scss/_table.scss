@@ -127,8 +127,42 @@ thead tr td{
     #checkout-cart{
         table{
             td:first-child{
-                margin-bottom: 0.5rem !important;
+                margin-bottom: 0.5rem;
             }
         }
+
+
+
     }
+}
+
+
+
+table#table-cart-total{
+
+    margin-bottom: 3rem;
+
+    tr{
+        flex-direction: row;
+    }
+
+    td{
+        height: 4rem;
+        margin: 0rem 0rem;
+        box-shadow: 2px 2px 2px 0px var.$color-lightblue;
+    }
+
+    td:first-child{
+        margin: 0;
+    }
+
+    tr:last-child{
+        margin: 0;
+    }
+
+    tr:first-child td:last-child{
+        border-bottom-width: 1px;
+        border-radius: 0px;
+    }
+
 }

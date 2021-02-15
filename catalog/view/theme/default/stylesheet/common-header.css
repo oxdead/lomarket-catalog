@@ -384,9 +384,31 @@ thead tr td {
 
 @media (max-width: 1023px) {
   #checkout-cart table td:first-child {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem;
   }
 }
+table#table-cart-total {
+  margin-bottom: 3rem;
+}
+table#table-cart-total tr {
+  flex-direction: row;
+}
+table#table-cart-total td {
+  height: 4rem;
+  margin: 0rem 0rem;
+  box-shadow: 2px 2px 2px 0px #93daf3;
+}
+table#table-cart-total td:first-child {
+  margin: 0;
+}
+table#table-cart-total tr:last-child {
+  margin: 0;
+}
+table#table-cart-total tr:first-child td:last-child {
+  border-bottom-width: 1px;
+  border-radius: 0px;
+}
+
 .panel-group {
   background-color: white;
   box-shadow: 0px 0px 4px 0px #93daf3;
@@ -464,6 +486,79 @@ thead tr td {
 }
 .panel-group .form-group #input-postcode {
   width: 12rem;
+}
+
+.buttons.clearfix {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.buttons.clearfix .pull-left {
+  height: 3rem;
+  margin: 1rem 1rem 1rem 0rem;
+}
+.buttons.clearfix .pull-left a {
+  position: relative;
+  height: 100%;
+  padding: 1.2rem 1rem 0.8rem 2rem;
+  background-color: #aaa;
+  border-bottom: 0.3rem solid #888;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  color: white;
+}
+.buttons.clearfix .pull-left a:hover {
+  background-color: #888;
+}
+.buttons.clearfix .pull-left a::before {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  left: 1rem;
+  top: 44%;
+  display: block;
+  border-bottom: 0.2rem solid white;
+  border-left: 0.2rem solid white;
+  transform: rotate(45deg);
+}
+.buttons.clearfix .pull-right {
+  height: 3rem;
+  margin: 1rem 0rem 1rem 1rem;
+}
+.buttons.clearfix .pull-right a {
+  position: relative;
+  height: 100%;
+  padding: 1.2rem 2rem 0.8rem 1rem;
+  background-color: #0AB02A;
+  border-bottom: 0.3rem solid #068D20;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  color: white;
+}
+.buttons.clearfix .pull-right a:hover {
+  background-color: #068D20;
+}
+.buttons.clearfix .pull-right a::before {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  right: 1rem;
+  top: 44%;
+  display: block;
+  border-bottom: 0.2rem solid white;
+  border-left: 0.2rem solid white;
+  transform: rotate(-135deg);
 }
 
 header {
