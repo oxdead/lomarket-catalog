@@ -6,6 +6,7 @@
 @use 'menu';
 @use 'htmlbody';
 @use 'footer';
+@use 'media';
 
 //checkout/cart
 @use 'breadcrumb';
@@ -275,7 +276,7 @@ header {
 }
 
 
-@media (min-width: 1330px) {
+@include media.md(){
     header{
         height: 6.4rem;
         .header-top{

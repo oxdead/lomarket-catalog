@@ -1,6 +1,7 @@
 @use 'var';
 @use 'panel';
 @use 'swiperopencart';
+@use 'media';
 
 #menu {
     width: 14rem;
@@ -76,12 +77,12 @@
     }
 }
 
-@media (min-width: 768px) {
+@include media.minw(768px) {
 	#menu .dropdown:hover .dropdown-menu {
 		display: block;
 	}
 }
-@media (max-width: 767px) {
+@include media.maxw(767px) {
 	#menu {
         
         div.dropdown-inner > ul.list-unstyled {
@@ -112,7 +113,7 @@
         }
 	}
 }
-@media (min-width: 1330px) {
+@include media.md() {
 	#menu {
 		margin-left: 0.4rem;
 	}

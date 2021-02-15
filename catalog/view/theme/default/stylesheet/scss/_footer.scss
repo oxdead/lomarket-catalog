@@ -2,6 +2,7 @@
 @use 'flex';
 @use 'htmlbody';
 @use 'container';
+@use 'media';
 
 
 ////////////////////////////////// footer fix to stay at the bottom
@@ -110,7 +111,7 @@ footer{
 
 }
 
-@media (min-width: 768px) {
+@include media.minw(768px) {
     footer {
         .footer-behav {
             display:flex;
@@ -118,7 +119,7 @@ footer{
         }
     }
 }
-@media (min-width: 1150px) {
+@include media.minw(1150px) {
     footer {
         .footer-behav {
             display:flex;

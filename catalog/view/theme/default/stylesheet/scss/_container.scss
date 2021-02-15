@@ -7,13 +7,13 @@
       margin-right: auto;
     }
 
-    @include media.minw-sel($element, sm){
+    @include media.sm-sel($element){
         width: calc(1300px - 30vw);
     }
-    @include media.minw-sel($element, md){
+    @include media.md-sel($element){
         width: calc(1500px - 30vw);
     }
-    @include media.minw-sel($element, lg){
+    @include media.lg-sel($element){
         width: 70vw;
     }
 }

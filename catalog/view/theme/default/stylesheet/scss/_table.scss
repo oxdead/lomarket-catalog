@@ -1,15 +1,33 @@
 @use 'var';
-@use 'panel';
 @use 'media';
 
 table{
+    background-color: transparent;
     width: 100%;
-    margin: 1rem;
+    margin: 1rem 1rem;
     table-layout: auto;
     border-collapse: separate;
     border-spacing: 0rem;
-    @include panel.bg(bottom-right, table);
+    
+    tr{
+        background-color: transparent;
+    }
+    
+    td{
+        background-color: var.$color-panel;
+        box-shadow: 0px 0px 4px 0px var.$color-lightblue;
+        font-weight: normal;
+        padding: 1.5rem;
+        text-align: center;
+    
+        span.table-phone{
+            display: none;
+        }
+    }
 
+    thead tr td{
+        font-weight: bold;
+    }
 
     input{
         width: 3rem;
@@ -20,31 +38,8 @@ table{
 
 }
 
-
-td{
-    font-weight: normal;
-    padding: 1.5rem;
-    text-align: center;
-
-    span.table-phone{
-        display: none;
-    }
-}
-
-
-
-thead tr td{
-    font-weight: bold;
-}
-
-
-@include media.maxw(xs){
+@include media.xs(){
     table{
-        max-width: 30rem;
-        margin: 1rem auto;
-        border-spacing: 0rem;
-    
-
         thead, th {
             display:none;
         }
@@ -56,15 +51,10 @@ thead tr td{
 
         td{
             width: 100%;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            //text-align: left;
             display: flex;
             flex-direction: row;
             align-items: center;
-            //justify-content: center;
             border-bottom: none;
-            box-shadow: 1px 1px 4px 0px var.$color-lightblue;
             
             a{
                 width: 100%;
@@ -79,10 +69,9 @@ thead tr td{
                 }
             }
             
-            
-            
             span.table-phone{
                 width: 7rem;
+                min-width: 7rem;
                 display: inline-block;
                 font-weight: bold;
                 text-align: right;
@@ -95,74 +84,79 @@ thead tr td{
         
             &:last-child{
                 margin-bottom: 3rem;
-                border-bottom-right-radius: 16px;
+                border-bottom: 5px solid var.$color-lightblue;
             }
         }
+    }
+}
+@include media.sm(){
+    table{
+        box-shadow: 0 0 4px 0 var.$color-lightblue;
 
-        tbody tr:last-child td:first-child{
-            border-bottom-width: 1px;
-            box-shadow: 1px 1px 4px 0px var.$color-lightblue;
+        tr:last-child td{
+            border-bottom: 5px solid var.$color-lightblue;
+            
+        }
+
+        td{
+            box-shadow: none;
         }
     }
-
-
 }
-
 
 
 
 #checkout-cart{
     table{
-        td:nth-child(2){
-            white-space: normal;
-            overflow: visible;
-        }
         td:nth-child(4){
             white-space: nowrap;
             overflow: visible;
         }
     }
 }
-@include media.maxw(xs){
+
+@include media.xs(){
     #checkout-cart{
         table{
             td:first-child{
                 margin-bottom: 0.5rem;
+                box-shadow: 0 0 4px 0 var.$color-lightblue;
             }
         }
-
-
-
     }
 }
+
 
 
 
 table#table-cart-total{
 
     margin-bottom: 3rem;
-
+    box-shadow: 0 0 4px 0 var.$color-lightblue;
+    
     tr{
         flex-direction: row;
     }
-
+    
     td{
         height: 4rem;
         margin: 0rem 0rem;
-        box-shadow: 2px 2px 2px 0px var.$color-lightblue;
+        box-shadow: none;
+        border: none;
     }
 
+    
     td:first-child{
         margin: 0;
+        box-shadow: none;
+        
     }
-
-    tr:last-child{
-        margin: 0;
+    
+    td:last-child{
+        box-shadow: none;
     }
-
-    tr:first-child td:last-child{
-        border-bottom-width: 1px;
-        border-radius: 0px;
+    
+    tr:last-child td{
+        border-bottom: 5px solid var.$color-lightblue;
     }
-
 }

@@ -3,12 +3,15 @@
 @use 'btn';
 @use 'input';
 @use 'select';
+@use 'media';
 // replacement for unneeded accordion
 
 .panel-group{
     @include panel.bg(bottom-right);
     padding: 1rem;
+    margin: 1rem;
     line-height: 2rem;
+    width: 100%;
 
     h4{
         width: 100%;
@@ -70,6 +73,7 @@
         select{
             @include select.base();
             width: 100%;
+            max-width: 24rem;
 
         }
     
@@ -81,4 +85,16 @@
 
 }
 
+
+@include media.sm(){
+    .panel-group{
+        margin-left: 1rem;
+
+        .form-group, .input-group, .panel-body{
+            margin: 0rem auto;
+            width: 30rem;
+            max-width: 30rem;
+        }
+    }
+}
 
