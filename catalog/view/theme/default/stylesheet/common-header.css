@@ -176,6 +176,9 @@ footer .footer-behav {
 footer h1 {
   margin: initial;
 }
+footer .col-28per {
+  min-width: 20rem;
+}
 footer h2, footer h3, footer h4, footer h5 {
   padding: 0.5rem 1rem 0.5rem 0rem;
   font-weight: 700;

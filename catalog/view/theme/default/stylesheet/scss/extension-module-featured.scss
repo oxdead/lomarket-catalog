@@ -16,18 +16,23 @@ h2.featured-center{
 
 
 .product-layout{
-    margin: 1rem 0rem;
-    padding: 1rem 1rem;
+    margin: 1rem;
     width: 22rem;
-    height: 30rem;
     max-width: 22rem;
     min-width: 22rem;
+    height: 31rem;
+    min-height: 31rem;
 }
 
 
 .product-thumb {
+    width: 100%;
+    height: 100%;
     box-shadow: 0px 0px 2px 0px var.$color-lightblue;
     background-color: var.$color-panel;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 	// margin-bottom: 20px;
 	// overflow: auto;
     .image {
@@ -49,6 +54,17 @@ h2.featured-center{
     h4 {
         font-weight: bold;
         margin: 0.5rem 0rem;
+    }
+
+    p{
+        margin: 0;
+        display: inline-block;
+        height: 3.6rem;
+        max-height: 3.6rem;
+        line-height: 1.2rem;
+        word-wrap:break-word;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .caption {
@@ -83,14 +99,16 @@ h2.featured-center{
     }
 
     .button-group {
+        height: 6rem;
         padding: 1rem;
         overflow: auto;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+        
         button {
-            //margin: 1rem 0rem;
+            margin: 0rem;
             @include btn.base(var.$color-green, var.$color-panel);
             @include btn.hover(var.$color-darkgreen);
             padding: 1.2rem 1rem 0.8rem 1rem;
@@ -116,9 +134,8 @@ h2.featured-center{
         }
 
     }
-
-
 }
+
 // .product-grid .product-thumb .image {
 // 	float: none;
 // }

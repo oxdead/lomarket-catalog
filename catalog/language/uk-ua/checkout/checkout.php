@@ -4,13 +4,13 @@ $_['heading_title'] = 'Оформлення замовлення';
 
 // Text
 $_['text_cart'] = 'Кошик для покупок';
-$_['text_checkout_option'] = 'Крок %s: Спосіб оформлення замовлення';
-$_['text_checkout_account'] = 'Крок %s: Профіль &amp; Платіжна інформація';
-$_['text_checkout_payment_address'] = 'Крок %s: Платіжна інформація';
-$_['text_checkout_shipping_address'] = 'Крок %s: Адреса доставки';
-$_['text_checkout_shipping_method'] = 'Крок %s: Спосіб доставки';
-$_['text_checkout_payment_method'] = 'Крок %s: Спосіб оплати';
-$_['text_checkout_confirm'] = 'Крок 6: Підтвердження замовлення';
+$_['text_checkout_option'] = 'Спосіб оформлення замовлення';
+$_['text_checkout_account'] = 'Профіль &amp; Платіжна інформація';
+$_['text_checkout_payment_address'] = 'Платіжна інформація';
+$_['text_checkout_shipping_address'] = 'Адреса доставки';
+$_['text_checkout_shipping_method'] = 'Спосіб доставки';
+$_['text_checkout_payment_method'] = 'Спосіб оплати';
+$_['text_checkout_confirm'] = 'Підтвердження замовлення';
 $_['text_modify'] = 'Змінити &raquo;';
 $_['text_new_customer'] = 'Новий покупець';
 $_['text_returning_customer'] = 'Зареєстрований користувач';

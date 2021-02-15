@@ -4,13 +4,13 @@ $_['heading_title']                  = 'Оформление заказа';
 
 // Text
 $_['text_cart']                      = 'Корзина';
-$_['text_checkout_option']           = 'Шаг %s: Варианты оформления заказа';
-$_['text_checkout_account']          = 'Шаг %s: Учетная запись и Детали оплаты';
-$_['text_checkout_payment_address']  = 'Шаг %s: Детали оплаты';
-$_['text_checkout_shipping_address'] = 'Шаг %s: Детали доставки';
-$_['text_checkout_shipping_method']  = 'Шаг %s: Варианты доставки';
-$_['text_checkout_payment_method']   = 'Шаг %s: Варианты оплаты';
-$_['text_checkout_confirm']          = 'Шаг %s: Подтверждение заказа';
+$_['text_checkout_option']           = 'Варианты оформления заказа';
+$_['text_checkout_account']          = 'Учетная запись и Детали оплаты';
+$_['text_checkout_payment_address']  = 'Детали оплаты';
+$_['text_checkout_shipping_address'] = 'Детали доставки';
+$_['text_checkout_shipping_method']  = 'Варианты доставки';
+$_['text_checkout_payment_method']   = 'Варианты оплаты';
+$_['text_checkout_confirm']          = 'Подтверждение заказа';
 $_['text_modify']                    = 'Изменять &raquo;';
 $_['text_new_customer']              = 'Новый покупатель';
 $_['text_returning_customer']        = 'Постоянный покупатель';
