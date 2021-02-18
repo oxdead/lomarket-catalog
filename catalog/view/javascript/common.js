@@ -338,7 +338,10 @@ $(document).ready(function() {
 
 /* Agree to Terms */
 $(document).delegate('.agree', 'click', function(e) {
+	var element1 = this;
+	console.log($(element1).attr('href'));
 	e.preventDefault();
+	
 
 	$('#modal-agree').remove();
 

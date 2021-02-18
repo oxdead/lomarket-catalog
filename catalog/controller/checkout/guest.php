@@ -153,18 +153,22 @@ class ControllerCheckoutGuest extends Controller {
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			$json['redirect'] = $this->url->link('checkout/cart');
+			
 		}
-
+		
 		// Check if guest checkout is available.
 		if (!$this->config->get('config_checkout_guest') || $this->config->get('config_customer_price') || $this->cart->hasDownload()) {
 			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			
+			
 		}
-
+		
 		if (!$json) {
+
 			if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
 				$json['error']['firstname'] = $this->language->get('error_firstname');
 			}
-
+			
 			if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
 				$json['error']['lastname'] = $this->language->get('error_lastname');
 			}
@@ -202,6 +206,7 @@ class ControllerCheckoutGuest extends Controller {
 				$json['error']['zone'] = $this->language->get('error_zone');
 			}
 
+
 			// Customer Group
 			if (isset($this->request->post['customer_group_id']) && is_array($this->config->get('config_customer_group_display')) && in_array($this->request->post['customer_group_id'], $this->config->get('config_customer_group_display'))) {
 				$customer_group_id = $this->request->post['customer_group_id'];
@@ -230,6 +235,8 @@ class ControllerCheckoutGuest extends Controller {
 					$json['error']['captcha'] = $captcha;
 				}
 			}
+
+			
 		}
 
 		if (!$json) {
@@ -340,6 +347,7 @@ class ControllerCheckoutGuest extends Controller {
 			unset($this->session->data['payment_method']);
 			unset($this->session->data['payment_methods']);
 		}
+
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));

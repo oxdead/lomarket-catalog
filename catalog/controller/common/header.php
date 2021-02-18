@@ -42,9 +42,9 @@ class ControllerCommonHeader extends Controller {
 			$this->addHeaderStyle('common-menu.css');
 			$this->addHeaderStyle('extension-module-featured.css');
 		}
-		// else if($route === 'checkout/cart'){
-		// 	$this->addHeaderStyle('checkout-cart.css');
-		// }
+		else if($route === 'checkout/checkout'){
+		 	$this->addHeaderStyle('checkout-checkout.css');
+		}
 		
 		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];

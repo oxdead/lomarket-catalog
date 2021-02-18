@@ -1,0 +1,118 @@
+@charset "UTF-8";
+fieldset {
+  border-style: solid;
+  border-color: #eee;
+  border-width: 1px 0 0 0;
+  margin-inline-start: 0rem;
+  margin-inline-end: 0rem;
+  width: 100%;
+}
+
+legend {
+  padding: 0rem 1rem 0rem 0rem;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-style: oblique;
+}
+
+.col-sm-6 {
+  margin: 0;
+}
+
+#checkout-checkout #content {
+  margin: 0;
+  padding: 0;
+}
+#checkout-checkout .panel-body .row {
+  display: flex;
+  flex-direction: column;
+}
+#checkout-checkout .form-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#checkout-checkout label {
+  width: 10rem;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+#checkout-checkout input, #checkout-checkout select {
+  width: calc(100% - 7rem);
+  max-width: 30rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+#checkout-checkout input[type=checkbox] {
+  position: relative;
+  top: calc(1.5rem*0.25);
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  box-shadow: none;
+}
+#checkout-checkout input[type=checkbox]::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+}
+#checkout-checkout input[type=checkbox]:checked::after {
+  content: "✔";
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: #10b1e8;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+#checkout-checkout input[type=checkbox]:disabled {
+  opacity: 0.3;
+}
+#checkout-checkout input[type=checkbox]:hover::after {
+  background-color: #93daf3;
+}
+#checkout-checkout input[type=radio] {
+  position: relative;
+  top: calc(1.5rem*0.25);
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+#checkout-checkout input[type=radio]::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border: 2px solid #93daf3;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+  border-radius: 50%;
+  box-shadow: inset 0 0 4px 2px #93daf3;
+}
+#checkout-checkout input[type=radio]:checked::after {
+  content: u "U0001F518";
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-image: radial-gradient(circle farthest-side at 50% 50%, #93daf3, #10b1e8, #10b1e8);
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+#checkout-checkout input[type=radio]:disabled {
+  opacity: 0.3;
+}
+#checkout-checkout input[type=radio]:hover::after {
+  background-image: radial-gradient(circle, #10b1e8, #93daf3, #93daf3);
+}
+#checkout-checkout input[type=radio]:hover:checked::after {
+  background-image: radial-gradient(circle farthest-side at 60% 40%, #93daf3, #10b1e8, #10b1e8);
+}

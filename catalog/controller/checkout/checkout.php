@@ -112,6 +112,17 @@ class ControllerCheckoutCheckout extends Controller {
 			);
 		}
 
+
+		if (isset($this->session->data['payment_address']['zone_id'])) {
+			$json['zone_id'] = $this->session->data['payment_address']['zone_id'];
+		} elseif (isset($this->session->data['shipping_address']['zone_id'])) {
+			$json['zone_id'] = $this->session->data['shipping_address']['zone_id'];
+		} else {
+			$json['zone_id'] = '';
+		}
+
+
+
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}

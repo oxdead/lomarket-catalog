@@ -7,9 +7,9 @@
 @use 'htmlbody';
 @use 'footer';
 @use 'media';
+@use 'breadcrumb';
 
 //checkout/cart
-@use 'breadcrumb';
 @use 'table';
 @use 'panel-group';
 @use 'btn-back-forward';
