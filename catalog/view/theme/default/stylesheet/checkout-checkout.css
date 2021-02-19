@@ -15,13 +15,14 @@ legend {
   font-style: oblique;
 }
 
-.col-sm-6 {
-  margin: 0;
+#checkout-checkout #content .panel-group .panel:first-child {
+  display: none;
 }
-
-#checkout-checkout #content {
-  margin: 0;
-  padding: 0;
+#checkout-checkout #button-guest,
+#checkout-checkout #button-guest-shipping,
+#checkout-checkout #button-shipping-method,
+#checkout-checkout #button-payment-method {
+  display: none;
 }
 #checkout-checkout .panel-body .row {
   display: flex;
@@ -34,6 +35,42 @@ legend {
   justify-content: space-between;
   align-items: center;
 }
+#checkout-checkout textarea {
+  padding: 0.5rem 1rem;
+  line-height: 1.1rem;
+  border: none;
+  box-shadow: inset 1px 1px 5px 0px #aaa;
+  border-radius: 3px;
+  width: 100%;
+  min-width: 7rem;
+  min-height: 5rem;
+  resize: none;
+  outline: none;
+}
+#checkout-checkout textarea:focus {
+  outline: 1px solid #93daf3;
+  outline-offset: -2px;
+}
+#checkout-checkout table {
+  margin-left: 0rem;
+}
+#checkout-checkout input[type=submit] {
+  width: 20rem;
+  margin-left: 0;
+  padding: 1rem;
+  background-color: #0AB02A;
+  border-bottom: 0.3rem solid #068D20;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  color: white;
+}
+#checkout-checkout input[type=submit]:hover {
+  background-color: #068D20;
+}
 #checkout-checkout label {
   width: 10rem;
   text-align: right;
@@ -42,9 +79,12 @@ legend {
 }
 #checkout-checkout input, #checkout-checkout select {
   width: calc(100% - 7rem);
-  max-width: 30rem;
+  max-width: 35rem;
   margin-right: 1rem;
   margin-left: 1rem;
+}
+#checkout-checkout input[type=button].btn.btn-primary {
+  width: 12rem;
 }
 #checkout-checkout input[type=checkbox] {
   position: relative;
@@ -115,4 +155,19 @@ legend {
 }
 #checkout-checkout input[type=radio]:hover:checked::after {
   background-image: radial-gradient(circle farthest-side at 60% 40%, #93daf3, #10b1e8, #10b1e8);
+}
+#checkout-checkout .col-sm-6 {
+  margin: 0;
+}
+#checkout-checkout .col-sm-10 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0;
+  width: calc(100% - 7rem);
+  max-width: 35rem;
+}
+#checkout-checkout .col-sm-10 input, #checkout-checkout .col-sm-10 select {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }

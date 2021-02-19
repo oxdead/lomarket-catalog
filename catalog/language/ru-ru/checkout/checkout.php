@@ -23,7 +23,7 @@ $_['text_forgotten']                 = 'Восстановить пароль';
 $_['text_your_details']              = 'Ваши персональные данные';
 $_['text_your_address']              = 'Ваш адрес';
 $_['text_your_password']             = 'Ваш пароль';
-$_['text_agree']                     = 'Я прочитал и согласен с <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_agree']                     = 'Я прочитал и согласен с <a href="%s" class="agree"><b>%s</b><i class="fa fa-handshake-o" aria-hidden="true"></i></a>';
 $_['text_address_new']               = 'Я хочу использовать новый адрес';
 $_['text_address_existing']          = 'Я хочу использовать существующий адрес';
 $_['text_shipping_method']           = 'Пожалуйста, выберите предпочтительный способ доставки для этого заказа.';
@@ -39,6 +39,8 @@ $_['text_week']                      = 'неделя';
 $_['text_semi_month']                = 'полмесяца';
 $_['text_month']                     = 'месяц';
 $_['text_year']                      = 'год';
+
+$_['text_checkout_submit']           = 'Принять';
 
 // Column
 $_['column_name']                    = 'Наименование товара';

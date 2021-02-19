@@ -19,24 +19,31 @@ legend{
     font-style: oblique;
 }
 
-.col-sm-6{
-    margin: 0;
-}
+
 
 #checkout-checkout{
     
-    #content {
-        margin: 0;
-        padding: 0;
-
-
-
+    #content .panel-group .panel:first-child {
+        display:none;
     }
+    
+    #button-guest, 
+    #button-guest-shipping,
+    #button-shipping-method,
+    #button-payment-method{
+        display: none;
+    }
+
+
+
 
     .panel-body .row{
         display:flex;
         flex-direction: column;
     }
+
+
+
 
 
     .form-group{
@@ -47,21 +54,66 @@ legend{
         align-items: center;
     }
 
+    textarea{
+        padding: 0.5rem 1rem;
+        line-height: 1.1rem;
+        border: none;
+        box-shadow: inset 1px 1px 5px 0px var.$color-greytext;
+        border-radius: 3px;
+        width: 100%;
+        min-width: 7rem;
+        min-height: 5rem;
+        resize:none;
+        outline: none;
+        &:focus{
+            outline: 1px solid var.$color-lightblue;
+            outline-offset: -2px;
+            
+        }
+    }
+
+    table{
+        margin-left: 0rem;
+    }
+    
+    input[type=submit]{
+        width: 20rem;
+        margin-left: 0;
+        padding: 1rem;
+        background-color: var.$color-green;
+        border-bottom: 0.3rem solid var.$color-darkgreen;
+        text-transform: uppercase;
+        font-weight: bold;
+        outline: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        color: var.$color-panel;
+        
+        &:hover{
+            background-color: var.$color-darkgreen;
+        }
+    }
+
     label{
         width: 10rem;
         text-align: right;
         padding: 0;
         margin: 0;
-
+        
     }
-
+    
     input, select{
         width: calc(100% - 7rem);
-        max-width: 30rem;
+        max-width: 35rem;
         margin-right: 1rem;
         margin-left: 1rem;
     }
     
+    input[type=button].btn.btn-primary{
+        width: 12rem;
+    }
+
     input[type=checkbox]{
         position: relative;
         top: calc(1.5rem*0.25);
@@ -155,6 +207,25 @@ legend{
             &::after{
                 background-image: radial-gradient(circle farthest-side at 60% 40%, var.$color-lightblue, var.$color-darkblue, var.$color-darkblue);
             }
+        }
+    }
+
+
+    .col-sm-6{
+        margin: 0;
+    }
+    
+    .col-sm-10{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding: 0;
+        width: calc(100% - 7rem);
+        max-width: 35rem;
+
+        input, select{
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
         }
     }
 

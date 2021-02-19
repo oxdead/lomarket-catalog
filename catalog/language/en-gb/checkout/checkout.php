@@ -23,7 +23,7 @@ $_['text_forgotten']                 = 'Forgotten Password';
 $_['text_your_details']              = 'Your Personal Details';
 $_['text_your_address']              = 'Your Address';
 $_['text_your_password']             = 'Your Password';
-$_['text_agree']                     = 'I have read and agree to the <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_agree']                     = 'I have read and agree to the <a href="%s" class="agree"><b>%s</b><i class="fa fa-handshake-o" aria-hidden="true"></i></a>';
 $_['text_address_new']               = 'I want to use a new address';
 $_['text_address_existing']          = 'I want to use an existing address';
 $_['text_shipping_method']           = 'Please select the preferred shipping method to use on this order.';
@@ -39,6 +39,8 @@ $_['text_week']                      = 'week';
 $_['text_semi_month']                = 'half-month';
 $_['text_month']                     = 'month';
 $_['text_year']                      = 'year';
+
+$_['text_checkout_submit']           = 'Submit';
 
 // Column
 $_['column_name']                    = 'Product Name';

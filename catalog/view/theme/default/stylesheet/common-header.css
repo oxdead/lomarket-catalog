@@ -42,7 +42,7 @@
   filter: brightness(1.5);
 }
 
-.fas.fa-sign-in-alt, .fa.fa-user {
+.fas.fa-sign-in-alt, .fa.fa-user, .fa.fa-handshake-o {
   padding: 0.5rem;
 }
 
