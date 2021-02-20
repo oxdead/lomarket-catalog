@@ -1,6 +1,7 @@
 @use 'var';
 @use 'btn';
 @use 'input';
+@use 'select';
 @use 'container';
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
@@ -31,9 +32,17 @@ li {
   list-style: none;
 }
 
-h1{
+h1, h2{
   margin: 1rem;
   text-align: center;
+}
+
+hr {
+  height: 1px;
+  margin: 1rem 0rem;
+  border-width: 0;
+  border-style: none;
+  background-color: var.$color-lightfill;
 }
 
 p{
@@ -49,6 +58,12 @@ input{
   @include input.base();
 }
 
+
+select{
+  @include select.base();
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
 
 @include container.container('.container');
 

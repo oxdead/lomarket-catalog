@@ -1,0 +1,64 @@
+@use 'var';
+@use 'panel';
+
+//todo for grid
+// .row {
+//     flex-wrap: wrap;
+//     flex-direction: row;
+//     justify-content: space-evenly;
+//     padding: 1rem 1rem 3rem 1rem;
+// }
+
+#content {
+    > .row:nth-child(2) {
+        @include panel.bg(bottom-right);
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    > .row:nth-child(4) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin: 1rem 0;
+
+        > div:nth-child(1){
+            margin: 0.5rem 1rem;
+        }
+
+        > div:nth-child(2){
+            display:none;
+        }
+
+        select#input-sort{
+            width: 14rem;
+            margin: 0.5rem 0 0.5rem 1rem;
+        }
+
+        select#input-limit{
+            width: 4rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            margin: 0.5rem 0 0.5rem 1rem;
+        }
+
+        label.input-group-addon[for=input-limit], label.input-group-addon[for=input-sort]{
+            display: none;
+        }
+    }
+
+    > .row:nth-child(5){
+        flex-wrap: wrap;
+    }
+
+    > .row:nth-child(6){
+        padding: 1rem 1rem 2rem 1rem;
+    }
+
+}
+
+

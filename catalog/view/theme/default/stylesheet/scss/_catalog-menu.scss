@@ -1,0 +1,30 @@
+@use 'var';
+@use 'panel';
+
+
+
+.list-group{
+	width: 14rem;
+	height: 30rem;
+	min-height: 8rem;
+	margin: 1rem 1rem 1rem 1.4rem;
+	@include panel.bg(bottom-right);
+	background-image: linear-gradient(to bottom, var.$color-panel, var.$color-lightfill);
+	background-repeat: repeat-x;
+	display: block;
+	padding: 1rem;
+	
+	a.list-group-item {
+		display: block;
+		width: 100%;
+		margin-bottom: 0.5rem;
+		border-bottom: 1px solid var.$color-lightfill;
+		transition: border-bottom 0.5s ease-in;
+		&:hover, &.open{
+			border-bottom-color: var.$color-darkblue;
+			color: var.$color-darkblue;
+		}
+	}
+
+
+}

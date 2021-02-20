@@ -22,7 +22,7 @@
 // 	}
 // }
 
-$(document).ready(function() {
+// $(document).ready(function() {
 	// // Highlight any found errors
 	// $('.text-danger').each(function() {
 	// 	var element = $(this).parent().parent();
@@ -80,51 +80,54 @@ $(document).ready(function() {
 	// 	}
 	// });
 
-	// Product List
-	$('#list-view').click(function() {
-		$('#content .product-grid > .clearfix').remove();
+	// // Product List
+	// $('#list-view').click(function() {
+	// 	$('#content .product-grid > .clearfix').remove();
 
-		$('#content .row > .product-grid').attr('class', 'product-layout product-list col-xs-12');
-		$('#grid-view').removeClass('active');
-		$('#list-view').addClass('active');
+	// 	$('#content .row > .product-grid').attr('class', 'product-layout product-list col-xs-12');
+	// 	$('#grid-view').removeClass('active');
+	// 	$('#list-view').addClass('active');
 
-		localStorage.setItem('display', 'list');
-	});
+	// 	localStorage.setItem('display', 'list');
+	// });
 
-	// Product Grid
-	$('#grid-view').click(function() {
-		// What a shame bootstrap does not take into account dynamically loaded columns
-		var cols = $('#column-right, #column-left').length;
+	// // Product Grid
+	// $('#grid-view').click(function() {
+	// 	// What a shame bootstrap does not take into account dynamically loaded columns
+	// 	var cols = $('#column-right, #column-left').length;
 
-		if (cols == 2) {
-			$('#content .product-list').attr('class', 'product-layout product-grid col-lg-6 col-md-6 col-sm-12 col-xs-12');
-		} else if (cols == 1) {
-			$('#content .product-list').attr('class', 'product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12');
-		} else {
-			$('#content .product-list').attr('class', 'product-layout product-grid col-lg-3 col-md-3 col-sm-6 col-xs-12');
-		}
+	// 	if (cols == 2) {
+	// 		$('#content .product-list').attr('class', 'product-layout product-grid col-lg-6 col-md-6 col-sm-12 col-xs-12');
+	// 	} else if (cols == 1) {
+	// 		$('#content .product-list').attr('class', 'product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12');
+	// 	} else {
+	// 		$('#content .product-list').attr('class', 'product-layout product-grid col-lg-3 col-md-3 col-sm-6 col-xs-12');
+	// 	}
 
-		$('#list-view').removeClass('active');
-		$('#grid-view').addClass('active');
+	// 	$('#list-view').removeClass('active');
+	// 	$('#grid-view').addClass('active');
 
-		localStorage.setItem('display', 'grid');
-	});
+	// 	localStorage.setItem('display', 'grid');
+	// });
 
-	if (localStorage.getItem('display') == 'list') {
-		$('#list-view').trigger('click');
-		$('#list-view').addClass('active');
-	} else {
-		$('#grid-view').trigger('click');
-		$('#grid-view').addClass('active');
-	}
+	// if (localStorage.getItem('display') == 'list') {
+	// 	$('#list-view').trigger('click');
+	// 	$('#list-view').addClass('active');
+	// } else {
+	// 	$('#grid-view').trigger('click');
+	// 	$('#grid-view').addClass('active');
+	// }
 
-	// Checkout
-	$(document).on('keydown', '#collapse-checkout-option input[name=\'email\'], #collapse-checkout-option input[name=\'password\']', function(e) {
-		if (e.keyCode == 13) {
-			$('#collapse-checkout-option #button-login').trigger('click');
-		}
-	});
 
+	// ///////////////////////////////////////////////////////////////
+	// //NOT DONE!!!!!!!!!!!!!!!
+	// // Checkout
+	// $(document).on('keydown', '#collapse-checkout-option input[name=\'email\'], #collapse-checkout-option input[name=\'password\']', function(e) {
+	// 	if (e.keyCode == 13) {
+	// 		$('#collapse-checkout-option #button-login').trigger('click');
+	// 	}
+	// });
+	// ///////////////////////////////////////////////////////////////
 
 
 	// ///////////////////////////////////////////////////////////////
@@ -139,7 +142,7 @@ $(document).ready(function() {
 	// ////////////////////////////////////////////////////////////////
 
 
-});
+// });
 
 
 // var cart = {

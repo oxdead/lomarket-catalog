@@ -2,7 +2,7 @@
 
 @mixin base(){
     padding-left: 1rem;
-    padding-right: 2rem;
+    padding-right: 0.5rem;
     height: 3rem;
     margin: 0.5rem 0rem 1rem 0rem;
     background-image: linear-gradient(to bottom, var.$color-panel, var.$color-lightfill);

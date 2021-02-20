@@ -15,6 +15,10 @@
 @use 'btn-back-forward';
 
 
+//product/category
+@use 'catalog-menu';
+@use 'product-grid';
+
 header {
     background-color: var.$color-panel;
     color: var.$color-darktext;
