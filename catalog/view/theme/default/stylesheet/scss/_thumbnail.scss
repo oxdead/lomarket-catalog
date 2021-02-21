@@ -1,0 +1,29 @@
+@use 'var';
+@use 'panel';
+
+.thumbnails {
+    width: 30rem;
+    height: 20rem;
+    @include panel.bg();
+	padding: 0;
+	margin: 1rem;
+}
+.thumbnails > li {
+    text-align: center;
+}
+
+
+.thumbnails > img {
+    padding: 1rem;
+	width: 100%;
+}
+
+.image-additional {
+    display: inline-block;
+	max-width: 5rem;
+    margin: 0 0.5rem;
+    a {
+        padding: 0;
+        display: block;
+    }
+}

@@ -502,13 +502,13 @@ document.addEventListener('DOMContentLoaded', () => {
     switchGridView();
 
 	if (localStorage.getItem('display') == 'list') {
-        const listview = documnet.querySelector('#list-view');
+        const listview = document.querySelector('#list-view');
         if(listview){
             listview.click();
             listview.classList.add('active');
         }
 	} else {
-        const gridview = documnet.querySelector('#grid-view');
+        const gridview = document.querySelector('#grid-view');
         if(gridview){
             gridview.click();
             gridview.classList.add('active');

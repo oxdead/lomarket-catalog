@@ -47,8 +47,11 @@ class ControllerCommonHeader extends Controller {
 		}
 		else if($route === 'product/category'){
 			$this->addHeaderStyle('product-category.css');
-	   }
-		
+	    }
+       	else if($route === 'product/product'){
+        	$this->addHeaderStyle('product-product.css');
+        }
+	
 		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];
 		// $css_file = str_replace('/', '-', $route) . '.css';

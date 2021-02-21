@@ -51,7 +51,10 @@ p{
 
 button{
   @include btn.base(var.$color-lightblue, var.$color-panel);
-  @include btn.hover(var.$color-darkblue, var.$color-panel);
+  &:hover{
+    background-color: var.$color-darkblue;
+    color: var.$color-panel;
+  }
 }
 
 input{

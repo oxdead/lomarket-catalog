@@ -14,7 +14,6 @@
 @use 'panel-group';
 @use 'btn-back-forward';
 
-
 //product/category
 @use 'catalog-menu';
 @use 'product-grid';
@@ -48,7 +47,12 @@ header {
                 @include btn.base(transparent, var.$color-greytext);
                 height: 100%;
 
-                @include btn.active(var.$color-lightblue, var.$color-darkblue, text);
+                &.active{
+                    background-color: var.$color-lightblue;
+                    color: var.$color-darkblue;
+                    cursor: text;
+                }
+
 
                 &:focus {
                     outline: none;

@@ -110,7 +110,9 @@ h2.featured-center{
         button {
             margin: 0rem;
             @include btn.base(var.$color-green, var.$color-panel);
-            @include btn.hover(var.$color-darkgreen);
+            &:hover{
+                background-color: var.$color-darkgreen;    
+            }
             padding: 1.2rem 1rem 0.8rem 1rem;
             display: inline-block;
             border-bottom: 0.3rem solid var.$color-darkgreen;
@@ -125,7 +127,9 @@ h2.featured-center{
             background-color: transparent;
             border-style: none;
             outline-offset: 0.5rem;
-            @include btn.hover(null, var.$color-darkblue);
+            &:hover{
+                color: var.$color-darkblue;
+            }
 
             &:focus{
                 outline:auto;

@@ -1,6 +1,12 @@
-@mixin base($bg-color, $text-color) {
-    background-color: $bg-color;
-    color: $text-color;
+@use 'var';
+
+@mixin base($bg-color: null, $text-color: null) {
+    @if $bg-color{
+        background-color: $bg-color;
+    }
+    @if $text-color{
+        color: $text-color;
+    }
     padding: 0.5rem 0.5rem;
     border-style: none;
     text-align: center;
@@ -11,24 +17,21 @@
     cursor: pointer;
 }
 
-@mixin active($bg-color, $text-color, $cursor-type) {
-    &.active {
-        background-color: $bg-color;
-        color: $text-color;
-        cursor: $cursor-type;
-    }
-}
-
-@mixin hover($bg-color: null, $text-color: null) {
-    &:hover {
-        @if($bg-color)
-        {
-            background-color: $bg-color;
-        }
-        
-        @if($text-color)
-        {
-            color: $text-color;
-        }
+@mixin cart(){
+    height: 3rem;
+    margin: 1rem; 
+    padding: 1rem;
+    background-color: var.$color-green;
+    border-bottom: 0.3rem solid var.$color-darkgreen;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    color: var.$color-panel;
+    
+    &:hover{
+        background-color: var.$color-darkgreen;
     }
 }
