@@ -1,19 +1,19 @@
-@mixin xs(){
+@mixin xs{
     @media (max-width: 1024px) {
         @content;
     }
 }
-@mixin sm(){
+@mixin sm{
     @media (min-width: 1024px) {
         @content;
     }
 }
-@mixin md(){
+@mixin md{
     @media (min-width: 1330px) {
         @content;
     }
 }
-@mixin lg(){
+@mixin lg{
     @media (min-width: 1500px) {
         @content;
     }

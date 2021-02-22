@@ -389,6 +389,8 @@ class ControllerCheckoutCart extends Controller {
 		$rawPost = json_decode(file_get_contents("php://input"), true);
 		$pid = '0';
 		
+		file_put_contents("s.txt", serialize($rawPost));
+
 		if (isset($rawPost) && isset($rawPost['product_id'])) {
 			$product_id = (int)$rawPost['product_id'];
 			$pid = $rawPost['product_id'];

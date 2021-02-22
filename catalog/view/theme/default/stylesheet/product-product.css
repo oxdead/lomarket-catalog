@@ -88,6 +88,7 @@
   margin: 0.3rem 1rem;
 }
 #product-product .nav.nav-tabs {
+  margin: 1rem 8rem 0 8rem;
   margin-top: 1rem;
   margin-bottom: 0;
 }
@@ -163,4 +164,23 @@
 #form-review #button-review {
   height: 3rem;
   padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  #product-product .tab-content {
+    margin-left: calc((100% - 40rem)*0.5);
+    margin-right: calc((100% - 40rem)*0.5);
+  }
+}
+@media (min-width: 1330px) {
+  #product-product .tab-content {
+    margin-left: calc((100% - 40rem)*0.5);
+    margin-right: calc((100% - 40rem)*0.5);
+  }
+}
+@media (min-width: 1500px) {
+  #product-product .tab-content {
+    margin-left: calc((100% - 40rem)*0.5);
+    margin-right: calc((100% - 40rem)*0.5);
+  }
 }
