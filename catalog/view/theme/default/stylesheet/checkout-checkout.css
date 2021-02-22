@@ -1,4 +1,3 @@
-@charset "UTF-8";
 fieldset {
   border-style: solid;
   border-color: #eee;
@@ -35,22 +34,6 @@ legend {
   justify-content: space-between;
   align-items: center;
 }
-#checkout-checkout textarea {
-  padding: 0.5rem 1rem;
-  line-height: 1.1rem;
-  border: none;
-  box-shadow: inset 1px 1px 5px 0px #aaa;
-  border-radius: 3px;
-  width: 100%;
-  min-width: 7rem;
-  min-height: 5rem;
-  resize: none;
-  outline: none;
-}
-#checkout-checkout textarea:focus {
-  outline: 1px solid #93daf3;
-  outline-offset: -2px;
-}
 #checkout-checkout table {
   margin-left: 0rem;
 }
@@ -86,75 +69,10 @@ legend {
 #checkout-checkout input[type=button].btn.btn-primary {
   width: 12rem;
 }
-#checkout-checkout input[type=checkbox] {
-  position: relative;
-  top: calc(1.5rem*0.25);
+#checkout-checkout input[type=checkbox], #checkout-checkout input[type=radio] {
   width: 1.5rem;
   height: 1.5rem;
-  padding: 0;
-  box-shadow: none;
-}
-#checkout-checkout input[type=checkbox]::after {
-  content: "";
-  position: absolute;
-  background-color: white;
-  border: 1px solid black;
-  width: calc(100% - 3px);
-  height: calc(100% - 3px);
-}
-#checkout-checkout input[type=checkbox]:checked::after {
-  content: "✔";
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background-color: #10b1e8;
-  color: white;
-  border: none;
-  text-align: center;
-  font-size: 1rem;
-}
-#checkout-checkout input[type=checkbox]:disabled {
-  opacity: 0.3;
-}
-#checkout-checkout input[type=checkbox]:hover::after {
-  background-color: #93daf3;
-}
-#checkout-checkout input[type=radio] {
-  position: relative;
-  top: calc(1.5rem*0.25);
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0;
-}
-#checkout-checkout input[type=radio]::after {
-  content: "";
-  position: absolute;
-  background-color: white;
-  border: 2px solid #93daf3;
-  width: calc(100% - 3px);
-  height: calc(100% - 3px);
-  border-radius: 50%;
-  box-shadow: inset 0 0 4px 2px #93daf3;
-}
-#checkout-checkout input[type=radio]:checked::after {
-  content: u "U0001F518";
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background-image: radial-gradient(circle farthest-side at 50% 50%, #93daf3, #10b1e8, #10b1e8);
-  color: white;
-  border: none;
-  text-align: center;
-  font-size: 1rem;
-}
-#checkout-checkout input[type=radio]:disabled {
-  opacity: 0.3;
-}
-#checkout-checkout input[type=radio]:hover::after {
-  background-image: radial-gradient(circle, #10b1e8, #93daf3, #93daf3);
-}
-#checkout-checkout input[type=radio]:hover:checked::after {
-  background-image: radial-gradient(circle farthest-side at 60% 40%, #93daf3, #10b1e8, #10b1e8);
+  top: calc(1.5rem * 0.25);
 }
 #checkout-checkout .col-sm-6 {
   margin: 0;

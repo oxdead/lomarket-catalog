@@ -18,6 +18,9 @@
 @use 'catalog-menu';
 @use 'product-grid';
 
+// checkout/checkout + product/product
+@use 'checkboxradio';
+
 header {
     background-color: var.$color-panel;
     color: var.$color-darktext;

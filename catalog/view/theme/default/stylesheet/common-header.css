@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 * {
   box-sizing: border-box !important;
@@ -42,7 +43,9 @@
   filter: brightness(1.5);
 }
 
-.fas.fa-sign-in-alt, .fa.fa-user, .fa.fa-handshake-o {
+.fas.fa-sign-in-alt,
+.fa.fa-user,
+.fa.fa-handshake-o {
   padding: 0.5rem;
 }
 
@@ -65,7 +68,8 @@ li {
   list-style: none;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 1rem;
   text-align: center;
 }
@@ -129,6 +133,23 @@ select {
 }
 select:focus {
   font-size: 1.1rem;
+}
+
+textarea {
+  padding: 0.5rem 1rem;
+  line-height: 1.1rem;
+  border: none;
+  box-shadow: inset 1px 1px 5px 0px #aaa;
+  border-radius: 3px;
+  width: 100%;
+  min-width: 7rem;
+  min-height: 5rem;
+  resize: none;
+  outline: none;
+}
+textarea:focus {
+  outline: 1px solid #93daf3;
+  outline-offset: -2px;
 }
 
 .container {
@@ -733,6 +754,76 @@ table#table-cart-total tr:last-child td {
 }
 .product-thumb .button-group button:nth-child(2):focus, .product-thumb .button-group button:nth-child(3):focus {
   outline: auto;
+}
+
+input[type=checkbox] {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  box-shadow: none;
+}
+input[type=checkbox]::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+}
+input[type=checkbox]:checked::after {
+  content: "✔";
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: #10b1e8;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+input[type=checkbox]:disabled {
+  opacity: 0.3;
+}
+input[type=checkbox]:hover::after {
+  background-color: #93daf3;
+}
+
+input[type=radio] {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+input[type=radio]::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border: 2px solid #93daf3;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+  border-radius: 50%;
+  box-shadow: inset 0 0 4px 2px #93daf3;
+}
+input[type=radio]:checked::after {
+  content: u "U0001F518";
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-image: radial-gradient(circle farthest-side at 50% 50%, #93daf3, #10b1e8, #10b1e8);
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+input[type=radio]:disabled {
+  opacity: 0.3;
+}
+input[type=radio]:hover::after {
+  background-image: radial-gradient(circle, #10b1e8, #93daf3, #93daf3);
+}
+input[type=radio]:hover:checked::after {
+  background-image: radial-gradient(circle farthest-side at 60% 40%, #93daf3, #10b1e8, #10b1e8);
 }
 
 header {

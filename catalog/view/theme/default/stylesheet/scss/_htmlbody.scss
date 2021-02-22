@@ -6,89 +6,106 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
-
-.fas.fa-sign-in-alt, .fa.fa-user, .fa.fa-handshake-o {
-  padding: 0.5rem;
+.fas.fa-sign-in-alt,
+.fa.fa-user,
+.fa.fa-handshake-o {
+    padding: 0.5rem;
 }
 
 body {
-  background-color: var.$color-bg;
-  font-family: "Fira Sans", sans-serif;
-  font-size: 16px;
-  //font-family: 'Poppins', sans-serif;
+    background-color: var.$color-bg;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 16px;
+    //font-family: 'Poppins', sans-serif;
 }
 
 a {
-  padding: 0rem 1rem;
-  text-decoration: none;
-  color: var.$color-darktext;
-  &:hover {
-    color: var.$color-darkblue;
-  }
+    padding: 0rem 1rem;
+    text-decoration: none;
+    color: var.$color-darktext;
+    &:hover {
+        color: var.$color-darkblue;
+    }
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
-h1, h2{
-  margin: 1rem;
-  text-align: center;
+h1,
+h2 {
+    margin: 1rem;
+    text-align: center;
 }
 
 hr {
-  height: 1px;
-  margin: 1rem 0rem;
-  border-width: 0;
-  border-style: none;
-  background-color: var.$color-lightfill;
+    height: 1px;
+    margin: 1rem 0rem;
+    border-width: 0;
+    border-style: none;
+    background-color: var.$color-lightfill;
 }
 
-p{
-  margin: 1rem;
+p {
+    margin: 1rem;
 }
 
-button{
-  @include btn.base(var.$color-lightblue, var.$color-panel);
-  &:hover{
-    background-color: var.$color-darkblue;
-    color: var.$color-panel;
-  }
+button {
+    @include btn.base(var.$color-lightblue, var.$color-panel);
+    &:hover {
+        background-color: var.$color-darkblue;
+        color: var.$color-panel;
+    }
 }
 
-input{
-  @include input.base();
+input {
+    @include input.base();
 }
 
-
-select{
-  @include select.base();
-  margin-left: 0.5rem;
-  margin-right: 1rem;
+select {
+    @include select.base();
+    margin-left: 0.5rem;
+    margin-right: 1rem;
 }
 
-@include container.container('.container');
+textarea {
+    padding: 0.5rem 1rem;
+    line-height: 1.1rem;
+    border: none;
+    box-shadow: inset 1px 1px 5px 0px var.$color-greytext;
+    border-radius: 3px;
+    width: 100%;
+    min-width: 7rem;
+    min-height: 5rem;
+    resize: none;
+    outline: none;
+    &:focus {
+        outline: 1px solid var.$color-lightblue;
+        outline-offset: -2px;
+    }
+}
+
+@include container.container(".container");
 
 .row,
 .row-center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .row-center {
-  align-items: center;
-  height: 6rem;
+    align-items: center;
+    height: 6rem;
 }
 
 .col-18per {
-  text-align: left;
-  flex: 18% 0 auto;
-  padding: 2rem 1rem;
+    text-align: left;
+    flex: 18% 0 auto;
+    padding: 2rem 1rem;
 }
 
 .col-28per {
-  flex: 28% 0 auto;
-  padding: 1rem 1rem;
+    flex: 28% 0 auto;
+    padding: 1rem 1rem;
 }
