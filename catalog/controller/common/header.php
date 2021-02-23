@@ -51,6 +51,9 @@ class ControllerCommonHeader extends Controller {
        	else if($route === 'product/product'){
         	$this->addHeaderStyle('product-product.css');
         }
+		else if($route === 'product/compare'){
+        	$this->addHeaderStyle('product-compare.css');
+        }
 	
 		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];

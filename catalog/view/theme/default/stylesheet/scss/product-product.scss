@@ -95,6 +95,8 @@
         width: 100vw;
         max-width: 40rem;
         margin: 0 1rem 2rem 1rem;
+
+
         
     }
     
@@ -106,6 +108,15 @@
         display: none;
         &.active{
             display: block;
+        }
+
+        .test_value.is-word{
+            width: 100%;
+        }
+
+        .test_value-label{
+            width: 10rem;
+            text-overflow: ellipsis;
         }
     }
 

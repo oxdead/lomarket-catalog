@@ -1,0 +1,51 @@
+@use 'var';
+@use 'btn';
+@use 'media';
+
+#product-compare{
+    input[type=button]{
+        @include btn.cart();
+        width: 8rem;
+    }
+
+    a.btn{
+        @include btn.base();
+        border: 3px solid var.$color-lightfill;
+        border-radius: 2px;
+        color: var.$color-greytext;
+        height: 3rem;
+        padding: 0.5rem;
+        transition: color 0.5s ease, border 0.5s ease;
+        &:hover{
+            border-color: var.$color-darktext;
+            color: var.$color-darktext;
+        }
+    }
+
+    @include media.xs{
+        table{
+            box-shadow: 0 0 4px 0 var.$color-lightblue;
+        }
+        table tr{
+            display:flex;
+            flex-direction: row;
+            
+        }
+        table td{
+            width: 10rem;
+            word-wrap: break-all;
+            box-shadow: none;
+            
+        }
+
+        table td:last-child{
+            border: none;
+            margin-bottom: 0;
+        }
+
+        .always-wrap{
+            display:flex;
+            flex-direction:column;
+        }
+    }
+}

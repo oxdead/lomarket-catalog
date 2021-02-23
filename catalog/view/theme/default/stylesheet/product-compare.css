@@ -1,0 +1,60 @@
+#product-compare input[type=button] {
+  height: 3rem;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #0AB02A;
+  border-bottom: 0.3rem solid #068D20;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  color: white;
+  width: 8rem;
+}
+#product-compare input[type=button]:hover {
+  background-color: #068D20;
+}
+#product-compare a.btn {
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  border: 3px solid #eee;
+  border-radius: 2px;
+  color: #aaa;
+  height: 3rem;
+  padding: 0.5rem;
+  transition: color 0.5s ease, border 0.5s ease;
+}
+#product-compare a.btn:hover {
+  border-color: black;
+  color: black;
+}
+@media (max-width: 1024px) {
+  #product-compare table {
+    box-shadow: 0 0 4px 0 #93daf3;
+  }
+  #product-compare table tr {
+    display: flex;
+    flex-direction: row;
+  }
+  #product-compare table td {
+    width: 10rem;
+    word-wrap: break-all;
+    box-shadow: none;
+  }
+  #product-compare table td:last-child {
+    border: none;
+    margin-bottom: 0;
+  }
+  #product-compare .always-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}

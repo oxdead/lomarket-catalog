@@ -128,6 +128,13 @@
 #product-product .tab-pane.active {
   display: block;
 }
+#product-product .tab-pane .test_value.is-word {
+  width: 100%;
+}
+#product-product .tab-pane .test_value-label {
+  width: 10rem;
+  text-overflow: ellipsis;
+}
 
 #form-review {
   width: 100%;
