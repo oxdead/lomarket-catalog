@@ -109,3 +109,80 @@ textarea {
     flex: 28% 0 auto;
     padding: 1rem 1rem;
 }
+
+.col-sm-6{
+    width:50%;
+}
+
+.text-danger{
+    color: #DC3C3C;
+    font-style: oblique;
+    font-size: 0.9rem;
+}
+
+a.btn.btn-default, a.btn.btn-primary{
+    @include btn.base();
+    background-color: var.$color-lightblue;
+    color: var.$color-panel;
+    width: 10rem;
+    height: 3rem;
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    transition: background-color 0.5s ease;
+    &:hover{
+        background-color: var.$color-darkblue;
+    }
+}
+
+.form-group{
+    margin: 0.5rem 0rem;
+    label.control-label{
+        display: inline-block;
+        min-width: 8rem;
+        text-overflow: ellipsis;
+    }
+
+    input[type=text], input[type=password]{
+        width: calc(100% - 10rem);
+        min-width: 8rem;
+        font: 400 1rem Arial;
+    }
+}
+
+input[type=submit]{
+    @include btn.base();
+    //font-family: "Fira Sans", sans-serif;
+    font-size: 1rem;
+    display: block;
+    width: 10rem;
+    background-color: var.$color-lightblue;
+    color: var.$color-panel;
+    transition: background-color 0.5s ease;
+    &:hover{
+        background-color: var.$color-darkblue;
+    }
+}
+
+
+fieldset{
+    border-style:solid;
+    border-color: var.$color-lightfill;
+    border-width: 1px 0 0 0;
+    
+    margin-inline-start: 0rem;
+    margin-inline-end: 0rem;
+    width: 100%;
+    
+    
+}
+
+legend{
+    padding: 0rem 1rem 0rem 0rem;
+    color: var.$color-greytext;
+    font-size:  0.8rem;
+    font-style: oblique;
+}
+

@@ -38,22 +38,24 @@ class ControllerCommonHeader extends Controller {
 		
 		//add other custom css files depending on route
 		$route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];
-		if($route === 'common/home'){
-			$this->addHeaderStyle('home-catalog-menu.css');
-			$this->addHeaderStyle('extension-module-featured.css');
+
+		$resources = [
+			'common/home' => ['home-catalog-menu.css', 'extension-module-featured.css'],
+			'checkout/checkout' => ['checkout-checkout.css'],
+			'product/category' => ['product-category.css'],
+			'product/product' => ['product-product.css'],
+			'product/compare' => ['product-compare.css'],
+			'account/login' => ['account-login.css'],
+			'account/forgotten' => ['account-forgotten.css'],
+			'account/register' => ['account-register.css'],
+		];
+
+		foreach($resources as $routeKey => $cssArr){
+			if($route === $routeKey){
+				foreach($cssArr as $css){ $this->addHeaderStyle($css); }
+				break;
+			}
 		}
-		else if($route === 'checkout/checkout'){
-		 	$this->addHeaderStyle('checkout-checkout.css');
-		}
-		else if($route === 'product/category'){
-			$this->addHeaderStyle('product-category.css');
-	    }
-       	else if($route === 'product/product'){
-        	$this->addHeaderStyle('product-product.css');
-        }
-		else if($route === 'product/compare'){
-        	$this->addHeaderStyle('product-compare.css');
-        }
 	
 		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];

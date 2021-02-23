@@ -1,0 +1,20 @@
+fieldset{
+    margin: 1rem;
+}
+.form-group{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    //width: 100%;
+    label.control-label{
+        display: inline-block;
+        width: 8rem;
+    }
+    input[type=text]{
+        display: inline-block;
+        width: calc(100% - 10rem);
+        min-width: 14rem;
+    }
+}

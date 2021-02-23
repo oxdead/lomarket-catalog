@@ -1,26 +1,5 @@
 @use 'var';
 
-fieldset{
-    border-style:solid;
-    border-color: var.$color-lightfill;
-    border-width: 1px 0 0 0;
-    
-    margin-inline-start: 0rem;
-    margin-inline-end: 0rem;
-    width: 100%;
-    
-    
-}
-
-legend{
-    padding: 0rem 1rem 0rem 0rem;
-    color: var.$color-greytext;
-    font-size:  0.8rem;
-    font-style: oblique;
-}
-
-
-
 #checkout-checkout{
     
     #content .panel-group .panel:first-child {

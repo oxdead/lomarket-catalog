@@ -1,0 +1,20 @@
+@use 'var';
+
+label.control-label{
+    margin: 0.5rem 0;
+}
+
+input[type=submit].btn.btn-primary{
+    margin: 1rem 0 2rem 0;
+}
+
+input[type=radio]{
+    top: 0.4rem;
+}
+
+input[type=checkbox]{
+    top: 0.4rem;
+    &::after{
+        background-color: var.$color-bg;
+    }
+}

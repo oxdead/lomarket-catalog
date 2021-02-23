@@ -1,0 +1,21 @@
+.form-group {
+  margin: 0.5rem 0rem;
+}
+.form-group label.control-label {
+  display: inline-block;
+  min-width: 8rem;
+  text-overflow: ellipsis;
+}
+.form-group input[type=text], .form-group input[type=password] {
+  width: calc(100% - 10rem);
+  min-width: 8rem;
+}
+.form-group a {
+  display: block;
+  width: fit-content;
+  font-style: oblique;
+  color: #aaa;
+  padding: 0.5rem;
+  margin-left: 8rem;
+  margin-right: 2rem;
+}

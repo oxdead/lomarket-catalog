@@ -1,0 +1,25 @@
+@use 'var';
+
+.form-group{
+    margin: 0.5rem 0rem;
+    label.control-label{
+        display: inline-block;
+        min-width: 8rem;
+        text-overflow: ellipsis;
+    }
+
+    input[type=text], input[type=password]{
+        width: calc(100% - 10rem);
+        min-width: 8rem;   
+    }
+
+    a{
+        display: block;
+        width:fit-content;
+        font-style: oblique;
+        color: var.$color-greytext;
+        padding: 0.5rem;
+        margin-left: 8rem;
+        margin-right: 2rem;
+    }
+}

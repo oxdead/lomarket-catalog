@@ -60,6 +60,7 @@
   width: 5rem;
 }
 #product-product .form-group #button-cart {
+  font: 400 1rem Arial;
   height: 3rem;
   margin: 1rem;
   padding: 1rem;

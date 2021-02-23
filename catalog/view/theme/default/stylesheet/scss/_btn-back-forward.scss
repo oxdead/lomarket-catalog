@@ -6,87 +6,69 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    height: 5rem;
 
-
-
-    .pull-left{
+    .pull-left, .pull-right{
         height: 3rem;
-        margin: 1rem 1rem 1rem 0rem;
-        a{
+        margin: 1rem;
+        a.btn.btn-default, a.btn.btn-primary, input.btn.btn-primary{
+            padding: 1rem;
             position: relative;
+            width: fit-content;
             height: 100%;
-            padding: 1.2rem 1rem 0.8rem 2rem;
-            background-color: var.$color-greytext;
+            text-transform: uppercase;
+            font: 400 0.9rem Arial;
+            font-weight: bold;
+            text-decoration: none;
+            outline: none;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color 0.5s ease;
+            color: var.$color-panel;
+            border: none;
             border-bottom: 0.3rem solid var.$color-greytext-darken;
-            text-transform: uppercase;
-            font-weight: bold;
-            outline: none;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.5s ease;
-            color: var.$color-panel;
-            
-            &:hover{
-                background-color: var.$color-greytext-darken;
-            }
-
 
             &::before{
                 content: '';
                 position:absolute;
                 width: 0.4rem;
                 height: 0.4rem;
-                left: 1rem;
                 top: 44%;
                 display: block;
                 border-bottom: 0.2rem solid var.$color-panel;
                 border-left: 0.2rem solid var.$color-panel;
-                transform: rotate(45deg);
             }
         }
-
-
     }
 
 
-    .pull-right{
-        height: 3rem;
-        margin: 1rem 0rem 1rem 1rem; // 
-        a{
-            position: relative;
-            height: 100%;
-            padding: 1.2rem 2rem 0.8rem 1rem; //
-            background-color: var.$color-green; //
-            border-bottom: 0.3rem solid var.$color-darkgreen; //
-            text-transform: uppercase;
-            font-weight: bold;
-            outline: none;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.5s ease;
-            color: var.$color-panel;
-            
-            &:hover{
-                background-color: var.$color-darkgreen; //
-            }
-            
-            &::before{
-                content: '';
-                position:absolute;
-                width: 0.4rem;
-                height: 0.4rem;
-                right: 1rem; //
-                top: 44%;
-                //transform: translateY(-50%);
-                display: block;
-                border-bottom: 0.2rem solid var.$color-panel;
-                border-left: 0.2rem solid var.$color-panel;
-                transform: rotate(-135deg); //
-            }
+    .pull-left a.btn.btn-default, .pull-left a.btn.btn-primary{
+        padding-left: 2rem;
+        background-color: var.$color-greytext;
+        border-bottom-color: var.$color-greytext-darken;
+        &:hover{
+            background-color: var.$color-greytext-darken;
         }
 
-
+        &::before{
+            left: 1rem;
+            transform: rotate(45deg);
+        }
     }
 
+    .pull-right a.btn.btn-primary, .pull-right input.btn.btn-primary{
+        padding-right: 2rem;
+        background-color: var.$color-green;
+        border-bottom-color: var.$color-darkgreen;
+        &:hover{
+            background-color: var.$color-darkgreen;
+        }
+        
+        &::before{
+            right: 1rem; 
+            transform: rotate(-135deg);
+        }
+    }
 
 }

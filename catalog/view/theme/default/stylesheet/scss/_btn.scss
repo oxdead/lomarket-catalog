@@ -7,6 +7,7 @@
     @if $text-color{
         color: $text-color;
     }
+    font: 400 0.9rem Arial;
     padding: 0.5rem 0.5rem;
     border-style: none;
     text-align: center;
@@ -18,6 +19,7 @@
 }
 
 @mixin cart(){
+    font: 400 1rem Arial;
     height: 3rem;
     margin: 1rem; 
     padding: 1rem;

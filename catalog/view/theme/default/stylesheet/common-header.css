@@ -89,6 +89,7 @@ p {
 button {
   background-color: #93daf3;
   color: white;
+  font: 400 0.9rem Arial;
   padding: 0.5rem 0.5rem;
   border-style: none;
   text-align: center;
@@ -194,6 +195,92 @@ textarea:focus {
 .col-28per {
   flex: 28% 0 auto;
   padding: 1rem 1rem;
+}
+
+.col-sm-6 {
+  width: 50%;
+}
+
+.text-danger {
+  color: #DC3C3C;
+  font-style: oblique;
+  font-size: 0.9rem;
+}
+
+a.btn.btn-default, a.btn.btn-primary {
+  font: 400 0.9rem Arial;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  background-color: #93daf3;
+  color: white;
+  width: 10rem;
+  height: 3rem;
+  display: block;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  transition: background-color 0.5s ease;
+}
+a.btn.btn-default:hover, a.btn.btn-primary:hover {
+  background-color: #10b1e8;
+}
+
+.form-group {
+  margin: 0.5rem 0rem;
+}
+.form-group label.control-label {
+  display: inline-block;
+  min-width: 8rem;
+  text-overflow: ellipsis;
+}
+.form-group input[type=text], .form-group input[type=password] {
+  width: calc(100% - 10rem);
+  min-width: 8rem;
+  font: 400 1rem Arial;
+}
+
+input[type=submit] {
+  font: 400 0.9rem Arial;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  width: 10rem;
+  background-color: #93daf3;
+  color: white;
+  transition: background-color 0.5s ease;
+}
+input[type=submit]:hover {
+  background-color: #10b1e8;
+}
+
+fieldset {
+  border-style: solid;
+  border-color: #eee;
+  border-width: 1px 0 0 0;
+  margin-inline-start: 0rem;
+  margin-inline-end: 0rem;
+  width: 100%;
+}
+
+legend {
+  padding: 0rem 1rem 0rem 0rem;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-style: oblique;
 }
 
 html,
@@ -490,6 +577,7 @@ table#table-cart-total tr:last-child td {
 .panel-group .input-group #button-coupon, .panel-group .input-group #button-voucher {
   background-color: #93daf3;
   color: white;
+  font: 400 0.9rem Arial;
   padding: 0.5rem 0.5rem;
   border-style: none;
   text-align: center;
@@ -548,71 +636,62 @@ table#table-cart-total tr:last-child td {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 5rem;
 }
-.buttons.clearfix .pull-left {
+.buttons.clearfix .pull-left, .buttons.clearfix .pull-right {
   height: 3rem;
-  margin: 1rem 1rem 1rem 0rem;
+  margin: 1rem;
 }
-.buttons.clearfix .pull-left a {
+.buttons.clearfix .pull-left a.btn.btn-default, .buttons.clearfix .pull-left a.btn.btn-primary, .buttons.clearfix .pull-left input.btn.btn-primary, .buttons.clearfix .pull-right a.btn.btn-default, .buttons.clearfix .pull-right a.btn.btn-primary, .buttons.clearfix .pull-right input.btn.btn-primary {
+  padding: 1rem;
   position: relative;
+  width: fit-content;
   height: 100%;
-  padding: 1.2rem 1rem 0.8rem 2rem;
-  background-color: #aaa;
-  border-bottom: 0.3rem solid #888;
   text-transform: uppercase;
+  font: 400 0.9rem Arial;
   font-weight: bold;
+  text-decoration: none;
   outline: none;
   text-align: center;
   cursor: pointer;
+  white-space: nowrap;
   transition: background-color 0.5s ease;
   color: white;
+  border: none;
+  border-bottom: 0.3rem solid #888;
 }
-.buttons.clearfix .pull-left a:hover {
+.buttons.clearfix .pull-left a.btn.btn-default::before, .buttons.clearfix .pull-left a.btn.btn-primary::before, .buttons.clearfix .pull-left input.btn.btn-primary::before, .buttons.clearfix .pull-right a.btn.btn-default::before, .buttons.clearfix .pull-right a.btn.btn-primary::before, .buttons.clearfix .pull-right input.btn.btn-primary::before {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  top: 44%;
+  display: block;
+  border-bottom: 0.2rem solid white;
+  border-left: 0.2rem solid white;
+}
+.buttons.clearfix .pull-left a.btn.btn-default, .buttons.clearfix .pull-left a.btn.btn-primary {
+  padding-left: 2rem;
+  background-color: #aaa;
+  border-bottom-color: #888;
+}
+.buttons.clearfix .pull-left a.btn.btn-default:hover, .buttons.clearfix .pull-left a.btn.btn-primary:hover {
   background-color: #888;
 }
-.buttons.clearfix .pull-left a::before {
-  content: "";
-  position: absolute;
-  width: 0.4rem;
-  height: 0.4rem;
+.buttons.clearfix .pull-left a.btn.btn-default::before, .buttons.clearfix .pull-left a.btn.btn-primary::before {
   left: 1rem;
-  top: 44%;
-  display: block;
-  border-bottom: 0.2rem solid white;
-  border-left: 0.2rem solid white;
   transform: rotate(45deg);
 }
-.buttons.clearfix .pull-right {
-  height: 3rem;
-  margin: 1rem 0rem 1rem 1rem;
-}
-.buttons.clearfix .pull-right a {
-  position: relative;
-  height: 100%;
-  padding: 1.2rem 2rem 0.8rem 1rem;
+.buttons.clearfix .pull-right a.btn.btn-primary, .buttons.clearfix .pull-right input.btn.btn-primary {
+  padding-right: 2rem;
   background-color: #0AB02A;
-  border-bottom: 0.3rem solid #068D20;
-  text-transform: uppercase;
-  font-weight: bold;
-  outline: none;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-  color: white;
+  border-bottom-color: #068D20;
 }
-.buttons.clearfix .pull-right a:hover {
+.buttons.clearfix .pull-right a.btn.btn-primary:hover, .buttons.clearfix .pull-right input.btn.btn-primary:hover {
   background-color: #068D20;
 }
-.buttons.clearfix .pull-right a::before {
-  content: "";
-  position: absolute;
-  width: 0.4rem;
-  height: 0.4rem;
+.buttons.clearfix .pull-right a.btn.btn-primary::before, .buttons.clearfix .pull-right input.btn.btn-primary::before {
   right: 1rem;
-  top: 44%;
-  display: block;
-  border-bottom: 0.2rem solid white;
-  border-left: 0.2rem solid white;
   transform: rotate(-135deg);
 }
 
@@ -642,7 +721,7 @@ table#table-cart-total tr:last-child td {
   color: #10b1e8;
 }
 
-.product-layout {
+.product-layout.product-grid {
   margin: 1rem;
   width: 22rem;
   max-width: 22rem;
@@ -727,6 +806,7 @@ table#table-cart-total tr:last-child td {
   margin: 0rem;
   background-color: #0AB02A;
   color: white;
+  font: 400 0.9rem Arial;
   padding: 0.5rem 0.5rem;
   border-style: none;
   text-align: center;
@@ -754,6 +834,26 @@ table#table-cart-total tr:last-child td {
 }
 .product-thumb .button-group button:nth-child(2):focus, .product-thumb .button-group button:nth-child(3):focus {
   outline: auto;
+}
+
+.product-layout.product-list {
+  margin: 1rem;
+  width: 100%;
+  max-width: 40rem;
+  min-width: 22rem;
+  height: 17rem;
+  min-height: 17rem;
+}
+
+.product-list .product-thumb {
+  padding: 1rem;
+  flex-direction: row;
+}
+.product-list .product-thumb .button-group {
+  justify-content: flex-start;
+}
+.product-list .product-thumb .button-group > * {
+  margin: 0 0.5rem;
 }
 
 input[type=checkbox] {
@@ -951,6 +1051,7 @@ header {
 .header-top #form-language .lang .lang-btn {
   background-color: transparent;
   color: #aaa;
+  font: 400 0.9rem Arial;
   padding: 0.5rem 0.5rem;
   border-style: none;
   text-align: center;
