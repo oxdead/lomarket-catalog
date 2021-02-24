@@ -237,6 +237,7 @@
 }
 #menu .dropdown-menu {
   padding-bottom: 0;
+  margin-top: 0.2rem;
 }
 #menu .dropdown-inner {
   display: table;
@@ -257,10 +258,13 @@
   border-top: 1px solid #DDD;
   padding: 0.2rem 1rem;
   border-radius: 0 0 0.2rem 0.2rem;
+  font-size: smaller;
+  font-style: oblique;
+  color: #aaa;
 }
 #menu .see-all:hover, #menu .see-all:focus {
   text-decoration: none;
-  color: black;
+  color: #10b1e8;
   background-color: white;
   background-image: linear-gradient(to bottom, white, #eee);
   background-repeat: repeat-x;

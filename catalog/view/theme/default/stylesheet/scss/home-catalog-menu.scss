@@ -39,6 +39,7 @@
 
     .dropdown-menu {
         padding-bottom: 0;
+        margin-top: 0.2rem;
     }
 
     .dropdown-inner {
@@ -63,9 +64,13 @@
         -webkit-border-radius: 0 0 0.25rem 0.25rem;
         -moz-border-radius: 0 0 0.25rem 0.25rem;
         border-radius: 0 0 0.2rem 0.2rem;
+        font-size: smaller;
+        font-style: oblique;
+        color: var.$color-greytext;
+
         &:hover, &:focus {
             text-decoration: none;
-            color: var.$color-darktext;
+            color: var.$color-darkblue;
             background-color: var.$color-panel;
             background-image: linear-gradient(to bottom, var.$color-panel, var.$color-lightfill);
             background-repeat: repeat-x;

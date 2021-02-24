@@ -57,17 +57,19 @@
         }
     }
 
-    .pull-right a.btn.btn-primary, .pull-right input.btn.btn-primary{
-        padding-right: 2rem;
-        background-color: var.$color-green;
-        border-bottom-color: var.$color-darkgreen;
-        &:hover{
-            background-color: var.$color-darkgreen;
-        }
-        
-        &::before{
-            right: 1rem; 
-            transform: rotate(-135deg);
+    .pull-right{ 
+        a.btn.btn-default, a.btn.btn-primary, input.btn.btn-primary{
+            padding-right: 2rem;
+            background-color: var.$color-green;
+            border-bottom-color: var.$color-darkgreen;
+            &:hover{
+                background-color: var.$color-darkgreen;
+            }
+            
+            &::before{
+                right: 1rem; 
+                transform: rotate(-135deg);
+            }
         }
     }
 

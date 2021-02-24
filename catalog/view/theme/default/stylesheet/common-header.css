@@ -682,15 +682,15 @@ table#table-cart-total tr:last-child td {
   left: 1rem;
   transform: rotate(45deg);
 }
-.buttons.clearfix .pull-right a.btn.btn-primary, .buttons.clearfix .pull-right input.btn.btn-primary {
+.buttons.clearfix .pull-right a.btn.btn-default, .buttons.clearfix .pull-right a.btn.btn-primary, .buttons.clearfix .pull-right input.btn.btn-primary {
   padding-right: 2rem;
   background-color: #0AB02A;
   border-bottom-color: #068D20;
 }
-.buttons.clearfix .pull-right a.btn.btn-primary:hover, .buttons.clearfix .pull-right input.btn.btn-primary:hover {
+.buttons.clearfix .pull-right a.btn.btn-default:hover, .buttons.clearfix .pull-right a.btn.btn-primary:hover, .buttons.clearfix .pull-right input.btn.btn-primary:hover {
   background-color: #068D20;
 }
-.buttons.clearfix .pull-right a.btn.btn-primary::before, .buttons.clearfix .pull-right input.btn.btn-primary::before {
+.buttons.clearfix .pull-right a.btn.btn-default::before, .buttons.clearfix .pull-right a.btn.btn-primary::before, .buttons.clearfix .pull-right input.btn.btn-primary::before {
   right: 1rem;
   transform: rotate(-135deg);
 }
@@ -726,8 +726,8 @@ table#table-cart-total tr:last-child td {
   width: 22rem;
   max-width: 22rem;
   min-width: 22rem;
-  height: 31rem;
-  min-height: 31rem;
+  height: 32rem;
+  min-height: 32rem;
 }
 
 .product-thumb {

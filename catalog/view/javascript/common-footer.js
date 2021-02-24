@@ -98,8 +98,7 @@ function deactivateAllSiblingElements(elm, siblingTag){
 }
 
 
-function advanceMainNav()
-{
+function advanceMainNav(){
     var listEntries = document.querySelectorAll(".header-top .main-nav ul");
     for (let listEntry of listEntries) {
         listEntry.addEventListener("click", (e) => {
@@ -332,6 +331,7 @@ var tooltip = {
     pos_before: '#content',
     hTime: null
 }
+
 
 
 var cart = {
