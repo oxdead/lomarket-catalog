@@ -92,6 +92,7 @@ class ControllerCheckoutCheckout extends Controller {
 	}
 
 	public function country() {
+		
 		$json = array();
 
 		$this->load->model('localisation/country');
@@ -122,7 +123,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$json['zone_id'] = '';
 		}
 
-
+		$json['text_select'] = $this->language->get('text_select');
+		$json['text_none'] = $this->language->get('text_none');
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
