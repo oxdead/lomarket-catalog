@@ -1,31 +1,50 @@
 @use 'var';
+@use 'media';
+
 
 #checkout-checkout{
     
-    #content .panel-group .panel:first-child {
-        display:none;
+    .panel-group{
+        margin-left: auto;
+        margin-right: auto;
+        
+        @include media.xs{
+            width: calc(100vw - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
     }
-    
-    #button-guest, 
-    #button-guest-shipping,
-    #button-shipping-method,
-    #button-payment-method{
-        display: none;
-    }
 
-
-
-
-    .panel-body .row{
+    .row{
         display:flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
 
+    textarea{
+        max-width: 35rem;
+    }
+
+    .col-sm-6{
+        width: 50%;
+        margin: 0 auto;
+        @include media.xs{
+            min-width: 28rem;
+        }
+    }
+ 
+    .buttons{
+        margin: 1rem;
+        a.agree{
+            padding: 0;
+        }
+    }
 
 
 
     .form-group{
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -34,35 +53,13 @@
     }
 
 
-    table{
-        margin-left: 0rem;
-    }
-    
-    input[type=submit]{
-        width: 20rem;
-        margin-left: 0;
-        padding: 1rem;
-        background-color: var.$color-green;
-        border-bottom: 0.3rem solid var.$color-darkgreen;
-        text-transform: uppercase;
-        font-weight: bold;
-        outline: none;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.5s ease;
-        color: var.$color-panel;
-        
-        &:hover{
-            background-color: var.$color-darkgreen;
-        }
-    }
+
 
     label{
         width: 10rem;
         text-align: right;
         padding: 0;
         margin: 0;
-        
     }
     
     input, select{
@@ -72,32 +69,32 @@
         margin-left: 1rem;
     }
     
-    input[type=button].btn.btn-primary{
-        width: 12rem;
-    }
-
     input[type="checkbox"], input[type="radio"]{
         width: 1.5rem;
         height: 1.5rem;
         top: calc(1.5rem * 0.25);
     }
 
-    .col-sm-6{
-        margin: 0;
-    }
-    
-    .col-sm-10{
-        margin-left: 1rem;
-        margin-right: 1rem;
-        padding: 0;
-        width: calc(100% - 7rem);
-        max-width: 35rem;
+    // input[type=submit]{
+    //     width: 20rem;
+    //     margin-left: 0;
+    //     padding: 1rem;
+    //     background-color: var.$color-green;
+    //     border-bottom: 0.3rem solid var.$color-darkgreen;
+    //     text-transform: uppercase;
+    //     font-weight: bold;
+    //     outline: none;
+    //     text-align: center;
+    //     cursor: pointer;
+    //     transition: background-color 0.5s ease;
+    //     color: var.$color-panel;
+        
+    //     &:hover{
+    //         background-color: var.$color-darkgreen;
+    //     }
+    // }
 
-        input, select{
-            margin-left: 0;
-            margin-right: 0;
-            width: 100%;
-        }
-    }
+
+
 
 }

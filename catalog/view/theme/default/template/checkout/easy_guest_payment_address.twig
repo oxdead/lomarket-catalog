@@ -1,100 +1,101 @@
-                        <div class="row">
+<div class="row">
 
-                            <div class="col-sm-6">
-                                <fieldset id="account">
-                                    <legend>{{ text_your_details }}</legend>
-                                    <div class="form-group" style="display: {% if customer_groups|length > 1 %} block {% else %} none {% endif %};">
-                                        <label class="control-label">{{ entry_customer_group }}</label>
-                                        {% for customer_group in customer_groups %}
-                                        {% if customer_group.customer_group_id == customer_group_id %}
-                                        <div class="radio">
-                                        <label>
-                                            <input type="radio" name="customer_group_id" value="{{ customer_group.customer_group_id }}" checked="checked" />
-                                            {{ customer_group.name }}</label>
-                                        </div>
-                                        {% else %}
-                                        <div class="radio">
-                                        <label>
-                                            <input type="radio" name="customer_group_id" value="{{ customer_group.customer_group_id }}" />
-                                            {{ customer_group.name }}</label>
-                                        </div>
-                                        {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-firstname">{{ entry_firstname }}</label>
-                                        <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-payment-firstname" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-lastname">{{ entry_lastname }}</label>
-                                        <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-payment-lastname" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-email">{{ entry_email }}</label>
-                                        <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-payment-email" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-telephone">{{ entry_telephone }}</label>
-                                        <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-payment-telephone" class="form-control" />
-                                    </div>
-                                </fieldset>
-                            </div>
+    <div class="col-sm-6">
+        <fieldset id="account">
+            <legend>{{ text_your_details }}</legend>
+            <div class="form-group" style="display: {% if customer_groups|length > 1 %} block {% else %} none {% endif %};">
+                <label class="control-label">{{ entry_customer_group }}</label>
+                {% for customer_group in customer_groups %}
+                {% if customer_group.customer_group_id == customer_group_id %}
+                <div class="radio">
+                <label>
+                    <input type="radio" name="customer_group_id" value="{{ customer_group.customer_group_id }}" checked="checked" />
+                    {{ customer_group.name }}</label>
+                </div>
+                {% else %}
+                <div class="radio">
+                <label>
+                    <input type="radio" name="customer_group_id" value="{{ customer_group.customer_group_id }}" />
+                    {{ customer_group.name }}</label>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-firstname">{{ entry_firstname }}</label>
+                <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-payment-firstname" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-lastname">{{ entry_lastname }}</label>
+                <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-payment-lastname" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-email">{{ entry_email }}</label>
+                <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-payment-email" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-telephone">{{ entry_telephone }}</label>
+                <input type="text" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-payment-telephone" class="form-control" />
+            </div>
+        </fieldset>
+    </div>
 
 
-                            <div class="col-sm-6">
-                                <fieldset id="address">
-                                    <legend>{{ text_your_address }}</legend>
-                                    <div class="form-group">
-                                        <label class="control-label" for="input-payment-company">{{ entry_company }}</label>
-                                        <input type="text" name="company" value="{{ company }}" placeholder="{{ entry_company }}" id="input-payment-company" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-address-1">{{ entry_address_1 }}</label>
-                                        <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-payment-address-1" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label" for="input-payment-address-2">{{ entry_address_2 }}</label>
-                                        <input type="text" name="address_2" value="{{ address_2 }}" placeholder="{{ entry_address_2 }}" id="input-payment-address-2" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-city">{{ entry_city }}</label>
-                                        <input type="text" name="city" value="{{ city }}" placeholder="{{ entry_city }}" id="input-payment-city" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-postcode">{{ entry_postcode }}</label>
-                                        <input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-payment-postcode" class="form-control" />
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-country">{{ entry_country }}</label>
-                                        <select name="country_id" id="input-payment-country" class="form-control">
-                                            <option value="">{{ text_select }}</option>
-                                            {% for country in countries %}
-                                            {% if country.country_id == country_id %}
-                                            <option value="{{ country.country_id }}" selected="selected">{{ country.name }}</option>
-                                            {% else %}
-                                            <option value="{{ country.country_id }}">{{ country.name }}</option>
-                                            {% endif %}
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label" for="input-payment-zone">{{ entry_zone }}</label>
-                                        <select name="zone_id" id="input-payment-zone" class="form-control">
-                                        </select>
-                                    </div>
-                                </fieldset>
-                                {{ captcha }} 
-                            </div>
+    <div class="col-sm-6">
+        <fieldset id="address">
+            <legend>{{ text_your_address }}</legend>
+            <div class="form-group">
+                <label class="control-label" for="input-payment-company">{{ entry_company }}</label>
+                <input type="text" name="company" value="{{ company }}" placeholder="{{ entry_company }}" id="input-payment-company" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-address-1">{{ entry_address_1 }}</label>
+                <input type="text" name="address_1" value="{{ address_1 }}" placeholder="{{ entry_address_1 }}" id="input-payment-address-1" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="input-payment-address-2">{{ entry_address_2 }}</label>
+                <input type="text" name="address_2" value="{{ address_2 }}" placeholder="{{ entry_address_2 }}" id="input-payment-address-2" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-city">{{ entry_city }}</label>
+                <input type="text" name="city" value="{{ city }}" placeholder="{{ entry_city }}" id="input-payment-city" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-postcode">{{ entry_postcode }}</label>
+                <input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-payment-postcode" class="form-control" />
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-country">{{ entry_country }}</label>
+                <select name="country_id" id="input-payment-country" class="form-control">
+                    <option value="">{{ text_select }}</option>
+                    {% for country in countries %}
+                    {% if country.country_id == country_id %}
+                    <option value="{{ country.country_id }}" selected="selected">{{ country.name }}</option>
+                    {% else %}
+                    <option value="{{ country.country_id }}">{{ country.name }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group required">
+                <label class="control-label" for="input-payment-zone">{{ entry_zone }}</label>
+                <select name="zone_id" id="input-payment-zone" class="form-control">
+                </select>
+            </div>
+        </fieldset>
+        {{ captcha }} 
 
-                            {% if shipping_required %}
-                            <div class="checkbox">
-                            <label> {% if shipping_address %}
-                                <input type="checkbox" name="shipping_address" value="1" checked="checked" />
-                                {% else %}
-                                <input type="checkbox" name="shipping_address" value="1" />
-                                {% endif %}
-                                {{ entry_shipping }}</label>
-                            </div>
-                            {% endif %}
+        {% if shipping_required %}
+        <div class="checkbox">
+        <label> {% if shipping_address %}
+            <input type="checkbox" name="shipping_address" value="1" checked="checked" />
+            {% else %}
+            <input type="checkbox" name="shipping_address" value="1" />
+            {% endif %}
+            {{ entry_shipping }}</label>
+        </div>
+        {% endif %}
+    </div>
 
-                        </div> <!-- row -->
+
+</div> <!-- row -->

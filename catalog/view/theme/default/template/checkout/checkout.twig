@@ -6,51 +6,43 @@
         {% endfor %}
     </ul>
     
-    <!-- guest checkout -->
-    <div class="row">
-        <div id="content" class="{{ class }}">
-            <h1>{{ heading_title }}</h1>
+    <div id="content" class="{{ class }}">
+        <h1>{{ heading_title }}</h1>
 
-            <div class="panel-group">
-
-                <!-- guest credentials & payment_address -->
-                <div class="panel-default"> <!-- panel panel-default -->
-                    <h4 class="panel-title">{{ text_checkout_payment_address }}</h4>
-                    <div id="guest-payment-address-body">
-                    </div>
-                </div>
-
-
-                {% if shipping_required %}
-                <div class="panel-default">
-                    <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
-                    <div id="guest-shipping-address-body">
-                    </div>
-                </div>
-                <div class="panel-default">
-                    <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
-                    <div id="guest-shipping-method-body">
-                    </div>
-                </div>
-                {% endif %}
-
-                <div class="panel-default">
-                    <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
-                    <div id="guest-payment-method-body">
-                    </div>
-                </div>
-    
-                <button id="button-checkout-calculate">{{text_checkout_submit}}</button>
-
-                <div class="panel-default">
-                    <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
-                    <div id="guest-checkout-confirm-body">
-                    </div>
-                </div>
-
+        <div class="panel-group">
+            
+            <h4>{{ text_checkout_payment_address }}</h4>
+            <div id="guest-payment-address-body">
             </div>
+            <hr>
+
+            {% if shipping_required %}
+            <h4>{{ text_checkout_shipping_address }}</h4>
+            <div id="guest-shipping-address-body">
+            </div>
+            <hr>
+            <h4>{{ text_checkout_shipping_method }}</h4>
+            <div id="guest-shipping-method-body">
+            </div>
+            {% endif %}
+            <hr>
+
+            <h4>{{ text_checkout_payment_method }}</h4>
+            <div id="guest-payment-method-body">
+            </div>
+            <hr>
+            <div class="row">
+                <button id="button-checkout-calculate">{{text_checkout_submit}}</button>
+            </div>
+            <hr>
+
+            <h4>{{ text_checkout_confirm }}</h4>
+            <div id="guest-checkout-confirm-body">
+            </div>
+
         </div>
     </div>
+    
 </div>
 
 
@@ -196,46 +188,46 @@ function guestPaymentMethod() {
 }
 
 
-// function guestPaymentAddressSave() {  
-//     return $.ajax({
-//         url: 'index.php?route=checkout/easy_guest_payment_address/save',
-//         type: 'post',
-//         data: $('#guest-payment-address-body input[type=\'text\'], #guest-payment-address-body input[type=\'date\'], #guest-payment-address-body input[type=\'datetime-local\'], #guest-payment-address-body input[type=\'time\'], #guest-payment-address-body input[type=\'checkbox\']:checked, #guest-payment-address-body input[type=\'radio\']:checked, #guest-payment-address-body input[type=\'hidden\'], #guest-payment-address-body textarea, #guest-payment-address-body select'),
-//         dataType: 'json',
-//         async: false,
-//         success: function(json) {
-//             console.log("easy_guest_payment_address/save");
-//             console.log(json);
-//             $('.alert-dismissible, .text-danger').remove();
-// 			$('.form-group').removeClass('has-error');
+function guestPaymentAddressSave() {  
+    return $.ajax({
+        url: 'index.php?route=checkout/easy_guest_payment_address/save',
+        type: 'post',
+        data: $('#guest-payment-address-body input[type=\'text\'], #guest-payment-address-body input[type=\'date\'], #guest-payment-address-body input[type=\'datetime-local\'], #guest-payment-address-body input[type=\'time\'], #guest-payment-address-body input[type=\'checkbox\']:checked, #guest-payment-address-body input[type=\'radio\']:checked, #guest-payment-address-body input[type=\'hidden\'], #guest-payment-address-body textarea, #guest-payment-address-body select'),
+        dataType: 'json',
+        async: false,
+        success: function(json) {
+            console.log("easy_guest_payment_address/save");
+            console.log(json);
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
 
-//             if (json['redirect']) {
-//                 location = json['redirect'];
-//             } else if (json['error']) {
-//                 if (json['error']['warning']) {
-//                     c.emitWarning(c.paymentAddress, json['error']['warning']);
-//                 }
-//                 c.addErrorElement('#input-payment-', json['error']);
-// 				// Highlight any found errors
-// 				$('.text-danger').parent().addClass('has-error');
-//             }
-//             // else {
-//             //     {% if shipping_required %}
-//             //     var shipping_address = $('#guest-payment-address-body input[name=\'shipping_address\']:checked').prop('value');
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                if (json['error']['warning']) {
+                    c.emitWarning(c.paymentAddress, json['error']['warning']);
+                }
+                c.addErrorElement('#input-payment-', json['error']);
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            }
+            // else {
+            //     {% if shipping_required %}
+            //     var shipping_address = $('#guest-payment-address-body input[name=\'shipping_address\']:checked').prop('value');
 
-//             //     if (shipping_address) {
-//             //         //update Shipping method and then guestShipping address
-//             //     } else {
-//             //         //update guestShipping address
-//             //     }
-//             //     {% endif %}
-//             // }
-//         },
-//         error: function(xhr, ajaxOptions, thrownError) {
-//             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//         }
-//     });
-// }
+            //     if (shipping_address) {
+            //         //update Shipping method and then guestShipping address
+            //     } else {
+            //         //update guestShipping address
+            //     }
+            //     {% endif %}
+            // }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+}
 
 
 
@@ -272,153 +264,6 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
 
 
 <script type="text/javascript"><!--
-//////////////////////////////////////////////////////////////////////////////////////////
-
-// const c = {
-//     emitWarning: function(selector, msg){
-//         $(selector.body).prepend('<div class="alert alert-warning alert-dismissible">' + msg + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-//     },
-//     emitError: function(selector, msg) {
-//         $(selector.body).prepend('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + msg + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-//     },
-//     addErrorElement: function(elmPrefix, msg){
-//         for (i in msg) {
-//             var element = $(elmPrefix + i.replace('_', '-')); 
-
-//             if ($(element).parent().hasClass('input-group')) {
-//                 $(element).parent().after('<div class="text-danger">' + msg[i] + '</div>');
-//             } else {
-//                 $(element).after('<div class="text-danger">' + msg[i] + '</div>');
-//             }
-//         }
-//     },
-//     ajaxBodyUpdate: function(collapseKey, btnE = null){
-//         var selfKey = this[collapseKey];
-//         return $.ajax({
-//             url: selfKey.url,
-//             dataType: 'html',
-//             async: false,
-//             success: function(html) {
-//                 //console.log(selfKey.url);
-//                 $(selfKey.body).html(html);
-//             },
-//             error: function(xhr, ajaxOptions, thrownError) {
-//                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//             }
-//         });
-//     },
-//     "login":               {"url":"index.php?route=checkout/login",
-//                        "body":"#collapse-checkout-option .panel-body"},
-//     "guestPaymentAddress": {"url":"index.php?route=checkout/guest", 
-//                        "body":"#collapse-payment-address .panel-body"},
-//     "guestShipping":       {"url":"index.php?route=checkout/guest_shipping", 
-//                        "body":"#collapse-shipping-address .panel-body"},
-//     "paymentAddress":      {"url":"index.php?route=checkout/payment_address", 
-//                        "body":"#collapse-payment-address .panel-body"},
-//     "shippingAddress":     {"url":"index.php?route=checkout/shipping_address", 
-//                        "body":"#collapse-shipping-address .panel-body"},
-//     "shippingMethod":      {"url":"index.php?route=checkout/shipping_method", 
-//                        "body":"#collapse-shipping-method .panel-body"},
-//     "paymentMethod":       {"url":"index.php?route=checkout/payment_method", 
-//                        "body":"#collapse-payment-method .panel-body"},
-//     "confirm":             {"url":"index.php?route=checkout/confirm", 
-//                        "body":"#collapse-checkout-confirm .panel-body"}
-// }
-
-
-
-// // login(#button-account) -> payment_address(#button-guest)->shipping-address(#button-guest-shipping)->
-// // ->shipping_method(button-shipping-method)->payment_method(button-payment-method)->checkoutconfirm(input.btn.btn-primary)
-
-// $(document).ready(function() {
-//     (async function() {
-// 	    await guestCheckout();
-//         await c.ajaxBodyUpdate('guestPaymentAddress');
-
-//         {% if shipping_required %}
-//         await createShippingAddressAndMethod();
-//         {% endif %}
-        
-//         await c.ajaxBodyUpdate('shippingMethod');
-//         await c.ajaxBodyUpdate('paymentMethod');
-//     })();
-// });
-
-
-
-// function guestCheckout() {
-//     return $.ajax({
-//         url: 'index.php?route=checkout/guest',
-//         dataType: 'html',
-//         async: false,
-//         success: function(html) {
-//             //console.log("checkout/guest [GuestCheckout()]");
-//             $('.alert-dismissible, .text-danger').remove();
-// 			$('.form-group').removeClass('has-error');
-
-//             $(c.paymentAddress.body).html(html);
-
-// 			if ($('input[name=\'account\']:checked').val() == 'register') {
-// 				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_account }}');
-// 			} else {
-// 				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_address }}');
-// 			}
-//         },
-//         error: function(xhr, ajaxOptions, thrownError) {
-//             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//         }
-//     });
-// }
-
-
-// function guestPaymentAddressZoneId(){
-//     var countryId = $('#collapse-payment-address select#input-payment-country').val();
-//     return $.ajax({
-//         url: 'index.php?route=checkout/checkout/country&country_id=' + countryId,
-//         dataType: 'json',
-//         async: false,
-//         beforeSend: function() {
-//             $('#collapse-payment-address select[name=\'country_id\']').prop('disabled', true);
-//         },
-//         complete: function() {
-//             $('#collapse-payment-address select[name=\'country_id\']').prop('disabled', false);
-//         },
-//         success: function(json) {
-//             //console.log("checkout/country&country_id= [guestPaymentAddressZoneId()]");
-
-
-//             if (json['postcode_required'] == '1') {
-//                 $('#collapse-payment-address input[name=\'postcode\']').parent().parent().addClass('required');
-//             } else {
-//                 $('#collapse-payment-address input[name=\'postcode\']').parent().parent().removeClass('required');
-//             }
-
-//             let html = '<option value="">{{ text_select }}</option>';
-
-//             if (json['zone'] && json['zone'] != '') {
-//                 for (i = 0; i < json['zone'].length; i++) {
-//                     html += '<option value="' + json['zone'][i]['zone_id'] + '"';
-
-//                     if (json['zone_id'] && json['zone'][i]['zone_id'] == json['zone_id']) {
-//                         html += ' selected="selected"';
-//                     }
-
-//                     html += '>' + json['zone'][i]['name'] + '</option>';
-//                 }
-//             } else {
-//                 html += '<option value="0" selected="selected">{{ text_none }}</option>';
-//             }
-
-//             $('#collapse-payment-address select[name=\'zone_id\']').html(html);
-//         },
-//         error: function(xhr, ajaxOptions, thrownError) {
-//             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//         }
-//     });
-                
-
-// }
-
 // function guestPaymentAddress() {  
 //     return $.ajax({
 //         url: 'index.php?route=checkout/guest/save',
@@ -473,30 +318,6 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
 //         }
 //     });
 // }
-
-
-// async function createShippingAddressAndMethod() {
-//     var shipping_address = $('#collapse-payment-address input[name=\'shipping_address\']:checked').prop('value');
-
-//     if (shipping_address) {
-//         return await $.ajax({
-//             url: 'index.php?route=checkout/shipping_method',
-//             dataType: 'html',
-//             async: false,
-//             success: function(html) {
-//                 c.ajaxBodyUpdate('guestShipping'); // Add the shipping address
-
-//                 $('#collapse-shipping-method .panel-body').html(html);
-//             },
-//             error: function(xhr, ajaxOptions, thrownError) {
-//                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//             }
-//         });
-//     } else {
-//         return await c.ajaxBodyUpdate('guestShipping');
-//     }
-// }
-
 
 
 // function guestShippingAddress() {
@@ -560,25 +381,7 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
 
 
 
-// $(document).delegate('#collapse-payment-method input[type=\'checkbox\']', 'click', function() {
-//     if(this.name == "agree") {
-//         var checkedStatus = (this.checked && this.name == 'agree') ? '1' : '0';
-//         $.ajax({
-//             url: 'index.php?route=checkout/payment_method/agree&agree=' + checkedStatus,
-//             dataType: 'json',
-//             success: function(json) {
 
-//                 //todo: json["error"] handling, in controller too
-
-//                 //console.log(json);
-//             },
-//             error: function(xhr, ajaxOptions, thrownError) {
-//                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//             }
-//         });
-//     }
-
-// });
 
 // function paymentMethod() {
 //     return $.ajax({
@@ -610,28 +413,6 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
     
 
 
-// $(document).delegate('#button-checkout-calculate', 'click', function() {
-
-//     //todo:
-//         // beforeSend: function() {
-//         // 	$('#button-account').button('loading');
-// 		// },
-//         // complete: function() {
-// 		// 	$('#button-account').button('reset');
-//         // },
-
-//     guestCheckout().then(function(){
-//         guestPaymentAddressZoneId().then(function(){
-//             guestPaymentAddress().then(function(){
-//                 guestShippingAddress().then(function(){
-//                     shippingMethod().then(function(){
-//                         paymentMethod();
-//                     });
-//                 });
-//             });
-//         });
-//     });
-// });
 
 //--></script> 
 {{ footer }}
