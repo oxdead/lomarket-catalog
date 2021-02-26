@@ -16,6 +16,7 @@
     }
 
     .row{
+        //width: 100%;
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -75,24 +76,9 @@
         top: calc(1.5rem * 0.25);
     }
 
-    // input[type=submit]{
-    //     width: 20rem;
-    //     margin-left: 0;
-    //     padding: 1rem;
-    //     background-color: var.$color-green;
-    //     border-bottom: 0.3rem solid var.$color-darkgreen;
-    //     text-transform: uppercase;
-    //     font-weight: bold;
-    //     outline: none;
-    //     text-align: center;
-    //     cursor: pointer;
-    //     transition: background-color 0.5s ease;
-    //     color: var.$color-panel;
-        
-    //     &:hover{
-    //         background-color: var.$color-darkgreen;
-    //     }
-    // }
+    input[type=submit]{
+        width:fit-content;
+    }
 
 
 
