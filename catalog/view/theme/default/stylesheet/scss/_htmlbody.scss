@@ -121,6 +121,11 @@ textarea {
     font-size: 0.9rem;
 }
 
+.has-error{
+    background-color: #fff0f0;
+    border-radius: 3px;
+}
+
 a.btn.btn-default, a.btn.btn-primary{
     @include btn.base();
     background-color: var.$color-lightblue;

@@ -1,13 +1,12 @@
 <?php
 class ControllerCheckoutEasyGuestShippingAddress extends Controller {
 
-	private function ses_twig(&$dataArr, $key2){
-        if(isset($this->session->data['shipping_address']) && isset($this->session->data['shipping_address'][$key2])){
-            $dataArr[$key2] = $this->session->data['shipping_address'][$key2];
+	private function ses_twig(&$dataArr, $fieldKey, $sectionKey = 'shipping_address'){
+        if(isset($this->session->data[$sectionKey]) && isset($this->session->data[$sectionKey][$fieldKey])){
+            $dataArr[$fieldKey] = $this->session->data[$sectionKey][$fieldKey];
             return true;
         }
-
-        $dataArr[$key2] = '';
+        $dataArr[$fieldKey] = '';
         return false;
     }
 
@@ -27,6 +26,11 @@ class ControllerCheckoutEasyGuestShippingAddress extends Controller {
 			$data['country_id'] = $this->config->get('config_country_id');
 		}
 		$this->ses_twig($data, 'zone_id');
+
+		$data['shipping_required'] = $this->cart->hasShipping();
+		if(!$this->ses_twig($data, 'shipping_address', 'guest')){
+			$data['shipping_address'] = true;
+		}
 
 
 		$this->load->model('localisation/country');
@@ -94,6 +98,14 @@ class ControllerCheckoutEasyGuestShippingAddress extends Controller {
 		}
 
 		if (!$json) {
+			
+			if (isset($this->request->post['shipping_address'])) {
+				$this->session->data['guest']['shipping_address'] = $this->request->post['shipping_address'];
+			}
+			else{
+				$this->session->data['guest']['shipping_address'] = false;
+			}
+
 			$this->session->data['shipping_address']['firstname'] = $this->request->post['firstname'];
 			$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];
 			$this->session->data['shipping_address']['company'] = $this->request->post['company'];
@@ -133,7 +145,6 @@ class ControllerCheckoutEasyGuestShippingAddress extends Controller {
 			}
 
 			$this->session->data['shipping_address']['custom_field'] = array(); //custom fields are removed for now
-
 
 			//unset($this->session->data['shipping_method']);
 			//unset($this->session->data['shipping_methods']);

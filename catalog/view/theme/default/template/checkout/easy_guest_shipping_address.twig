@@ -1,5 +1,16 @@
 <div class="col-sm-6">
-    <form class="form-horizontal">
+    {% if shipping_required %}
+    <div class="checkbox">
+    <label> {% if shipping_address %}
+        <input type="checkbox" name="shipping_address" value="1" checked="checked" />
+        {% else %}
+        <input type="checkbox" name="shipping_address" value="1" />
+        {% endif %}
+        {{ entry_shipping }}</label>
+    </div>
+    
+    {% if not shipping_address %}
+    <form class="form-horizontal collapsible">
         <div class="form-group required">
             <label class="control-label" for="input-shipping-firstname">{{ entry_firstname }}</label>
             <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-shipping-firstname" class="form-control" />
@@ -54,4 +65,7 @@
         </div>
 
     </form>
+    {% endif %}
+    
+    {% endif %}
 </div>

@@ -34,7 +34,7 @@
             <hr>
 
             <div class="row">
-                <button id="button-checkout-calculate">{{text_checkout_submit}}</button>
+                <button id="button-checkout-calculate">{{ text_checkout_submit }}</button>
             </div>
             <h4>{{ text_checkout_confirm }}</h4>
             <div id="confirm-body">
@@ -46,20 +46,82 @@
 </div>
 
 
-<script src="catalog/view/javascript/checkout-guest.js" type="text/javascript"></script>
-
-
-
-
-
-
 <script type="text/javascript"><!--
 
-
 const c = {
+    guest_OnCountryChange: function(selector) {
+        $(selector + ' select[name=\'country_id\']').on('change', function() {
+            
+            $.ajax({
+                url: 'index.php?route=checkout/checkout/country&country_id=' + this.value,
+                dataType: 'json',
+                beforeSend: function() {
+                    $(selector + ' select[name=\'country_id\']').prop('disabled', true);
+                },
+                complete: function() {
+                    $(selector + ' select[name=\'country_id\']').prop('disabled', false);
+                },
+                success: function(json) {
+
+                    if (json['postcode_required'] == '1') {
+                        $(selector + ' input[name=\'postcode\']').parent().parent().addClass('required');
+                    } else {
+                        $(selector + ' input[name=\'postcode\']').parent().parent().removeClass('required');
+                    }
+
+
+                    html = '<option value="">' + json['text_select'] + '</option>';
+
+                    if (json['zone'] && json['zone'] != '') {
+                        for (i = 0; i < json['zone'].length; i++) {
+                            html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+
+                            if (json['zone'][i]['zone_id'] == json['zone_id']) {
+                                html += ' selected="selected"';
+                            }
+
+                            html += '>' + json['zone'][i]['name'] + '</option>';
+                        }
+                    } else {
+                        html += '<option value="0" selected="selected">' + json['text_none'] + '</option>';
+                    }
+
+                    $(selector + ' select[name=\'zone_id\']').html(html);
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                }
+            });
+        });
+
+        $(selector + ' select[name=\'country_id\']').trigger('change');
+    },
+    guest_OnTermsAgree: function() {
+        $(document).delegate('#guest-payment-method-body input[type=\'checkbox\']', 'click', function() {
+            if(this.name == "agree") {
+                var checkedStatus = (this.checked && this.name == 'agree') ? '1' : '0';
+                $.ajax({
+                    url: 'index.php?route=checkout/easy_guest_payment_method/agree&agree=' + checkedStatus,
+                    dataType: 'json',
+                    success: function(json) {
+
+                        //todo: json["error"] handling, in controller too
+
+                        //console.log(json);
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+
+        });
+    },
+    //not used
     emitWarning: function(selector, msg){
         $(selector.body).prepend('<div class="alert alert-warning alert-dismissible">' + msg + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
     },
+    // not used
     emitError: function(selector, msg) {
         $(selector.body).prepend('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + msg + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
     },
@@ -74,14 +136,14 @@ const c = {
             }
         }
     },
-    ajaxBodyUpdate: function(collapseKey, btnE = null){
+    ajaxHtml: function(collapseKey){
         var selfKey = this[collapseKey];
         return $.ajax({
             url: selfKey.url,
             dataType: 'html',
-            async: false,
+            //async: false,
             success: function(html) {
-                //console.log(selfKey.url);
+                console.log("html: " + selfKey.url);
                 $(selfKey.body).html(html);
             },
             error: function(xhr, ajaxOptions, thrownError) {
@@ -89,30 +151,45 @@ const c = {
             }
         });
     },
-    "guestPaymentAddress":  {"url":"index.php?route=checkout/easy_guest_payment_address", "body":"#guest-payment-address-body"},
-    "guestShippingAddress": {"url":"index.php?route=checkout/easy_guest_shipping_address", "body":"#guest-shipping-address-body"},
-    "guestShippingMethod":  {"url":"index.php?route=checkout/easy_guest_shipping_method", "body":"#guest-shipping-method-body"},
-    "guestPaymentMethod":   {"url":"index.php?route=checkout/easy_guest_payment_method", "body":"#guest-payment-method-body"},
-    "confirm":              {"url":"index.php?route=checkout/easy_confirm", "body":"#confirm-body"}
+    "guestPaymentAddress": {
+        "url":"index.php?route=checkout/easy_guest_payment_address", 
+        "body":"#guest-payment-address-body",
+    },
+    "guestShippingAddress": {
+        "url":"index.php?route=checkout/easy_guest_shipping_address", 
+        "body":"#guest-shipping-address-body",
+    },
+    "guestShippingMethod": 
+    {
+        "url":"index.php?route=checkout/easy_guest_shipping_method", 
+        "body":"#guest-shipping-method-body",
+    },
+    "guestPaymentMethod": {
+        "url":"index.php?route=checkout/easy_guest_payment_method", 
+        "body":"#guest-payment-method-body",
+    },
+    "confirm": {
+        "url":"index.php?route=checkout/easy_confirm", 
+        "body":"#confirm-body",
+    }
 }
 
 
 $(document).ready(function() {
     (async function() {
 	    await guestPaymentAddress(); // guestCheckout previously
-        guest_OnCountryChange('#guest-payment-address-body');
+        c.guest_OnCountryChange('#guest-payment-address-body');
         
         {% if shipping_required %}
         await guestShippingAddress();
-        guest_OnCountryChange('#guest-shipping-address-body');
+        c.guest_OnCountryChange('#guest-shipping-address-body');
         await guestShippingMethod();
         {% endif %}
         
         await guestPaymentMethod();
-        guest_OnTermsAgree();
+        c.guest_OnTermsAgree();
     })();
 });
-
 
 function guestPaymentAddress() {
     return $.ajax({
@@ -237,7 +314,7 @@ function guestShippingAddressSave() {
             //console.log("easy_guest_shipping_address/save");
             //console.log(json);
             $('.alert-dismissible, .text-danger').remove();
-            $('.form-group').removeClass('has-error');
+            $('.form-group').removeClass('has-error'); 
 
             if (json['redirect']) {
                 location = json['redirect'];
@@ -294,8 +371,8 @@ function guestPaymentMethodSave() {
         dataType: 'json',
         async: false,
         success: function(json) {
-            console.log("easy_guest_payment_method/save");
-            console.log(json);
+            // console.log("easy_guest_payment_method/save");
+            // console.log(json);
             $('.alert-dismissible, .text-danger').remove();
 
             if (json['redirect']) {
@@ -330,7 +407,7 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
         guestShippingAddressSave().then(function(){
             guestShippingMethodSave().then(function(){
                 guestPaymentMethodSave().then(function(){
-                    c.ajaxBodyUpdate('confirm');
+                    c.ajaxHtml('confirm');
                 });
             });
         });
@@ -341,76 +418,4 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
 
 //-->
 </script> 
-
-
-
-
-
-<script type="text/javascript"><!--
-// function guestPaymentAddress() {  
-//     return $.ajax({
-//         url: 'index.php?route=checkout/guest/save',
-//         type: 'post',
-//         data: $('#collapse-payment-address input[type=\'text\'], #collapse-payment-address input[type=\'date\'], #collapse-payment-address input[type=\'datetime-local\'], #collapse-payment-address input[type=\'time\'], #collapse-payment-address input[type=\'checkbox\']:checked, #collapse-payment-address input[type=\'radio\']:checked, #collapse-payment-address input[type=\'hidden\'], #collapse-payment-address textarea, #collapse-payment-address select'),
-//         dataType: 'json',
-//         async: false,
-//         success: function(json) {
-//             //console.log("checkout/guest/save [guestPaymentAddress()]");
-//             $('.alert-dismissible, .text-danger').remove();
-// 			$('.form-group').removeClass('has-error');
-
-//             if (json['redirect']) {
-//                 location = json['redirect'];
-//             } else if (json['error']) {
-//                 if (json['error']['warning']) {
-//                     c.emitWarning(c.paymentAddress, json['error']['warning']);
-//                 }
-//                 c.addErrorElement('#input-payment-', json['error']);
-// 				// Highlight any found errors
-// 				$('.text-danger').parent().addClass('has-error');
-//             } else {
-//                 {% if shipping_required %}
-//                 var shipping_address = $('#collapse-payment-address input[name=\'shipping_address\']:checked').prop('value');
-
-//                 if (shipping_address) {
-//                     $.ajax({
-//                         url: 'index.php?route=checkout/shipping_method',
-//                         dataType: 'html',
-//                         async: false,
-//                         success: function(html) {
-//                             //console.log("shipping_method [guestPaymentAddress(shipping_req+ship_address_req)]");
-							
-//                             c.ajaxBodyUpdate('guestShipping'); // Add the shipping address
-
-// 						    $('#collapse-shipping-method .panel-body').html(html);
-//                         },
-//                         error: function(xhr, ajaxOptions, thrownError) {
-//                             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//                         }
-//                     });
-//                 } else {
-//                     c.ajaxBodyUpdate('guestShipping');
-//                 }
-//                 {% else %}
-//                 c.ajaxBodyUpdate('paymentMethod');
-//                 {% endif %}
-//             }
-//         },
-//         error: function(xhr, ajaxOptions, thrownError) {
-//             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-//         }
-//     });
-// }
-
-
-
-
-
-
-
-
-
-
-
-//--></script> 
 {{ footer }}

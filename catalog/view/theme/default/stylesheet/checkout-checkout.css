@@ -36,21 +36,21 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 #checkout-checkout label {
-  width: 10rem;
   text-align: right;
   padding: 0;
   margin: 0;
+  flex-basis: 20%;
 }
 #checkout-checkout input, #checkout-checkout select {
-  width: calc(100% - 7rem);
   max-width: 35rem;
   margin-right: 1rem;
   margin-left: 1rem;
+  flex-basis: 64%;
 }
 #checkout-checkout input[type=checkbox], #checkout-checkout input[type=radio] {
   width: 1.5rem;
@@ -59,4 +59,16 @@
 }
 #checkout-checkout input[type=submit] {
   width: fit-content;
+}
+#checkout-checkout div.checkbox {
+  text-align: center;
+}
+#checkout-checkout .text-danger {
+  position: relative;
+  top: -0.4rem;
+  flex-basis: 100%;
+  text-align: right;
+  line-height: 1rem;
+  margin-right: 1rem;
+  font-size: 0.9rem;
 }
