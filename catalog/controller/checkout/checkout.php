@@ -114,11 +114,6 @@ class ControllerCheckoutCheckout extends Controller {
 			);
 		}
 
-
-
-		file_put_contents("s_s.txt", json_encode($this->session->data['shipping_address']['zone_id']));
-		file_put_contents("t_p.txt", json_encode($this->session->data['payment_address']['zone_id']));
-
 		if (isset($this->session->data['payment_address']['zone_id'])) {
 			$json['zone_id'] = $this->session->data['payment_address']['zone_id'];
 		} elseif (isset($this->session->data['shipping_address']['zone_id'])) {
@@ -126,7 +121,6 @@ class ControllerCheckoutCheckout extends Controller {
 		} else {
 			$json['zone_id'] = '';
 		}
-
 		//temporary workaround, when setting via c.PaymentToShipping on shipping address checkbox click
 		if(isset($this->request->get['selector']) && $this->request->get['selector'] === '1'){
 			if (isset($this->session->data['shipping_address']['zone_id'])) {
@@ -134,7 +128,6 @@ class ControllerCheckoutCheckout extends Controller {
 			}
 		}
 
-		file_put_contents("y_z.txt", json_encode($json['zone_id']));
 
 		$json['text_select'] = $this->language->get('text_select');
 		$json['text_none'] = $this->language->get('text_none');

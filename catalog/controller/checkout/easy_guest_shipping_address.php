@@ -97,15 +97,15 @@ class ControllerCheckoutEasyGuestShippingAddress extends Controller {
 
 		}
 
-		if (!$json) {
-			
-			if (isset($this->request->post['shipping_address'])) {
-				$this->session->data['guest']['shipping_address'] = $this->request->post['shipping_address'];
-			}
-			else{
-				$this->session->data['guest']['shipping_address'] = false;
-			}
 
+		if (isset($this->request->post['shipping_address'])) {
+			$this->session->data['guest']['shipping_address'] = $this->request->post['shipping_address'];
+		}
+		else{
+			$this->session->data['guest']['shipping_address'] = false;
+		}
+
+		if (!$json) {
 			$this->session->data['shipping_address']['firstname'] = $this->request->post['firstname'];
 			$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];
 			$this->session->data['shipping_address']['company'] = $this->request->post['company'];

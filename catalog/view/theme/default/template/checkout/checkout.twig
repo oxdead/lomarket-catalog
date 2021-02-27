@@ -47,18 +47,8 @@
 
 <script type="text/javascript"><!--
 const c = {
-    guest_IsShippingSame: function(){
-        const paymentToShipping = document.querySelector('#guest-shipping-address-body input[type=\'checkbox\']');
-        if(paymentToShipping && paymentToShipping.checked && paymentToShipping.name === 'shipping_address'){
-            return true;
-        }
-        return false;
-    },
     guest_OnCountryChange: function(selector) {
         $(selector + ' select[name=\'country_id\']').on('change', function() {
-            
-
-
             $.ajax({
                 url: 'index.php?route=checkout/checkout/country&country_id=' + this.value + "&selector=" + ((selector === '#guest-shipping-address-body') ? '1' : '0'),
                 dataType: 'json',
@@ -123,16 +113,20 @@ const c = {
 
         });
     },
+    guest_IsShippingSame: function(){
+        const paymentToShipping = document.querySelector('#guest-shipping-address-body input[type=\'checkbox\']');
+        if(paymentToShipping && paymentToShipping.checked && paymentToShipping.name === 'shipping_address'){
+            return true;
+        }
+        return false;
+    },
     guest_OnPaymentToShipping: function() {
         $(document).delegate('#guest-shipping-address-body input[type=\'checkbox\']', 'click', function() {
             if(this.name == "shipping_address") {
-                //console.log(this.checked);
                 if(this.checked){
                     c.ajaxPaymentToShipping();
                     const hideCrap = document.querySelector('.form-horizontal.collapsible');
-                    if(hideCrap){
-                        hideCrap.style.display = 'none';
-                    }
+                    if(hideCrap){ hideCrap.style.display = 'none'; }
                 }
                 else{
                     (async function() {
@@ -160,12 +154,25 @@ const c = {
             }
         });
     },
+    // prepareUrl: function(collapseKey){
+    //     var urlstr = '';
+    //     const elements = document.querySelectorAll(this[collapseKey].save);
+    //     if(elements){
+    //         for(elm of elements){
+    //             urlstr += "&" + elm.name + "=" + elm.value;
+    //         }
+    //     }
+    //     //return encodeURIComponent(urlstr);
+    //     return urlstr;
+    // },
     ajaxJson: function(collapseKey){
         var selfKey = this[collapseKey];
+
         return $.ajax({
             url: selfKey.url + '/save',
             type: 'post',
             data: $(selfKey.save),
+            //data: this.prepareUrl(collapseKey),
             dataType: 'json',
             success: function(json) {
 
@@ -195,6 +202,8 @@ const c = {
                         $(`${selfKey.body} .text-danger`).parent().addClass('has-error'); // Highlight any found errors
                     }
                 }
+                
+                //return json;
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -210,8 +219,8 @@ const c = {
             dataType: 'json',
             success: function(json) {
 
-                console.log("json: " + selfKey.url + "/save (PaymentToShipping)");
-                console.log(json);
+                //console.log("json: " + selfKey.url + "/save (PaymentToShipping)");
+                //console.log(json);
                 $(`${selfKey.body} .alert-dismissible, ${selfKey.body} .text-danger`).remove(); // remove all text-danger divs
                 $(`${selfKey.body} .form-group`).removeClass('has-error'); // clear error class from form-groups, payment_address and shipping address only
 
@@ -312,17 +321,48 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
         // },
 
     (async function() {
-        await c.ajaxJson("guestPaymentAddress");
+        var isokPA = true;
+        var isokSA = true;
+        var isokSM = true;
+        var isokPM = true;
+
+        await c.ajaxJson("guestPaymentAddress")
+        .done(function(json) { 
+            if(Object.keys(json).length > 0){ isokPA = false; } 
+        })
+        .fail(function() { isokPA = false; });
+
         if(c.guest_IsShippingSame()){
-            await c.ajaxPaymentToShipping();
+            await c.ajaxPaymentToShipping()
+            .done(function(json) { 
+                if(Object.keys(json).length > 0){ isokSA = false; } 
+            })
+            .fail(function() { isokSA = false; });
         } 
         else{
-            await c.ajaxJson("guestShippingAddress");
+            await c.ajaxJson("guestShippingAddress")
+            .done(function(json) { 
+                if(Object.keys(json).length > 0){ isokSA = false; } 
+            })
+            .fail(function() { isokSA = false; });
         }
-        await c.ajaxJson("guestShippingMethod");
-        await c.ajaxJson("guestPaymentMethod");
-        //todo condition, run next line only if all previous were sucessful
-        c.ajaxHtml('confirm');
+
+        await c.ajaxJson("guestShippingMethod")
+        .done(function(json) { 
+            if(Object.keys(json).length > 0){ isokSM = false; } 
+        })
+        .fail(function() { isokSM = false; });
+
+        await c.ajaxJson("guestPaymentMethod")
+        .done(function(json) { 
+            if(Object.keys(json).length > 0){ isokPM = false; } 
+        })
+        .fail(function() { isokPM = false; });
+        
+        console.log(isokPA, isokSA, isokSM, isokPM);
+        if(isokPA && isokSA && isokSM && isokPM){
+            c.ajaxHtml('confirm');
+        }
 
     })();
 });
