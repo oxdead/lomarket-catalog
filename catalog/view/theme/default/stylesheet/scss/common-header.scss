@@ -20,6 +20,7 @@
 
 // checkout/checkout + product/product
 @use 'checkboxradio';
+@use 'modal';
 
 header {
     background-color: var.$color-panel;
