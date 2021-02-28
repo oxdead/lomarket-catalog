@@ -1,5 +1,4 @@
 @use 'var';
-@use 'flex';
 @use 'htmlbody';
 @use 'container';
 @use 'media';
@@ -73,7 +72,9 @@ footer{
     }
 
     .supserv{
-        @include flex.center(flex-start);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     hr{
