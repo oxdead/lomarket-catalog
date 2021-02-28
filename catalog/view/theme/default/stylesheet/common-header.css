@@ -976,6 +976,7 @@ input[type=radio]:hover:checked::after {
   bottom: 1rem;
   background-color: #eee;
   box-shadow: inset 2px 2px 4px 0 #00000022;
+  overflow: scroll;
 }
 
 header {
