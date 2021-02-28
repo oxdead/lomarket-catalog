@@ -5,14 +5,6 @@ class ControllerCommonFooter extends Controller {
 
 		$this->load->model('catalog/information');
 
-
-		//add custom header js file
-		if(file_exists(DIR_APPLICATION.'view/javascript/common-footer.js')) {
-			$this->document->addScript('catalog/view/javascript/common-footer.js', 'footer');
-		}
-
-
-
 		$data['informations'] = array();
 
 		foreach ($this->model_catalog_information->getInformations() as $result) {

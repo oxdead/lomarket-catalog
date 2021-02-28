@@ -97,4 +97,79 @@
         font-size: 0.9rem;
     }
 
+
+    .text-left{
+        text-align: left;
+    }
+
+    .text-right{
+        text-align: right;
+    }
+
+    .table-responsive{
+        overflow-x: auto;
+        width: 100%;
+    }
+
+
+    table{
+        width: 100%;
+        min-width: 800px;
+        margin: 0;
+        // table-layout: fixed;
+        border-collapse: collapse;
+        height: 100%;
+        border-spacing: 0rem;
+        box-shadow: none;
+        
+        thead, th {
+            display:table-header-group;
+        }
+
+        tr{
+            display: table-row;
+            background-color: transparent;
+        }
+
+
+        
+        td{
+            display:table-cell;
+            background-color: transparent;
+            font-weight: normal;
+            padding: 1.5rem;
+            //text-align: center;
+            box-shadow: none;
+            border: none;
+        
+            a{
+                color: var.$color-darkblue;
+                &:hover{
+                    color: var.$color-lightblue;
+                }
+            }
+
+            &:first-child{
+                min-width: 20rem;
+            }
+
+            &:last-child{
+                margin-bottom: 0rem;
+                
+                border-bottom: none;
+            }
+        }
+    
+        tr:last-child td{
+            border-bottom: 1px solid var.$color-lightblue;   
+        }
+
+        thead tr td{
+            font-weight: bold;
+        }
+    }
+
+
+
+
 }

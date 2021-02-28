@@ -1,1 +1,1 @@
-{"customer_group_id":"1","firstname":"","lastname":"","email":"","telephone":"","company":"","address_1":"","address_2":"","city":"","postcode":"","country_id":"220","zone_id":""}
+{"customer_group_id":"1","firstname":"dasds","lastname":"dasdad","email":"asdasd@dsdf.dgfsd","telephone":"23123123","company":"asdasd","address_1":"asdasdas","address_2":"dasd","city":"asdas","postcode":"dasd","country_id":"220","zone_id":"3494"}

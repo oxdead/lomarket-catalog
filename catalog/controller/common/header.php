@@ -57,6 +57,14 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 	
+
+		//add custom header js file
+		if(file_exists(DIR_APPLICATION.'view/javascript/common-header.js')) {
+			$this->document->addScript('catalog/view/javascript/common-header.js', 'header');
+		}
+
+
+
 		
 		// $route = empty($this->request->get['route']) ? 'common/home' : $this->request->get['route'];
 		// $css_file = str_replace('/', '-', $route) . '.css';
