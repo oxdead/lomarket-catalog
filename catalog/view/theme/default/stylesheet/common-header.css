@@ -937,6 +937,7 @@ input[type=radio]:hover:checked::after {
   width: 100vw;
   height: 100vh;
   background-color: #0000007F;
+  z-index: 22;
 }
 .modal .modal-dialog {
   position: absolute;
@@ -947,6 +948,7 @@ input[type=radio]:hover:checked::after {
   margin: -30vh 0 0 -40vw;
   background-color: white;
   text-align: center;
+  box-shadow: 0 0 4px 2px #93daf3;
 }
 .modal button.close {
   position: absolute;
