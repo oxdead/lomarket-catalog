@@ -44,6 +44,7 @@ class ControllerCommonHeader extends Controller {
 			'checkout/checkout' => ['checkout-checkout.css'],
 			'product/category' => ['product-category.css'],
 			'product/product' => ['product-product.css'],
+			'product/search' => ['product-search.css'],
 			'product/compare' => ['product-compare.css'],
 			'account/login' => ['account-login.css'],
 			'account/forgotten' => ['account-forgotten.css'],

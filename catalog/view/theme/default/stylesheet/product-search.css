@@ -1,0 +1,81 @@
+#content {
+  width: 100%;
+}
+#content .row {
+  align-items: center;
+}
+#content .col-sm-4 {
+  flex: 1 0 50%;
+}
+#content .col-sm-3 {
+  min-width: 10rem;
+  width: fit-content;
+  margin: 0.5rem;
+}
+#content #input-search {
+  width: 100%;
+}
+#content label.checkbox-inline {
+  display: inline-block;
+  height: 3rem;
+  padding: 0.8rem;
+}
+#content select.form-control {
+  width: 100%;
+  min-width: 12rem;
+  margin: 0;
+}
+#content input[type=checkbox] {
+  margin: 0 0.5rem 0 0;
+  vertical-align: middle;
+}
+#content input[type=button] {
+  position: relative;
+  font: 400 0.9rem Arial;
+  padding: 0.5rem 0.5rem;
+  border-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  background-color: #93daf3;
+  color: white;
+  min-width: 12rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 1rem;
+}
+#content input[type=button]:hover {
+  background-color: #10b1e8;
+}
+#content .row.search-criteria-options {
+  justify-content: flex-end;
+}
+#content .row.search-criteria-options .col-md-4, #content .row.search-criteria-options .col-md-3 {
+  min-width: 10rem;
+  margin: 0.5rem;
+}
+#content .row.search-criteria-options label.input-group-addon {
+  display: none;
+}
+#content .row.search-criteria-options > div:nth-child(1) {
+  min-width: 5rem;
+  text-align: right;
+  margin: auto 0.5rem;
+}
+#content .row.search-criteria-options > div:nth-child(2) {
+  display: none;
+}
+#content .text-right {
+  text-align: right;
+  margin: 2rem;
+  font-weight: 700;
+}
+#content .product-layout.product-grid {
+  min-height: 34rem;
+}
+#content .product-layout.product-grid .button-group {
+  padding: 0.5rem 0;
+}

@@ -74,9 +74,7 @@ class ControllerCheckoutEasyGuestPaymentAddress extends Controller {
 
 	public function save() {
 		$this->load->language('checkout/checkout');
-
-
-		file_put_contents("s.txt", json_encode($this->request->post));
+		
 
 		$json = array();
 

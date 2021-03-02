@@ -33,7 +33,7 @@ $_['text_about'] = 'Про компанію';
 $_['text_publicoffer'] = 'Публічна оферта';
 $_['text_contacts'] = 'Контакти';
 
-$_['text_service'] = 'Сервис';
+$_['text_service'] = 'Сервіс';
 $_['text_lomarketservice'] = 'Lomarket сервіс';
 $_['text_servicecenters'] = 'Сервіс центри';
 $_['text_serviceinformation'] = 'Інформація';

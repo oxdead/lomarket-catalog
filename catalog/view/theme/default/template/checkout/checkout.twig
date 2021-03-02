@@ -47,6 +47,12 @@
 
 <script type="text/javascript"><!--
 const c = {
+    alertField: function(selector){
+        const btnCalc = document.querySelector(selector);
+        if(!btnCalc) { return null; }
+        const alertStr = '<div class="text-danger row">Some fields were not filled, please fill thr form, then try again!</div>';
+        btnCalc.insertAdjacentHTML('afterend', alertStr);
+    },
     guest_OnCountryChange: function(selector) {
         $(selector + ' select[name=\'country_id\']').on('change', function() {
             $.ajax({
@@ -395,9 +401,11 @@ $(document).delegate('#button-checkout-calculate', 'click', function() {
         })
         .fail(function() { isokPM = false; });
         
-        console.log(isokPA, isokSA, isokSM, isokPM);
         if(isokPA && isokSA && isokSM && isokPM){
             c.ajaxHtml('confirm');
+        }
+        else{
+            c.alertField('#button-checkout-calculate');
         }
 
     })();

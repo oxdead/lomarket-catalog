@@ -129,34 +129,34 @@ table{
 
 
 
-// table#table-cart-total{
+table#table-cart-total{
 
-//     margin-bottom: 3rem;
-//     box-shadow: 0 0 4px 0 var.$color-lightblue;
+    margin-bottom: 3rem;
+    box-shadow: 0 0 4px 0 var.$color-lightblue;
     
-//     tr{
-//         flex-direction: row;
-//     }
+    tr{
+        flex-direction: row;
+    }
     
-//     td{
-//         height: 4rem;
-//         margin: 0rem 0rem;
-//         box-shadow: none;
-//         border: none;
-//     }
+    td{
+        height: 4rem;
+        margin: 0rem 0rem;
+        box-shadow: none;
+        border: none;
+    }
 
     
-//     td:first-child{
-//         margin: 0;
-//         box-shadow: none;
+    td:first-child{
+        margin: 0;
+        box-shadow: none;
         
-//     }
+    }
     
-//     td:last-child{
-//         box-shadow: none;
-//     }
+    td:last-child{
+        box-shadow: none;
+    }
     
-//     tr:last-child td{
-//         border-bottom: 5px solid var.$color-lightblue;
-//     }
-// }
+    tr:last-child td{
+        border-bottom: 5px solid var.$color-lightblue;
+    }
+}

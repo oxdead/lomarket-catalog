@@ -520,6 +520,30 @@ table input {
     box-shadow: 0 0 4px 0 #93daf3;
   }
 }
+table#table-cart-total {
+  margin-bottom: 3rem;
+  box-shadow: 0 0 4px 0 #93daf3;
+}
+table#table-cart-total tr {
+  flex-direction: row;
+}
+table#table-cart-total td {
+  height: 4rem;
+  margin: 0rem 0rem;
+  box-shadow: none;
+  border: none;
+}
+table#table-cart-total td:first-child {
+  margin: 0;
+  box-shadow: none;
+}
+table#table-cart-total td:last-child {
+  box-shadow: none;
+}
+table#table-cart-total tr:last-child td {
+  border-bottom: 5px solid #93daf3;
+}
+
 .panel-group {
   background-color: white;
   box-shadow: 0px 0px 4px 0px #93daf3;
